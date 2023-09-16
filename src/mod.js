@@ -34,11 +34,34 @@ class MItems {
         //Locales (Languages)
         this.addLocales();
         this.logger.debug(modFolderName + " locales finished");
+        
         //
+        for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
+            if (! ("loop" in mmItem) ) 
+                continue;
+            this.logger.logWithColor(mmItem, "grey");
+            const tloop=mmItem["loop"];
+            delete mmItem["loop"];
+            this.logger.logWithColor(tloop, "yellow");
+            for (const [loopID, loopItem] of Object.entries(tloop)) {
+                let cmmItem=this.jsonUtil.clone(mmItem);
+                //cmmItem["clone"]=mmID;
+                //this.logger.logWithColor(`${loopID} mm_items add.`, "green");
+                //this.logger.logWithColor(loopItem, "grey");
+                //cmmItem = Object.assign(cmmItem, loopItem);
+                cmmItem = this.compareAndReplace(cmmItem, loopItem);
+                this.mydb.mm_items[mmID+"_"+loopID]=cmmItem;
+                //this.logger.logWithColor(`${mmID+"_"+loopID} mm_items add.`, "green");
+                //this.logger.logWithColor(this.mydb.mm_items[mmID+"_"+loopID], "grey");
+            }
+        }
+        this.logger.debug(modFolderName + " loop finished");
+        
+        // RainbowColor
         const tdic = {};
         for (const trader in traders){
             tdic[traders[trader]]=[];
-        }
+        } 
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             if ("RainbowColor" in mmItem && mmItem.RainbowColor == true) {
                 for (const ccolor of lcolor){
@@ -54,7 +77,7 @@ class MItems {
                 for (const trader in traders){
                     const trader_id=traders[trader];
                     this.logger.logWithColor(`trader : ${trader} ; ${trader_id}`, "blue");
-                    if ( ! trader_id in this.mydb.traders || ! "assort" in this.mydb.traders[trader_id])
+                    if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
                         continue
                     //
                     const tarr = [];
@@ -110,6 +133,10 @@ class MItems {
             this.mydb.traders[trader_id].assort.items.push(...tarr);
         }
         this.logger.logWithColor(`${modFolderName} RainbowColor finished.`, "blue");
+        
+        
+        
+        
         //Items + Handbook
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             if ("clone" in mmItem) {
@@ -242,7 +269,14 @@ class MItems {
         //Requires the attributes to be in the same nested object format as the item entry in order to work (see mm_items.json and items.json in SPT install)
         for (const key in attributesToChange) {
             //If you've reached the end of a nested series, try to change the value in original to new
+            if (! (key in originalItem)){
+                originalItem[key] = attributesToChange[key];
+                //continue;
+            } else
             if ((["boolean", "string", "number"].includes(typeof attributesToChange[key])) || Array.isArray(attributesToChange[key])) {
+                //this.logger.logWithColor("compareAndReplace", "blue");
+                //this.logger.logWithColor(originalItem, "yellow");
+                //this.logger.logWithColor(attributesToChange, "green");
                 if (key in originalItem)
                     originalItem[key] = attributesToChange[key];
                 else

@@ -11,18 +11,8 @@
             }
         },
         {
-            "_id": "LillyPistolCase",
-            "_tpl": "LillyPistolCase",
-            "parentId": "hideout",
-            "slotId": "hideout",
-            "upd": {
-                "StackObjectsCount": 20,
-                "UnlimitedCount": true
-            }
-        },
-        {
-            "_id": "LillyItemCase",
-            "_tpl": "LillyItemCase",
+            "_id": "LillyBalaclava",
+            "_tpl": "LillyBalaclava",
             "parentId": "hideout",
             "slotId": "hideout",
             "upd": {
@@ -52,7 +42,7 @@
         }
     ],
     "barter_scheme": {
-        "LillyPistolCase": [
+        "LillyBalaclava": [
             [
                 {
                     "count": 1000000,
@@ -76,14 +66,6 @@
                 }
             ]
         ],
-        "LillyItemCase": [
-            [
-                {
-                    "count": 1000000,
-                    "_tpl": "5449016a4bdc2d6f028b456f"
-                }
-            ]
-        ],
         "LillyTHICC": [
             [
                 {
@@ -94,10 +76,9 @@
         ]
     },
     "loyal_level_items": {
+        "LillyBalaclava": 1,
         "LillyMK4A": 1,
-        "LillyPistolCase": 1,
         "LillyTrooper": 1,
-        "LillyItemCase": 1,
         "LillyTHICC": 1
     }
 }
