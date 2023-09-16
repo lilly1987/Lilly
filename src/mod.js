@@ -131,6 +131,7 @@ class MItems {
         //Traders
         for (const trader in traders)
             this.addTraderAssort(traders[trader]);
+        
         for (const suit of this.mydb.traders[traders["ragman"]].suits)
             this.db.traders[traders["ragman"]].suits.push(suit);
         this.logger.debug(modFolderName + " traders finished");

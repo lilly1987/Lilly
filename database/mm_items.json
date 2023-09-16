@@ -35,10 +35,8 @@
                             "filters": [
                                 {
                                     "ExcludedFilter": [
-                                        "5448bf274bdc2dfc2f8b456a"
                                     ],
                                     "Filter": [
-                                        "54009119af1c881c07000029"
                                     ]
                                 }
                             ],
@@ -54,7 +52,7 @@
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
                 "weaponErgonomicPenalty": 0,
-                "Weight": 1
+                "Weight": 0
             }
         },
         "locales": {
@@ -76,9 +74,9 @@
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
                 "weaponErgonomicPenalty": 0,
-                "Weight": 1,
-                "Width": 4,
-                "Height": 6,
+                "Weight": 0,
+                "Width": 1,
+                "Height": 1,
                 "BackgroundColor": "default",
                 "Grids": [
                     {
@@ -91,20 +89,8 @@
                             "filters": [
                                 {
                                     "ExcludedFilter": [
-                                        "5448bf274bdc2dfc2f8b456a",
-                                        "5c093db286f7740a1b2617e3",
-                                        "5e2af55f86f7746d4159f07c",
-                                        "5c0a840b86f7742ffa4f2482",
-                                        "5b7c710788a4506dec015957",
-                                        "5c127c4486f7745625356c13",
-                                        "5aafbcd986f7745e590fff23",
-                                        "59fb016586f7746d0d4b423a",
-                                        "59fb042886f7746c5005a7b2",
-                                        "59fb023c86f7746d0d4b423c",
-                                        "5b6d9ce188a4501afc1b2b25"
                                     ],
                                     "Filter": [
-                                        "54009119af1c881c07000029"
                                     ]
                                 }
                             ],
@@ -124,6 +110,92 @@
             "Shortname": "Lilly 80"
         }
     },
+    "LillyPistolCase": {
+        "RainbowColor": true,
+        "clone": "567143bf4bdc2d1a0f8b4567",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f6fa186f77409407a7eb7",
+            "Price": 3100000
+        },
+        "item": {
+            "_props": {
+                "Width": 1,
+                "Height": 1,
+                "Weight": 0,
+                "Grids": [
+                    {
+                        "_id": "LillyPistolCaseMain",
+                        "_name": "main",
+                        "_parent": "LillyPistolCase",
+                        "_props": {
+                            "cellsH": 30,
+                            "cellsV": 14,
+                            "filters": [
+                                {
+                                    "ExcludedFilter": [],
+                                    "Filter": []
+                                }
+                            ],
+                            "isSortingTable": false,
+                            "maxCount": 0,
+                            "maxWeight": 0,
+                            "minCount": 0
+                        },
+                        "_proto": "55d329c24bdc2d892f8b4567"
+                    }
+                ]
+            }
+        },
+        "locales": {
+            "Description": "Pistol item case",
+            "Name": "Pistol item case",
+            "ShortName": "Pistol"
+        }
+    },
+    "LillyItemCase": {
+        "RainbowColor": true,
+        "clone": "59fb042886f7746c5005a7b2",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f6fa186f77409407a7eb7",
+            "Price": 3100000
+        },
+        "item": {
+            "_props": {
+                "Width": 1,
+                "Height": 1,
+                "Weight": 0,
+                "Grids": [
+                    {
+                        "_id": "LillyItemCaseMain",
+                        "_name": "main",
+                        "_parent": "LillyItemCase",
+                        "_props": {
+                            "cellsH": 30,
+                            "cellsV": 14,
+                            "filters": [
+                                {
+                                    "ExcludedFilter": [],
+                                    "Filter": []
+                                }
+                            ],
+                            "isSortingTable": false,
+                            "maxCount": 0,
+                            "maxWeight": 0,
+                            "minCount": 0
+                        },
+                        "_proto": "55d329c24bdc2d892f8b4567"
+                    }
+                ]
+            }
+        },
+        "locales": {
+            "Description": "The T H I C C advanced storage case with increased storage volume for various items.",
+            "Name": "T H I C C item case",
+            "ShortName": "T H I C C"
+        }
+    },
     "LillyTHICC": {
         "RainbowColor": true,
         "clone": "5c0a840b86f7742ffa4f2482",
@@ -136,6 +208,7 @@
             "_props": {
                 "Width": 1,
                 "Height": 1,
+                "Weight": 0,
                 "Grids": [
                     {
                         "_id": "LillyTHICCMain",
