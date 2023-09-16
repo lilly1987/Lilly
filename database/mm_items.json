@@ -1,0 +1,169 @@
+{
+    "LillyMK4A": {
+        "clone": "60a3c70cde5f453f634816a3",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f6f8786f77447ed563642",
+            "Price": 25000
+        },
+        "item": {
+            "_props": {
+                "armorClass": 10,
+                "ArmorMaterial": "Aramid",
+                "ArmorType": "Light",
+                "armorZone": [
+                    "Head",
+                    "Chest",
+                    "Stomach",
+                    "LeftArm",
+                    "RightArm",
+                    "RightLeg",
+                    "LeftLeg"
+                ],
+                "BackgroundColor": "black",
+                "BluntThroughput": 0.1,
+                "Durability": 500,
+                "RigLayoutName": "",
+                "Grids": [
+                    {
+                        "_id": "LillyMK4A1",
+                        "_name": "1",
+                        "_parent": "LillyMK4A",
+                        "_props": {
+                            "cellsH": 6,
+                            "cellsV": 14,
+                            "filters": [
+                                {
+                                    "ExcludedFilter": [
+                                        "5448bf274bdc2dfc2f8b456a"
+                                    ],
+                                    "Filter": [
+                                        "54009119af1c881c07000029"
+                                    ]
+                                }
+                            ],
+                            "isSortingTable": false,
+                            "maxCount": 0,
+                            "maxWeight": 0,
+                            "minCount": 0
+                        },
+                        "_proto": "55d329c24bdc2d892f8b4567"
+                    }
+                ],
+                "MaxDurability": 500,
+                "mousePenalty": 0,
+                "speedPenaltyPercent": 0,
+                "weaponErgonomicPenalty": 0,
+                "Weight": 1
+            }
+        },
+        "locales": {
+            "Description": "A waist pouch you can wear as a rig.",
+            "Name": "Lilly MK4A",
+            "Shortname": "L MK4A"
+        }
+    },
+    "LillyTrooper": {
+        "RainbowColor": true,
+        "clone": "639346cc1c8f182ad90c8972",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f6f6c86f774093f2ecf0b",
+            "Price": 374500
+        },
+        "item": {
+            "_props": {
+                "mousePenalty": 0,
+                "speedPenaltyPercent": 0,
+                "weaponErgonomicPenalty": 0,
+                "Weight": 1,
+                "Width": 4,
+                "Height": 6,
+                "BackgroundColor": "default",
+                "Grids": [
+                    {
+                        "_id": "LillyTrooperMain",
+                        "_name": "main",
+                        "_parent": "LillyTrooper",
+                        "_props": {
+                            "cellsH": 30,
+                            "cellsV": 14,
+                            "filters": [
+                                {
+                                    "ExcludedFilter": [
+                                        "5448bf274bdc2dfc2f8b456a",
+                                        "5c093db286f7740a1b2617e3",
+                                        "5e2af55f86f7746d4159f07c",
+                                        "5c0a840b86f7742ffa4f2482",
+                                        "5b7c710788a4506dec015957",
+                                        "5c127c4486f7745625356c13",
+                                        "5aafbcd986f7745e590fff23",
+                                        "59fb016586f7746d0d4b423a",
+                                        "59fb042886f7746c5005a7b2",
+                                        "59fb023c86f7746d0d4b423c",
+                                        "5b6d9ce188a4501afc1b2b25"
+                                    ],
+                                    "Filter": [
+                                        "54009119af1c881c07000029"
+                                    ]
+                                }
+                            ],
+                            "isSortingTable": false,
+                            "maxCount": 0,
+                            "maxWeight": 0,
+                            "minCount": 0
+                        },
+                        "_proto": "55d329c24bdc2d892f8b4567"
+                    }
+                ]
+            }
+        },
+        "locales": {
+            "Description": "Lilly's version of Tasmanian Tiger Trooper backpack comes with advanced volume saving technology.",
+            "Name": "Lilly Trooper 80 backpack",
+            "Shortname": "Lilly 80"
+        }
+    },
+    "LillyTHICC": {
+        "RainbowColor": true,
+        "clone": "5c0a840b86f7742ffa4f2482",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f6fa186f77409407a7eb7",
+            "Price": 3100000
+        },
+        "item": {
+            "_props": {
+                "Width": 1,
+                "Height": 1,
+                "Grids": [
+                    {
+                        "_id": "LillyTHICCMain",
+                        "_name": "main",
+                        "_parent": "LillyTHICC",
+                        "_props": {
+                            "cellsH": 30,
+                            "cellsV": 14,
+                            "filters": [
+                                {
+                                    "ExcludedFilter": [],
+                                    "Filter": []
+                                }
+                            ],
+                            "isSortingTable": false,
+                            "maxCount": 0,
+                            "maxWeight": 0,
+                            "minCount": 0
+                        },
+                        "_proto": "55d329c24bdc2d892f8b4567"
+                    }
+                ]
+            }
+        },
+        "locales": {
+            "Description": "The T H I C C advanced storage case with increased storage volume for various items.",
+            "Name": "T H I C C item case",
+            "ShortName": "T H I C C"
+        }
+    }
+}

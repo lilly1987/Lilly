@@ -1,0 +1,50 @@
+{
+    "templates": {
+        
+        "000FRAG12ga000": {
+            "Name": "12/70 Frag",
+            "ShortName": "12gaFRAG",
+            "Description": "AP-20 shell modified with an explosive component. Produced by M Munitions."
+        },
+        
+        "000FRAG9MM000": {
+            "Name": "9x19mm Frag",
+            "ShortName": "9mmFRAG",
+            "Description": "9x19 GT round modified with an explosive component. Produced by M Munitions."
+        },
+
+        "000FRAG762x51000": {
+            "Name": "7.62x51mm Frag",
+            "ShortName": ".308 FRAG",
+            "Description": "7.62x51mm M80 round modified with an explosive component. Produced by M Munitions."
+        },
+
+        "000FRAG556x45000": {
+            "Name": "5.56x45mm Frag",
+            "ShortName": "556 FRAG",
+            "Description": "5.56x45mm M855 round modified with an explosive component. Produced by M Munitions."
+        },
+        
+        "000FRAG545x39000": {
+            "Name": "5.45x39mm Frag",
+            "ShortName": "545 FRAG",
+            "Description": "5.45x39mm BT gs round modified with an explosive component. Produced by M Munitions."
+        },
+        
+        "000FRAG762x39000": {
+            "Name": "7.62x39mm Frag",
+            "ShortName": "762x39 FRAG",
+            "Description": "7.62x39mm MAI AP round modified with an explosive component. Produced by M Munitions."
+        },
+ 
+
+        "000FLASH12ga000": {
+            "Name": "12/70 Flash",
+            "ShortName": "12gaFLASH",
+            "Description": "12ga with a flash component housed in a Flechette casing. Produced by M Munitions."
+        }
+
+    },
+    "preset": {
+    }
+}
