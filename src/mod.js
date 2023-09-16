@@ -36,6 +36,9 @@ class MItems {
         this.logger.debug(modFolderName + " locales finished");
         //
         const tdic = {};
+        for (const trader in traders){
+            tdic[traders[trader]]=[];
+        }
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             if ("RainbowColor" in mmItem && mmItem.RainbowColor == true) {
                 for (const ccolor of lcolor){
@@ -69,7 +72,7 @@ class MItems {
                                 }
                             }
                         }
-                        tdic[trader_id]=tarr;
+                        tdic[trader_id].push(...tarr);
                         //this.mydb.traders[trader_id].assort.items.push(...tarr);
                         //this.logger.logWithColor(tarr, "grey");
                         //this.logger.logWithColor(this.mydb.traders[trader_id].assort.items, "grey");
