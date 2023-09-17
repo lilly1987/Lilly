@@ -1,6 +1,26 @@
 {
     "items": [
         {
+            "_id": "LillyAXMC",
+            "_tpl": "LillyAXMC",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
+            "_id": "LillySVD",
+            "_tpl": "LillySVD",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
             "_id": "LillyWeight",
             "_tpl": "LillyWeight",
             "parentId": "hideout",
@@ -52,6 +72,22 @@
         }
     ],
     "barter_scheme": {
+        "LillyAXMC": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
+        "LillySVD": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
         "LillyWeight": [
             [
                 {
@@ -94,6 +130,8 @@
         ]
     },
     "loyal_level_items": {
+        "LillyAXMC": 1,
+        "LillySVD": 1,
         "LillyWeight": 1,
         "LillyBalaclava": 1,
         "LillyMK4A": 1,

@@ -1,10 +1,98 @@
 {
+    "LillyAXMC": {
+        "clone": "628120fd5631d45211793c9f",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f754a86f774094242f19b",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "ExtraSizeDown": 0,
+                "Cartridges": [
+                    {
+                        "_id": "LillyAXMCcartridges",
+                        "_max_count": 250,
+                        "_name": "cartridges",
+                        "_parent": "LillyAXMC",
+                        "_props": {
+                            "filters": [
+                                {
+                                    "Filter": [
+                                        "5fc382a9d724d907e2077dab",
+                                        "5fc275cf85fd526b824a571a",
+                                        "5fc382c1016cce60e8341b20",
+                                        "5fc382b6d6fa9c00c571bbc3"
+                                    ]
+                                }
+                            ]
+                        },
+                        "_proto": "5748538b2459770af276a261"
+                    }
+                ],
+                "Height": 1,
+                "Width": 1,
+                "BackgroundColor": "black",
+                "Weight": 0
+            }
+        },
+        "locales": {
+            "Name": "Lilly AXMC 250 round magazine",
+            "Shortname": "LSVD AXMC",
+            "Description": "Lilly AXMC 250 round magazine"
+        }
+    },
+    "LillySVD": {
+        "clone": "5c471c442e221602b542a6f8",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f754a86f774094242f19b",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "ExtraSizeDown": 0,
+                "Cartridges": [
+                    {
+                        "_name": "cartridges",
+                        "_id": "LillySVDcartridges",
+                        "_parent": "LillySVD",
+                        "_max_count": 250,
+                        "_props": {
+                            "filters": [
+                                {
+                                    "Filter": [
+                                        "5e023d34e8a400319a28ed44",
+                                        "5e023d48186a883be655e551",
+                                        "5e023cf8186a883be655e54f",
+                                        "59e77a2386f7742ee578960a",
+                                        "5887431f2459777e1612938f",
+                                        "560d61e84bdc2da74d8b4571"
+                                    ]
+                                }
+                            ]
+                        },
+                        "_proto": "5748538b2459770af276a261"
+                    }
+                ],
+                "Height": 1,
+                "Width": 1,
+                "BackgroundColor": "black",
+                "Weight": 0
+            }
+        },
+        "locales": {
+            "Name": "Lilly SVD 250 round magazine",
+            "Shortname": "LSVD 250",
+            "Description": "Lilly SVD 250 round magazine"
+        }
+    },
     "LillyWeight": {
         "clone": "5991b51486f77447b112d44f",
         "enable": true,
         "handbook": {
             "ParentId": "5b47574386f77428ca22b345",
-            "Price": 25000
+            "Price": 1000000
         },
         "item": {
             "_props": {
@@ -35,7 +123,7 @@
         "enable": true,
         "handbook": {
             "ParentId": "5b47574386f77428ca22b32f",
-            "Price": 25000
+            "Price": 1000000
         },
         "item": {
             "_props": {
@@ -75,7 +163,7 @@
         "enable": true,
         "handbook": {
             "ParentId": "5b5f6f8786f77447ed563642",
-            "Price": 25000
+            "Price": 1000000
         },
         "item": {
             "_props": {
@@ -138,7 +226,7 @@
         "enable": true,
         "handbook": {
             "ParentId": "5b5f6f6c86f774093f2ecf0b",
-            "Price": 374500
+            "Price": 1000000
         },
         "item": {
             "_props": {
@@ -369,7 +457,7 @@
         "enable": true,
         "handbook": {
             "ParentId": "5b5f6fa186f77409407a7eb7",
-            "Price": 3100000
+            "Price": 1000000
         },
         "item": {
             "_props": {
