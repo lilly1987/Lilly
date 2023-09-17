@@ -3,7 +3,7 @@
         "clone": "5991b51486f77447b112d44f",
         "enable": true,
         "handbook": {
-            "ParentId": "5b5f6f8786f77447ed563642",
+            "ParentId": "5b47574386f77428ca22b345",
             "Price": 25000
         },
         "item": {
@@ -34,7 +34,7 @@
         "clone": "58ac60eb86f77401897560ff",
         "enable": true,
         "handbook": {
-            "ParentId": "5b5f6f8786f77447ed563642",
+            "ParentId": "5b47574386f77428ca22b32f",
             "Price": 25000
         },
         "item": {
