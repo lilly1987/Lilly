@@ -1,4 +1,35 @@
 {
+    "LillyWeight": {
+        "clone": "5991b51486f77447b112d44f",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f6f8786f77447ed563642",
+            "Price": 25000
+        },
+        "item": {
+            "_props": {
+                "Prefab": {
+                    "path": "assets/content/items/spec/item_spec_irbeacon/item_spec_irbeacon.bundle",
+                    "rcid": ""
+                },
+                "Height": 1,
+                "Width": 1,
+                "BackgroundColor": "black",
+                "StackMaxRandom": 10,
+                "StackMaxSize": 1000000,
+                "StackMinRandom": 1,
+                "StackObjectsCount": 1,
+                "Unlootable": false,
+                "UnlootableFromSide": [],
+                "Weight": -1
+            }
+        },
+        "locales": {
+            "Description": "Weight -1.",
+            "Name": "LillyWeight",
+            "Shortname": "LW"
+        }
+    },
     "LillyBalaclava": {
         "clone": "58ac60eb86f77401897560ff",
         "enable": true,
@@ -72,18 +103,20 @@
                         "_props": {
                             "cellsH": 6,
                             "cellsV": 14,
-                            "filters": [
-                                {
-                                    "ExcludedFilter": [],
-                                    "Filter": []
-                                }
-                            ],
                             "isSortingTable": false,
                             "maxCount": 0,
                             "maxWeight": 0,
                             "minCount": 0
                         },
                         "_proto": "55d329c24bdc2d892f8b4567"
+                    }
+                ],
+                "filters": [
+                    {
+                        "ExcludedFilter": [],
+                        "Filter": [
+                            "54009119af1c881c07000029"
+                        ]
                     }
                 ],
                 "MaxDurability": 500,
@@ -127,7 +160,9 @@
                             "filters": [
                                 {
                                     "ExcludedFilter": [],
-                                    "Filter": []
+                                    "Filter": [
+                                        "54009119af1c881c07000029"
+                                    ]
                                 }
                             ],
                             "isSortingTable": false,
@@ -352,7 +387,9 @@
                             "filters": [
                                 {
                                     "ExcludedFilter": [],
-                                    "Filter": []
+                                    "Filter": [
+                                        "54009119af1c881c07000029"
+                                    ]
                                 }
                             ],
                             "isSortingTable": false,

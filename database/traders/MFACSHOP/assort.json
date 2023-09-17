@@ -1,6 +1,16 @@
 {
     "items": [
         {
+            "_id": "LillyWeight",
+            "_tpl": "LillyWeight",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
             "_id": "LillyMK4A",
             "_tpl": "LillyMK4A",
             "parentId": "hideout",
@@ -42,6 +52,14 @@
         }
     ],
     "barter_scheme": {
+        "LillyWeight": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
         "LillyBalaclava": [
             [
                 {
@@ -76,6 +94,7 @@
         ]
     },
     "loyal_level_items": {
+        "LillyWeight": 1,
         "LillyBalaclava": 1,
         "LillyMK4A": 1,
         "LillyTrooper": 1,
