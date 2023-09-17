@@ -1,6 +1,16 @@
 {
     "items": [
         {
+            "_id": "LillyGlock",
+            "_tpl": "LillyGlock",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
             "_id": "LillyAXMC",
             "_tpl": "LillyAXMC",
             "parentId": "hideout",
@@ -72,6 +82,14 @@
         }
     ],
     "barter_scheme": {
+        "LillyGlock": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
         "LillyAXMC": [
             [
                 {
@@ -130,6 +148,7 @@
         ]
     },
     "loyal_level_items": {
+        "LillyGlock": 1,
         "LillyAXMC": 1,
         "LillySVD": 1,
         "LillyWeight": 1,

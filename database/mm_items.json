@@ -1,4 +1,52 @@
 {
+    "LillyGlock": {
+        "clone": "5a718b548dc32e000d46d262",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f754a86f774094242f19b",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "ExtraSizeDown": 0,
+      "Cartridges": [
+        {
+          "_id": "LillyGlockcartridges",
+          "_max_count": 30000,
+          "_name": "cartridges",
+          "_parent": "LillyGlock",
+          "_props": {
+            "filters": [
+              {
+                "Filter": [
+                  "5efb0da7a29a85116f6ea05f",
+                  "5c3df7d588a4501f290594e5",
+                  "58864a4f2459770fcc257101",
+                  "56d59d3ad2720bdb418b4577",
+                  "5c925fa22e221601da359b7b",
+                  "5a3c16fe86f77452b62de32a",
+                  "5efb0e16aeb21837e749c7ff",
+                  "5c0d56a986f774449d5de529"
+                ]
+              }
+            ]
+          },
+          "_proto": "5748538b2459770af276a261"
+        }
+      ],
+                "Height": 1,
+                "Width": 1,
+                "BackgroundColor": "black",
+                "Weight": 0
+            }
+        },
+        "locales": {
+            "Name": "Lilly Glock 30000 round magazine",
+            "Shortname": "LGlock",
+            "Description": "Lilly Glock 30000 round magazine"
+        }
+    },
+
     "LillyAXMC": {
         "clone": "628120fd5631d45211793c9f",
         "enable": true,
@@ -38,7 +86,7 @@
         },
         "locales": {
             "Name": "Lilly AXMC 250 round magazine",
-            "Shortname": "LSVD AXMC",
+            "Shortname": "LAXMC",
             "Description": "Lilly AXMC 250 round magazine"
         }
     },
