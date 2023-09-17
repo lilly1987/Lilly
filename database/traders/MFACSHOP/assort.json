@@ -1,6 +1,36 @@
 {
     "items": [
         {
+            "_id": "LillyAmmor",
+            "_tpl": "LillyAmmor",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
+            "_id": "Lillypipe",
+            "_tpl": "Lillypipe",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
+            "_id": "Lillyglasses",
+            "_tpl": "Lillyglasses",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
             "_id": "LillyGlock",
             "_tpl": "LillyGlock",
             "parentId": "hideout",
@@ -82,6 +112,30 @@
         }
     ],
     "barter_scheme": {
+        "LillyAmmor": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
+        "Lillypipe": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
+        "Lillyglasses": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
         "LillyGlock": [
             [
                 {
@@ -148,6 +202,9 @@
         ]
     },
     "loyal_level_items": {
+        "LillyAmmor": 1,
+        "Lillypipe": 1,
+        "Lillyglasses": 1,
         "LillyGlock": 1,
         "LillyAXMC": 1,
         "LillySVD": 1,

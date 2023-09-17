@@ -16,14 +16,14 @@ class MItems {
         const modFullName = "Lilly";
         //Trader IDs
         const traders = {
-            "MFACSHOP": "MFACSHOP",
-            "prapor": "54cb50c76803fa8b248b4571",
-            "therapist": "54cb57776803fa99248b456e",
-            "skier": "58330581ace78e27b8b10cee",
-            "peacekeeper": "5935c25fb3acc3127c3d8cd9",
-            "mechanic": "5a7c2eca46aef81a7ca2145d",
-            "ragman": "5ac3b934156ae10c4430e83c",
-            "jaeger": "5c0647fdd443bc2504c2d371"
+            "MFACSHOP": "MFACSHOP"
+            //"prapor": "54cb50c76803fa8b248b4571",
+            //"therapist": "54cb57776803fa99248b456e",
+            //"skier": "58330581ace78e27b8b10cee",
+            //"peacekeeper": "5935c25fb3acc3127c3d8cd9",
+            //"mechanic": "5a7c2eca46aef81a7ca2145d",
+            //"ragman": "5ac3b934156ae10c4430e83c",
+            //"jaeger": "5c0647fdd443bc2504c2d371"
         };
         // color
         const lcolor = ["default","orange","violet","grey","black","green","blue","yellow","red"];
@@ -35,25 +35,26 @@ class MItems {
         this.addLocales();
         this.logger.debug(modFolderName + " locales finished");
         
-        //
-        let tdic = {};
-        for (const trader in traders){
-            tdic[traders[trader]]=[];
-        } 
+        // loop
+        const loop_mmIDs=[];
+        const loop_mmIDsDel=[];
+        const loop_mmIDd={};
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             if (! ("loop" in mmItem) ) 
                 continue;
-            //this.logger.logWithColor(mmItem, "grey");
+            loop_mmIDs.push(mmID);
+            loop_mmIDd[mmID]=[];
+            let itemDel=false;
+            if ("enableThis" in mmItem && ! mmItem["enableThis"]) {
+                itemDel=true;
+                loop_mmIDsDel.push(mmID);
+            }
             const tloop=mmItem["loop"];
             delete mmItem["loop"];
-            //this.logger.logWithColor(tloop, "yellow");
             for (const [loopID, loopItem] of Object.entries(tloop)) {
                 const tloopID=mmID+"_"+loopID;
+                loop_mmIDd[mmID].push(tloopID);
                 let cmmItem=this.jsonUtil.clone(mmItem);
-                //cmmItem["clone"]=mmID;
-                this.logger.logWithColor(`${loopID} mm_items add.`, "green");
-                //this.logger.logWithColor(loopItem, "grey");
-                //cmmItem = Object.assign(cmmItem, loopItem);
                 cmmItem = this.compareAndReplace(cmmItem, loopItem);
                 if ( "item" in cmmItem &&  "_props" in cmmItem.item &&  "Grids" in cmmItem.item._props){
                      for (const grid of cmmItem.item._props.Grids){
@@ -62,64 +63,74 @@ class MItems {
                      }
                 }
                 this.mydb.mm_items[tloopID]=cmmItem;
-                this.logger.logWithColor(`${tloopID} mm_items add.`, "green");
-                //this.logger.logWithColor(this.mydb.mm_items[tloopID], "grey");
-                //
-                for (const trader in traders){
-                    const trader_id=traders[trader];
-                    this.logger.logWithColor(`trader : ${trader} ; ${trader_id}`, "blue");
-                    if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
-                        continue
-                    //
-                    const tarr = [];
-                    if ("items" in this.mydb.traders[trader_id].assort){
-                        for (const item of this.mydb.traders[trader_id].assort.items) {
-                            //this.logger.logWithColor(`${item._id} items check.`, "grey");
-                            if(item._tpl == mmID){
-                                //this.logger.logWithColor(`${item._id} items check.`, "grey");
-                                const citem=this.jsonUtil.clone(item);
-                                citem._id=citem._id+"_"+loopID;
-                                citem._tpl=tloopID;
-                                tarr.push(citem);
-                                //this.logger.logWithColor(citem, "grey");
-                            }
-                        }
-                        tdic[trader_id].push(...tarr);
-                        //this.mydb.traders[trader_id].assort.items.push(...tarr);
-                        //this.logger.logWithColor(tarr, "grey");
-                        //this.logger.logWithColor(this.mydb.traders[trader_id].assort.items, "grey");
-                        //this.logger.logWithColor(Array.isArray(this.mydb.traders[trader_id].assort.items), "grey");
-                        this.logger.logWithColor(`${mmID} ${tarr.length} add length.`, "green");
-                        //this.logger.logWithColor(`${mmID} ${this.mydb.traders[trader_id].assort.items.length} items length.`, "green");
-                    }else
-                        this.logger.logWithColor(`${mmID} items no.`, "yellow");
-                    //
-                    if ("barter_scheme" in this.mydb.traders[trader_id].assort && mmID in this.mydb.traders[trader_id].assort.barter_scheme ) {
-                        this.mydb.traders[trader_id].assort.barter_scheme[tloopID]=this.mydb.traders[trader_id].assort.barter_scheme[mmID];
-                        this.logger.logWithColor(`${mmID} barter_scheme add.`, "green");
-                    }else{
-                        this.logger.logWithColor(`${mmID} barter_scheme no.`, "yellow");
-                    }
-                    //
-                    if ("loyal_level_items" in this.mydb.traders[trader_id].assort && mmID in this.mydb.traders[trader_id].assort.loyal_level_items ) {
-                        this.mydb.traders[trader_id].assort.loyal_level_items[tloopID]=this.mydb.traders[trader_id].assort.loyal_level_items[mmID];
-                        this.logger.logWithColor(`${mmID} loyal_level_items add.`, "green");
-                    }else{
-                        this.logger.logWithColor(`${mmID} loyal_level_items no.`, "yellow");
-                    }
-                }
-                
+                //this.logger.logWithColor(`${tloopID} mm_items add.`, "blue");
 
             }
+            if (itemDel)
+                delete this.mydb.mm_items[mmID];
         }
-        for (const [trader_id, tarr] of Object.entries(tdic)) {
-            this.mydb.traders[trader_id].assort.items.push(...tarr);
+        //this.logger.logWithColor(this.mydb.mm_items, "grey");
+        //this.logger.logWithColor(loop_mmIDs, "grey");
+        //this.logger.logWithColor(loop_mmIDsDel, "grey");
+        //this.logger.logWithColor(loop_mmIDd, "grey");
+        for (const trader in traders){
+            const trader_id=traders[trader];
+            if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
+                continue;
+            if ("items" in this.mydb.traders[trader_id].assort){
+                const tarr = [];
+                const tarrd = [];
+                for (const item of this.mydb.traders[trader_id].assort.items) {
+                    if ( loop_mmIDs.includes(item._tpl)){
+                        for (const loopID of loop_mmIDd[item._tpl]) {
+                            const citem=this.jsonUtil.clone(item);
+                            citem._id=loopID;
+                            citem._tpl=loopID;
+                            tarr.push(citem);
+                        }
+                    }
+                    if (  loop_mmIDsDel.includes(item._tpl))
+                        tarrd.push(item);
+                }
+                this.mydb.traders[trader_id].assort["items"]=this.mydb.traders[trader_id].assort.items.filter( ( el ) => !tarrd.includes( el ) );
+                this.mydb.traders[trader_id].assort.items.push(...tarr);
+            }
+            this.logger.logWithColor(`${trader_id} barter_scheme.`, "green");
+            if ("barter_scheme" in this.mydb.traders[trader_id].assort){
+                for (const [mmID, mmItem] of Object.entries( this.mydb.traders[trader_id].assort.barter_scheme)) {
+                    if (  loop_mmIDs.includes(mmID)){
+                        for (const loopID of loop_mmIDd[mmID]) {
+                            //this.logger.logWithColor(`mmID ${mmID} loopID ${loopID} `, "blue");
+                            this.mydb.traders[trader_id].assort.barter_scheme[loopID]=mmItem;
+                        }
+                    }
+                    if (loop_mmIDsDel.includes(mmID))
+                        delete this.mydb.traders[trader_id].assort.barter_scheme[mmID];
+                }
+            }
+            this.logger.logWithColor(`${trader_id} loyal_level_items.`, "green");
+            if ("loyal_level_items" in this.mydb.traders[trader_id].assort){
+                for (const [mmID, mmItem] of Object.entries(  this.mydb.traders[trader_id].assort.loyal_level_items)) {
+                    if ( loop_mmIDs.includes(mmID)){
+                        for (const loopID of loop_mmIDd[mmID]) {
+                            //this.logger.logWithColor(`mmID ${mmID} loopID ${loopID} `, "blue");
+                            this.mydb.traders[trader_id].assort.loyal_level_items[loopID]=mmItem;
+                        }
+                    }
+                    if ( loop_mmIDsDel.includes(mmID))
+                        delete this.mydb.traders[trader_id].assort.loyal_level_items[mmID];
+                }
+            }
+            this.logger.logWithColor(`${trader_id} set.`, "green");
+            this.logger.logWithColor(this.mydb.traders[trader_id], "grey");
         }
+
+        
         this.logger.logWithColor(`${modFolderName} loop finished.`, "blue");
         //this.logger.debug(modFolderName + " loop finished");
         
         // RainbowColor
-        tdic = {};
+        let tdic = {};
         for (const trader in traders){
             tdic[traders[trader]]=[];
         } 
@@ -129,7 +140,7 @@ class MItems {
                     const cmmItem=this.jsonUtil.clone(mmItem);
                     cmmItem.item._props.BackgroundColor=ccolor;
                     this.mydb.mm_items[mmID+"_"+ccolor]=cmmItem;
-                    this.logger.logWithColor(`${mmID}_${ccolor} add`, "green");
+                    //this.logger.logWithColor(`${mmID}_${ccolor} add`, "green");
                 }
                 //for (const trader in this.mydb.traders){
                 //    this.logger.info("trader : "+trader);
@@ -137,7 +148,7 @@ class MItems {
                 
                 for (const trader in traders){
                     const trader_id=traders[trader];
-                    this.logger.logWithColor(`trader : ${trader} ; ${trader_id}`, "blue");
+                    //this.logger.logWithColor(`trader : ${trader} ; ${trader_id}`, "blue");
                     if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
                         continue
                     //
@@ -146,7 +157,7 @@ class MItems {
                         for (const item of this.mydb.traders[trader_id].assort.items) {
                             //this.logger.logWithColor(`${item._id} items check.`, "grey");
                             if(item._id == mmID){
-                                this.logger.logWithColor(`${item._id} items check.`, "grey");
+                                //this.logger.logWithColor(`${item._id} items check.`, "grey");
                                 for (const ccolor of lcolor){
                                     const citem=this.jsonUtil.clone(item);
                                     citem._id=citem._id+"_"+ccolor;
@@ -223,8 +234,10 @@ class MItems {
         for (const trader in traders)
             this.addTraderAssort(traders[trader]);
         
-        for (const suit of this.mydb.traders[traders["ragman"]].suits)
-            this.db.traders[traders["ragman"]].suits.push(suit);
+        if ( "ragman" in traders && "suits" in this.mydb.traders[traders["ragman"]])
+            for (const suit of this.mydb.traders[traders["ragman"]].suits)
+                this.db.traders[traders["ragman"]].suits.push(suit);
+
         this.logger.debug(modFolderName + " traders finished");
         //Mastery
         const dbMastering = this.db.globals.config.Mastering;

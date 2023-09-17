@@ -9,31 +9,31 @@
         "item": {
             "_props": {
                 "ExtraSizeDown": 0,
-      "Cartridges": [
-        {
-          "_id": "LillyGlockcartridges",
-          "_max_count": 30000,
-          "_name": "cartridges",
-          "_parent": "LillyGlock",
-          "_props": {
-            "filters": [
-              {
-                "Filter": [
-                  "5efb0da7a29a85116f6ea05f",
-                  "5c3df7d588a4501f290594e5",
-                  "58864a4f2459770fcc257101",
-                  "56d59d3ad2720bdb418b4577",
-                  "5c925fa22e221601da359b7b",
-                  "5a3c16fe86f77452b62de32a",
-                  "5efb0e16aeb21837e749c7ff",
-                  "5c0d56a986f774449d5de529"
-                ]
-              }
-            ]
-          },
-          "_proto": "5748538b2459770af276a261"
-        }
-      ],
+                "Cartridges": [
+                    {
+                        "_id": "LillyGlockcartridges",
+                        "_max_count": 30000,
+                        "_name": "cartridges",
+                        "_parent": "LillyGlock",
+                        "_props": {
+                            "filters": [
+                                {
+                                    "Filter": [
+                                        "5efb0da7a29a85116f6ea05f",
+                                        "5c3df7d588a4501f290594e5",
+                                        "58864a4f2459770fcc257101",
+                                        "56d59d3ad2720bdb418b4577",
+                                        "5c925fa22e221601da359b7b",
+                                        "5a3c16fe86f77452b62de32a",
+                                        "5efb0e16aeb21837e749c7ff",
+                                        "5c0d56a986f774449d5de529"
+                                    ]
+                                }
+                            ]
+                        },
+                        "_proto": "5748538b2459770af276a261"
+                    }
+                ],
                 "Height": 1,
                 "Width": 1,
                 "BackgroundColor": "black",
@@ -46,7 +46,6 @@
             "Description": "Lilly Glock 30000 round magazine"
         }
     },
-
     "LillyAXMC": {
         "clone": "628120fd5631d45211793c9f",
         "enable": true,
@@ -151,8 +150,8 @@
                 "Height": 1,
                 "Width": 1,
                 "BackgroundColor": "black",
-                "StackMaxRandom": 10,
                 "StackMaxSize": 1000000,
+                "StackMaxRandom": 10,
                 "StackMinRandom": 1,
                 "StackObjectsCount": 1,
                 "Unlootable": false,
@@ -166,11 +165,45 @@
             "Shortname": "LW"
         }
     },
-    "LillyBalaclava": {
-        "clone": "58ac60eb86f77401897560ff",
+    "LillyAmmor": {
+        "loop": {
+            "glasses": {
+                "clone": "619bdd8886e01e16f839a99c",
+                "handbook": {
+                    "ParentId": "5b5f704686f77447ec5d76d7"
+                },
+                "locales": {
+                    "Description": "완장",
+                    "Name": "Lilly 완장",
+                    "Shortname": "L완장"
+                }
+            },
+            "glasses": {
+                "clone": "603409c80ca681766b6a0fb2",
+                "handbook": {
+                    "ParentId": "5b47574386f77428ca22b331"
+                },
+                "locales": {
+                    "Description": "glasses",
+                    "Name": "Lilly glasses",
+                    "Shortname": "Lglasses"
+                }
+            },
+            "pipe": {
+                "clone": "62a61bbf8ec41a51b34758d2",
+                "handbook": {
+                    "ParentId": "5b47574386f77428ca22b32f"
+                },
+                "locales": {
+                    "Description": "pipe",
+                    "Name": "Lilly pipe",
+                    "Shortname": "L pipe"
+                }
+            }
+        },
+        "enableThis": false,
         "enable": true,
         "handbook": {
-            "ParentId": "5b47574386f77428ca22b32f",
             "Price": 1000000
         },
         "item": {
@@ -179,7 +212,7 @@
                 "Width": 1,
                 "armorClass": 10,
                 "ArmorMaterial": "Aramid",
-                "ArmorType": "Light",
+                "ArmorType": "None",
                 "armorZone": [
                     "Head",
                     "Chest",
@@ -189,6 +222,13 @@
                     "RightLeg",
                     "LeftLeg"
                 ],
+                "headSegments": [
+                    "Eyes",
+                    "Top",
+                    "Nape",
+                    "Ears",
+                    "Jaws"
+                ],
                 "BackgroundColor": "black",
                 "BluntThroughput": 0.1,
                 "Durability": 500,
@@ -197,13 +237,14 @@
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
                 "weaponErgonomicPenalty": 0,
+                "RicochetParams": {
+                    "x": 0.9,
+                    "y": 0.5,
+                    "z": 40
+                },
+                "DeafStrength": "None",
                 "Weight": 0
             }
-        },
-        "locales": {
-            "Description": "A waist pouch you can wear as a rig.",
-            "Name": "Lilly MK4A",
-            "Shortname": "L MK4A"
         }
     },
     "LillyMK4A": {
@@ -259,6 +300,11 @@
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
                 "weaponErgonomicPenalty": 0,
+                "RicochetParams": {
+                    "x": 0.9,
+                    "y": 0.5,
+                    "z": 40
+                },
                 "Weight": 0
             }
         },
