@@ -43,10 +43,10 @@ class MItems {
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             if (! ("loop" in mmItem) ) 
                 continue;
-            this.logger.logWithColor(mmItem, "grey");
+            //this.logger.logWithColor(mmItem, "grey");
             const tloop=mmItem["loop"];
             delete mmItem["loop"];
-            this.logger.logWithColor(tloop, "yellow");
+            //this.logger.logWithColor(tloop, "yellow");
             for (const [loopID, loopItem] of Object.entries(tloop)) {
                 const tloopID=mmID+"_"+loopID;
                 let cmmItem=this.jsonUtil.clone(mmItem);
