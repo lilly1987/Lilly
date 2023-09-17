@@ -162,7 +162,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/weapons/usable_items/item_meds_grizly/item_grizzly_loot.bundle",
+                            "path": "assets/content/weapons/usable_items/item_meds_grizly/item_grizzly_loot.bundle"
                         }
                     }
                 }
@@ -171,7 +171,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/containers/item_container_cristmas_prize_01-02/item_container_cristmas_prize_02.bundle",
+                            "path": "assets/content/items/containers/item_container_cristmas_prize_01-02/item_container_cristmas_prize_02.bundle"
                         }
                     }
                 }
@@ -180,7 +180,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/containers/item_container_secured_kappa/item_container_secured_kappa.bundle",
+                            "path": "assets/content/items/containers/item_container_secured_kappa/item_container_secured_kappa.bundle"
                         }
                     }
                 }
@@ -189,7 +189,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/prefabs/levelobjects/outdoor/plastic_suitcase_set/plastic_suitcase_54_p.bundle",
+                            "path": "assets/content/prefabs/levelobjects/outdoor/plastic_suitcase_set/plastic_suitcase_54_p.bundle"
                         }
                     }
                 }
@@ -198,7 +198,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/containers/double_gun_case/item_double_gun_case.bundle",
+                            "path": "assets/content/items/containers/double_gun_case/item_double_gun_case.bundle"
                         }
                     }
                 }
@@ -207,7 +207,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/containers/plano_pistol_case/item_plano_pistol_case.bundle",
+                            "path": "assets/content/items/containers/plano_pistol_case/item_plano_pistol_case.bundle"
                         }
                     }
                 }
@@ -216,7 +216,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/meds/first_aid_box/item_meds_first_aid_box.bundle",
+                            "path": "assets/content/items/meds/first_aid_box/item_meds_first_aid_box.bundle"
                         }
                     }
                 }
@@ -225,7 +225,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/containers/item_container_cristmas_prize_01-02/item_container_cristmas_prize_01.bundle",
+                            "path": "assets/content/items/containers/item_container_cristmas_prize_01-02/item_container_cristmas_prize_01.bundle"
                         }
                     }
                 }
@@ -234,7 +234,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/weapons/usable_items/item_meds_afak/item_meds_afak_loot.bundle",
+                            "path": "assets/content/weapons/usable_items/item_meds_afak/item_meds_afak_loot.bundle"
                         }
                     }
                 }
@@ -243,7 +243,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/quest/item_quest_container_carbon_case/item_quest_container_carbon_case.bundle",
+                            "path": "assets/content/items/quest/item_quest_container_carbon_case/item_quest_container_carbon_case.bundle"
                         }
                     }
                 }
@@ -252,7 +252,7 @@
                 "item": {
                     "_props": {
                         "Prefab": {
-                            "path": "assets/content/items/quest/item_quest_container_case_bank/item_quest_container_case_bank.bundle",
+                            "path": "assets/content/items/quest/item_quest_container_case_bank/item_quest_container_case_bank.bundle"
                         }
                     }
                 }
