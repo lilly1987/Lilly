@@ -249,13 +249,11 @@
         },
         "item": {
             "_props": {
-
-
                 "Height": 1,
                 "Width": 1,
                 "armorClass": 10,
                 "ArmorMaterial": "Aramid",
-                "ArmorType": "None",
+                "ArmorType": "Light",
                 "armorZone": [
                     "Head",
                     "Chest",
@@ -268,9 +266,11 @@
                 "headSegments": [],
                 "BackgroundColor": "black",
                 "BluntThroughput": 0.1,
-                "Durability": 500,
                 "Grids": [],
+                "RepairCost": 100,
+                "Durability": 500,
                 "MaxDurability": 500,
+                "Indestructibility": 0.9,
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
                 "weaponErgonomicPenalty": 0,
