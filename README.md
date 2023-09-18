@@ -1,4 +1,13 @@
 # Lilly
+
+# install
+
+Escape from Tarkov\user\mods\Lilly
+![2023-09-18 20 13 03](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/59e3aee8-c5a4-4620-8561-e1277516177a)
+
+
+# ex
+
 ![2023-09-18 20 08 30](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/8ed0cf24-43fb-443c-9e5d-3da70bcae219)
 ![2023-09-16 19 54 20](https://github.com/lilly1987/Lilly/assets/20321215/17b792b6-9ab1-4325-ab0d-871fd5b20f31)
 ![2023-09-16 19 54 09](https://github.com/lilly1987/Lilly/assets/20321215/26e35571-c453-4ec7-9756-1017d5532d0e)
