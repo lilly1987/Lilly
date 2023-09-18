@@ -25,6 +25,8 @@ class MItems {
             //"ragman": "5ac3b934156ae10c4430e83c",
             //"jaeger": "5c0647fdd443bc2504c2d371"
         };
+        
+        
         // color
         const lcolor = ["default","orange","violet","grey","black","green","blue","yellow","red"];
         //Get the server database and our custom database
@@ -35,11 +37,43 @@ class MItems {
         this.addLocales();
         this.logger.debug(modFolderName + " locales finished");
         
+
+        
         // loop
         const loop_mmIDs=[];
         const loop_mmIDsDel=[];
         const loop_mmIDd={};
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
+            
+            if ("RainbowColor" in mmItem && mmItem["RainbowColor"] ){
+                if (! ("loop" in mmItem) ){
+                    mmItem["loop"]={};
+                    for (const ccolor of lcolor){
+                        mmItem["loop"][ccolor]={
+                            "item": {
+                                "_props": {
+                                    "BackgroundColor": ccolor
+                                }
+                            }
+                        }
+                    }
+                }else{
+                    for (const [key, value] of Object.entries(mmItem["loop"])) {
+                        for (const ccolor of lcolor){
+                            let cvalue=this.jsonUtil.clone(value);
+                            cvalue = this.compareAndReplace(cvalue, {
+                                "item": {
+                                    "_props": {
+                                        "BackgroundColor": ccolor
+                                    }
+                                }
+                            });
+                            mmItem["loop"][key+"_"+ccolor]=cvalue;
+                        }
+                    }
+                }
+            }
+            // this.logger.logWithColor(mmItem["loop"], "gray");
             if (! ("loop" in mmItem) ) 
                 continue;
             loop_mmIDs.push(mmID);
@@ -95,7 +129,7 @@ class MItems {
                 this.mydb.traders[trader_id].assort["items"]=this.mydb.traders[trader_id].assort.items.filter( ( el ) => !tarrd.includes( el ) );
                 this.mydb.traders[trader_id].assort.items.push(...tarr);
             }
-            this.logger.logWithColor(`${trader_id} barter_scheme.`, "green");
+            //this.logger.logWithColor(`${trader_id} barter_scheme.`, "green");
             if ("barter_scheme" in this.mydb.traders[trader_id].assort){
                 for (const [mmID, mmItem] of Object.entries( this.mydb.traders[trader_id].assort.barter_scheme)) {
                     if (  loop_mmIDs.includes(mmID)){
@@ -108,7 +142,7 @@ class MItems {
                         delete this.mydb.traders[trader_id].assort.barter_scheme[mmID];
                 }
             }
-            this.logger.logWithColor(`${trader_id} loyal_level_items.`, "green");
+            //this.logger.logWithColor(`${trader_id} loyal_level_items.`, "green");
             if ("loyal_level_items" in this.mydb.traders[trader_id].assort){
                 for (const [mmID, mmItem] of Object.entries(  this.mydb.traders[trader_id].assort.loyal_level_items)) {
                     if ( loop_mmIDs.includes(mmID)){
@@ -121,90 +155,14 @@ class MItems {
                         delete this.mydb.traders[trader_id].assort.loyal_level_items[mmID];
                 }
             }
-            this.logger.logWithColor(`${trader_id} set.`, "green");
-            this.logger.logWithColor(this.mydb.traders[trader_id], "grey");
+            //this.logger.logWithColor(`${trader_id} set.`, "green");
+            //this.logger.logWithColor(this.mydb.traders[trader_id], "grey");
         }
-
         
-        this.logger.logWithColor(`${modFolderName} loop finished.`, "blue");
+        this.logger.logWithColor(`${modFolderName} loop finished.`, "green");
         //this.logger.debug(modFolderName + " loop finished");
         
-        // RainbowColor
-        let tdic = {};
-        for (const trader in traders){
-            tdic[traders[trader]]=[];
-        } 
-        for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
-            if ("RainbowColor" in mmItem && mmItem.RainbowColor == true) {
-                for (const ccolor of lcolor){
-                    const cmmItem=this.jsonUtil.clone(mmItem);
-                    cmmItem.item._props.BackgroundColor=ccolor;
-                    this.mydb.mm_items[mmID+"_"+ccolor]=cmmItem;
-                    //this.logger.logWithColor(`${mmID}_${ccolor} add`, "green");
-                }
-                //for (const trader in this.mydb.traders){
-                //    this.logger.info("trader : "+trader);
-                //}
-                
-                for (const trader in traders){
-                    const trader_id=traders[trader];
-                    //this.logger.logWithColor(`trader : ${trader} ; ${trader_id}`, "blue");
-                    if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
-                        continue
-                    //
-                    const tarr = [];
-                    if ("items" in this.mydb.traders[trader_id].assort){
-                        for (const item of this.mydb.traders[trader_id].assort.items) {
-                            //this.logger.logWithColor(`${item._id} items check.`, "grey");
-                            if(item._id == mmID){
-                                //this.logger.logWithColor(`${item._id} items check.`, "grey");
-                                for (const ccolor of lcolor){
-                                    const citem=this.jsonUtil.clone(item);
-                                    citem._id=citem._id+"_"+ccolor;
-                                    citem._tpl=mmID+"_"+ccolor;
-                                    tarr.push(citem);
-                                    //this.logger.logWithColor(citem, "grey");
-                                }
-                            }
-                        }
-                        tdic[trader_id].push(...tarr);
-                        //this.mydb.traders[trader_id].assort.items.push(...tarr);
-                        //this.logger.logWithColor(tarr, "grey");
-                        //this.logger.logWithColor(this.mydb.traders[trader_id].assort.items, "grey");
-                        //this.logger.logWithColor(Array.isArray(this.mydb.traders[trader_id].assort.items), "grey");
-                        this.logger.logWithColor(`${mmID} ${tarr.length} add length.`, "green");
-                        //this.logger.logWithColor(`${mmID} ${this.mydb.traders[trader_id].assort.items.length} items length.`, "green");
-                    }else
-                        this.logger.logWithColor(`${mmID} items no.`, "yellow");
-                    //
-                    if ("barter_scheme" in this.mydb.traders[trader_id].assort && mmID in this.mydb.traders[trader_id].assort.barter_scheme ) {
-                        for (const ccolor of lcolor){
-                            this.mydb.traders[trader_id].assort.barter_scheme[mmID+"_"+ccolor]=this.mydb.traders[trader_id].assort.barter_scheme[mmID];
-                        }
-                        this.logger.logWithColor(`${mmID} barter_scheme add.`, "green");
-                    }else{
-                        this.logger.logWithColor(`${mmID} barter_scheme no.`, "yellow");
-                    }
-                    //
-                    if ("loyal_level_items" in this.mydb.traders[trader_id].assort && mmID in this.mydb.traders[trader_id].assort.loyal_level_items ) {
-                        for (const ccolor of lcolor){
-                            this.mydb.traders[trader_id].assort.loyal_level_items[mmID+"_"+ccolor]=this.mydb.traders[trader_id].assort.loyal_level_items[mmID];
-                        }
-                        this.logger.logWithColor(`${mmID} loyal_level_items add.`, "green");
-                    }else{
-                        this.logger.logWithColor(`${mmID} loyal_level_items no.`, "yellow");
-                    }
-                }
-                //delete this.mydb.mm_items[mmID];
-            }
-            else
-                this.logger.logWithColor(`${mmID} RainbowColor false.`, "yellow");
-        }        
-        //this.logger.logWithColor(tdic, "grey");
-        for (const [trader_id, tarr] of Object.entries(tdic)) {
-            this.mydb.traders[trader_id].assort.items.push(...tarr);
-        }
-        this.logger.logWithColor(`${modFolderName} RainbowColor finished.`, "blue");
+
         
         
         
