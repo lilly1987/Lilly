@@ -165,17 +165,58 @@
             "Shortname": "LW"
         }
     },
+    "LillyM-2": {
+        "clone": "5bffdd7e0db834001b734a1a",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f7a0886f77409407a7f96",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "BackgroundColor": "black",
+                "Durability": 100,
+                "MaxDurability": 100,
+                "Height": 1,
+                "Width": 1,
+      "PrimaryConsumption": 1,
+      "PrimaryDistance": 2,
+      "SecondryConsumption": 1,
+      "SecondryDistance": 2,
+      "SlashPenetration": 10,
+      "StabPenetration": 10,
+      "knifeDurab": 100,
+      "knifeHitDelay": 0,
+      "knifeHitRadius": 2,
+      "knifeHitSlashDam": 1000000,
+      "knifeHitSlashRate": 0,
+      "knifeHitStabDam": 1000000,
+      "knifeHitStabRate": 1,
+                "UnlootableFromSide": [
+                    "Bear",
+                    "Usec",
+                    "Savage"
+                ],
+                "Weight": 0
+            }
+        },
+        "locales": {
+            "Description": "M-2.",
+            "Name": "Lilly M-2",
+            "Shortname": "L M-2"
+        }
+    },
     "LillyAmmor": {
         "loop": {
-            "glasses": {
+            "ArmBand": {
                 "clone": "619bdd8886e01e16f839a99c",
                 "handbook": {
                     "ParentId": "5b5f704686f77447ec5d76d7"
                 },
                 "locales": {
-                    "Description": "완장",
-                    "Name": "Lilly 완장",
-                    "Shortname": "L완장"
+                    "Description": "ArmBand",
+                    "Name": "Lilly ArmBand",
+                    "Shortname": "LBand"
                 }
             },
             "glasses": {
@@ -208,6 +249,8 @@
         },
         "item": {
             "_props": {
+
+
                 "Height": 1,
                 "Width": 1,
                 "armorClass": 10,
@@ -222,13 +265,7 @@
                     "RightLeg",
                     "LeftLeg"
                 ],
-                "headSegments": [
-                    "Eyes",
-                    "Top",
-                    "Nape",
-                    "Ears",
-                    "Jaws"
-                ],
+                "headSegments": [],
                 "BackgroundColor": "black",
                 "BluntThroughput": 0.1,
                 "Durability": 500,
@@ -243,11 +280,12 @@
                     "z": 40
                 },
                 "DeafStrength": "None",
-      "UnlootableFromSide": [
-        "Bear",
-        "Usec",
-        "Savage"
-      ],
+                "UnlootableFromSlot": "FirstPrimaryWeapon",
+                "UnlootableFromSide": [
+                    "Bear",
+                    "Usec",
+                    "Savage"
+                ],
                 "Weight": 0
             }
         }
@@ -310,11 +348,12 @@
                     "y": 0.5,
                     "z": 40
                 },
-      "UnlootableFromSide": [
-        "Bear",
-        "Usec",
-        "Savage"
-      ],
+                "UnlootableFromSlot": "FirstPrimaryWeapon",
+                "UnlootableFromSide": [
+                    "Bear",
+                    "Usec",
+                    "Savage"
+                ],
                 "Weight": 0
             }
         },
