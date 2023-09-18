@@ -243,6 +243,11 @@
                     "z": 40
                 },
                 "DeafStrength": "None",
+      "UnlootableFromSide": [
+        "Bear",
+        "Usec",
+        "Savage"
+      ],
                 "Weight": 0
             }
         }
@@ -305,6 +310,11 @@
                     "y": 0.5,
                     "z": 40
                 },
+      "UnlootableFromSide": [
+        "Bear",
+        "Usec",
+        "Savage"
+      ],
                 "Weight": 0
             }
         },
