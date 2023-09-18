@@ -179,19 +179,19 @@
                 "MaxDurability": 100,
                 "Height": 1,
                 "Width": 1,
-      "PrimaryConsumption": 1,
-      "PrimaryDistance": 2,
-      "SecondryConsumption": 1,
-      "SecondryDistance": 2,
-      "SlashPenetration": 10,
-      "StabPenetration": 10,
-      "knifeDurab": 100,
-      "knifeHitDelay": 0,
-      "knifeHitRadius": 2,
-      "knifeHitSlashDam": 1000000,
-      "knifeHitSlashRate": 0,
-      "knifeHitStabDam": 1000000,
-      "knifeHitStabRate": 1,
+                "PrimaryConsumption": 1,
+                "PrimaryDistance": 2,
+                "SecondryConsumption": 1,
+                "SecondryDistance": 2,
+                "SlashPenetration": 10,
+                "StabPenetration": 10,
+                "knifeDurab": 100,
+                "knifeHitDelay": 0,
+                "knifeHitRadius": 2,
+                "knifeHitSlashDam": 1000000,
+                "knifeHitSlashRate": 0,
+                "knifeHitStabDam": 1000000,
+                "knifeHitStabRate": 1,
                 "UnlootableFromSide": [
                     "Bear",
                     "Usec",
@@ -204,90 +204,6 @@
             "Description": "M-2.",
             "Name": "Lilly M-2",
             "Shortname": "L M-2"
-        }
-    },
-    "LillyAmmor": {
-        "loop": {
-            "ArmBand": {
-                "clone": "619bdd8886e01e16f839a99c",
-                "handbook": {
-                    "ParentId": "5b5f704686f77447ec5d76d7"
-                },
-                "locales": {
-                    "Description": "ArmBand",
-                    "Name": "Lilly ArmBand",
-                    "Shortname": "LBand"
-                }
-            },
-            "glasses": {
-                "clone": "603409c80ca681766b6a0fb2",
-                "handbook": {
-                    "ParentId": "5b47574386f77428ca22b331"
-                },
-                "locales": {
-                    "Description": "glasses",
-                    "Name": "Lilly glasses",
-                    "Shortname": "Lglasses"
-                }
-            },
-            "pipe": {
-                "clone": "62a61bbf8ec41a51b34758d2",
-                "handbook": {
-                    "ParentId": "5b47574386f77428ca22b32f"
-                },
-                "locales": {
-                    "Description": "pipe",
-                    "Name": "Lilly pipe",
-                    "Shortname": "L pipe"
-                }
-            }
-        },
-        "enableThis": false,
-        "enable": true,
-        "handbook": {
-            "Price": 1000000
-        },
-        "item": {
-            "_props": {
-                "Height": 1,
-                "Width": 1,
-                "armorClass": 10,
-                "ArmorMaterial": "Aramid",
-                "ArmorType": "Light",
-                "armorZone": [
-                    "Head",
-                    "Chest",
-                    "Stomach",
-                    "LeftArm",
-                    "RightArm",
-                    "RightLeg",
-                    "LeftLeg"
-                ],
-                "headSegments": [],
-                "BackgroundColor": "black",
-                "BluntThroughput": 0.1,
-                "Grids": [],
-                "RepairCost": 100,
-                "Durability": 500,
-                "MaxDurability": 500,
-                "Indestructibility": 0.9,
-                "mousePenalty": 0,
-                "speedPenaltyPercent": 0,
-                "weaponErgonomicPenalty": 0,
-                "RicochetParams": {
-                    "x": 0.9,
-                    "y": 0.5,
-                    "z": 40
-                },
-                "DeafStrength": "None",
-                "UnlootableFromSlot": "FirstPrimaryWeapon",
-                "UnlootableFromSide": [
-                    "Bear",
-                    "Usec",
-                    "Savage"
-                ],
-                "Weight": 0
-            }
         }
     },
     "LillyMK4A": {
@@ -637,6 +553,103 @@
             "Description": "The T H I C C advanced storage case with increased storage volume for various items.",
             "Name": "T H I C C item case",
             "ShortName": "T H I C C"
+        }
+    },
+    "LillyAmmor": {
+        "loop": {
+            "ArmBand": {
+                "enable": false,
+                "clone": "57bef4c42459772e8d35a53b",
+                "handbook": {
+                    "ParentId": "5b5f701386f774093f2ecf0f"
+                },
+                "item": {
+                    "_props": {
+                        "UnlootableFromSlot": "ArmBand",
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/armband/item_equipment_armband_bear.bundle",
+                            "rcid": ""
+                        }
+                    }
+                },
+                "locales": {
+                    "Description": "ArmBand",
+                    "Name": "Lilly ArmBand",
+                    "Shortname": "LBand"
+                }
+            },
+            "glasses": {
+                "clone": "603409c80ca681766b6a0fb2",
+                "handbook": {
+                    "ParentId": "5b47574386f77428ca22b331"
+                },
+                "locales": {
+                    "Description": "glasses",
+                    "Name": "Lilly glasses",
+                    "Shortname": "Lglasses"
+                }
+            },
+            "pipe": {
+                "clone": "62a61bbf8ec41a51b34758d2",
+                "handbook": {
+                    "ParentId": "5b47574386f77428ca22b32f"
+                },
+                "locales": {
+                    "Description": "pipe",
+                    "Name": "Lilly pipe",
+                    "Shortname": "L pipe"
+                }
+            }
+        },
+        "enableThis": false,
+        "enable": true,
+        "handbook": {
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "Height": 1,
+                "Width": 1,
+                "armorClass": 10,
+                "ArmorMaterial": "Aramid",
+                "ArmorType": "Light",
+                "armorZone": [
+                    "Head",
+                    "Chest",
+                    "Stomach",
+                    "LeftArm",
+                    "RightArm",
+                    "RightLeg",
+                    "LeftLeg"
+                ],
+                "headSegments": [],
+                "BackgroundColor": "black",
+                "BluntThroughput": 0.1,
+                "Grids": [],
+                "RepairCost": 100,
+                "RepairSpeed": 10,
+                "CanSellOnRagfair": true,
+                "CanRequireOnRagfair": true,
+                "Durability": 500,
+                "MaxDurability": 500,
+                "Indestructibility": 0.9,
+                "mousePenalty": 0,
+                "speedPenaltyPercent": 0,
+                "weaponErgonomicPenalty": 0,
+                "RicochetParams": {
+                    "x": 0.9,
+                    "y": 0.5,
+                    "z": 40
+                },
+                "DeafStrength": "None",
+                "UnlootableFromSlot": "FirstPrimaryWeapon",
+                "UnlootableFromSide": [
+                    "Bear",
+                    "Usec",
+                    "Savage"
+                ],
+                "Weight": 0
+            }
         }
     }
 }

@@ -46,18 +46,7 @@ class MItems {
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             
             if ("RainbowColor" in mmItem && mmItem["RainbowColor"] ){
-                if (! ("loop" in mmItem) ){
-                    mmItem["loop"]={};
-                    for (const ccolor of lcolor){
-                        mmItem["loop"][ccolor]={
-                            "item": {
-                                "_props": {
-                                    "BackgroundColor": ccolor
-                                }
-                            }
-                        }
-                    }
-                }else{
+                if  ("loop" in mmItem) {
                     for (const [key, value] of Object.entries(mmItem["loop"])) {
                         for (const ccolor of lcolor){
                             let cvalue=this.jsonUtil.clone(value);
@@ -69,6 +58,16 @@ class MItems {
                                 }
                             });
                             mmItem["loop"][key+"_"+ccolor]=cvalue;
+                        }
+                    }
+                }else
+                    mmItem["loop"]={};
+                for (const ccolor of lcolor){
+                    mmItem["loop"][ccolor]={
+                        "item": {
+                            "_props": {
+                                "BackgroundColor": ccolor
+                            }
                         }
                     }
                 }
@@ -229,6 +228,12 @@ class MItems {
                             slot._props.filters[0].Filter.push(id);
                 }
             }
+            if (!( "ConflictingItems" in atlasItemOut._props))
+                atlasItemOut._props.ConflictingItems=[];
+            //this.logger.logWithColor(atlasItemOut._props.ConflictingItems, "grey");
+            //this.logger.logWithColor(mmID, "green");
+            //this.logger.logWithColor(atlasItemOut._props, "grey");
+            //this.logger.logWithColor(mmID, "green");
             atlasItemOut._props.ConflictingItems = atlasItemOut._props.ConflictingItems.concat(atlasConflicts);
             //Add the new item to the database
             this.db.templates.items[mmID] = atlasItemOut;
