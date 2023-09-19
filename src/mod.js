@@ -27,144 +27,19 @@ class MItems {
         };
         
         
-        // color
-        const lcolor = ["default","orange","violet","grey","black","green","blue","yellow","red"];
+
         //Get the server database and our custom database
         this.db = databaseServer.getTables();
         this.mydb = databaseImporter.loadRecursive(`${modLoader.getModPath(modFolderName)}database/`);
         this.logger.info("Loading: " + modFullName);
+        
+        
+        this.loopItem(traders);
+        this.logger.logWithColor(`${modFolderName} loop finished.`, "green");
+        
         //Locales (Languages)
         this.addLocales();
         this.logger.debug(modFolderName + " locales finished");
-        
-
-        
-        // loop
-        const loop_mmIDs=[];
-        const loop_mmIDsDel=[];
-        const loop_mmIDd={};
-        for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
-            
-            if ("RainbowColor" in mmItem && mmItem["RainbowColor"] ){
-                if  ("loop" in mmItem) {
-                    for (const [key, value] of Object.entries(mmItem["loop"])) {
-                        for (const ccolor of lcolor){
-                            let cvalue=this.jsonUtil.clone(value);
-                            cvalue = this.compareAndReplace(cvalue, {
-                                "item": {
-                                    "_props": {
-                                        "BackgroundColor": ccolor
-                                    }
-                                }
-                            });
-                            mmItem["loop"][key+"_"+ccolor]=cvalue;
-                        }
-                    }
-                }else
-                    mmItem["loop"]={};
-                for (const ccolor of lcolor){
-                    mmItem["loop"][ccolor]={
-                        "item": {
-                            "_props": {
-                                "BackgroundColor": ccolor
-                            }
-                        }
-                    }
-                }
-            }
-            // this.logger.logWithColor(mmItem["loop"], "gray");
-            if (! ("loop" in mmItem) ) 
-                continue;
-            loop_mmIDs.push(mmID);
-            loop_mmIDd[mmID]=[];
-            let itemDel=false;
-            if ("enableThis" in mmItem && ! mmItem["enableThis"]) {
-                itemDel=true;
-                loop_mmIDsDel.push(mmID);
-            }
-            const tloop=mmItem["loop"];
-            delete mmItem["loop"];
-            for (const [loopID, loopItem] of Object.entries(tloop)) {
-                const tloopID=mmID+"_"+loopID;
-                loop_mmIDd[mmID].push(tloopID);
-                let cmmItem=this.jsonUtil.clone(mmItem);
-                cmmItem = this.compareAndReplace(cmmItem, loopItem);
-                if ( "item" in cmmItem &&  "_props" in cmmItem.item &&  "Grids" in cmmItem.item._props){
-                     for (const grid of cmmItem.item._props.Grids){
-                         grid._id=tloopID+"_"+grid._name;
-                         grid._parent=tloopID;
-                     }
-                }
-                this.mydb.mm_items[tloopID]=cmmItem;
-                //this.logger.logWithColor(`${tloopID} mm_items add.`, "blue");
-
-            }
-            if (itemDel)
-                delete this.mydb.mm_items[mmID];
-        }
-        //this.logger.logWithColor(this.mydb.mm_items, "grey");
-        //this.logger.logWithColor(loop_mmIDs, "grey");
-        //this.logger.logWithColor(loop_mmIDsDel, "grey");
-        //this.logger.logWithColor(loop_mmIDd, "grey");
-        for (const trader in traders){
-            const trader_id=traders[trader];
-            if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
-                continue;
-            if ("items" in this.mydb.traders[trader_id].assort){
-                const tarr = [];
-                const tarrd = [];
-                for (const item of this.mydb.traders[trader_id].assort.items) {
-                    if ( loop_mmIDs.includes(item._tpl)){
-                        for (const loopID of loop_mmIDd[item._tpl]) {
-                            const citem=this.jsonUtil.clone(item);
-                            citem._id=loopID;
-                            citem._tpl=loopID;
-                            tarr.push(citem);
-                        }
-                    }
-                    if (  loop_mmIDsDel.includes(item._tpl))
-                        tarrd.push(item);
-                }
-                this.mydb.traders[trader_id].assort["items"]=this.mydb.traders[trader_id].assort.items.filter( ( el ) => !tarrd.includes( el ) );
-                this.mydb.traders[trader_id].assort.items.push(...tarr);
-            }
-            //this.logger.logWithColor(`${trader_id} barter_scheme.`, "green");
-            if ("barter_scheme" in this.mydb.traders[trader_id].assort){
-                for (const [mmID, mmItem] of Object.entries( this.mydb.traders[trader_id].assort.barter_scheme)) {
-                    if (  loop_mmIDs.includes(mmID)){
-                        for (const loopID of loop_mmIDd[mmID]) {
-                            //this.logger.logWithColor(`mmID ${mmID} loopID ${loopID} `, "blue");
-                            this.mydb.traders[trader_id].assort.barter_scheme[loopID]=mmItem;
-                        }
-                    }
-                    if (loop_mmIDsDel.includes(mmID))
-                        delete this.mydb.traders[trader_id].assort.barter_scheme[mmID];
-                }
-            }
-            //this.logger.logWithColor(`${trader_id} loyal_level_items.`, "green");
-            if ("loyal_level_items" in this.mydb.traders[trader_id].assort){
-                for (const [mmID, mmItem] of Object.entries(  this.mydb.traders[trader_id].assort.loyal_level_items)) {
-                    if ( loop_mmIDs.includes(mmID)){
-                        for (const loopID of loop_mmIDd[mmID]) {
-                            //this.logger.logWithColor(`mmID ${mmID} loopID ${loopID} `, "blue");
-                            this.mydb.traders[trader_id].assort.loyal_level_items[loopID]=mmItem;
-                        }
-                    }
-                    if ( loop_mmIDsDel.includes(mmID))
-                        delete this.mydb.traders[trader_id].assort.loyal_level_items[mmID];
-                }
-            }
-            //this.logger.logWithColor(`${trader_id} set.`, "green");
-            //this.logger.logWithColor(this.mydb.traders[trader_id], "grey");
-        }
-        
-        this.logger.logWithColor(`${modFolderName} loop finished.`, "green");
-        //this.logger.debug(modFolderName + " loop finished");
-        
-
-        
-        
-        
         
         //Items + Handbook
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
@@ -209,6 +84,189 @@ class MItems {
             this.db.globals.config.Health.Effects.Stimulator.Buffs[sbuffs] = this.mydb.globals.config.Health.Effects.Stimulator.Buffs[sbuffs];
         //for (const buffs in buffs) {}
         this.logger.debug(modFolderName + " buffs finished");
+    }
+    loopItem(traders){
+        // ================================== loop ==================================
+        // color
+        const lcolor = ["default","orange","violet","grey","black","green","blue","yellow","red"];
+        const loop_mmIDs=[];
+        const loop_mmIDsDel=[];
+        const loop_mmIDd={}; // mmID : [[loopID,mmID+"_"+loopID],,, ]
+        // loop item
+        for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
+            
+            if ("RainbowColor" in mmItem && mmItem["RainbowColor"] ){
+                if  ("loop" in mmItem) {
+                    for (const [key, value] of Object.entries(mmItem["loop"])) {
+                        for (const ccolor of lcolor){
+                            let cvalue=this.jsonUtil.clone(value);
+                            cvalue = this.compareAndReplace(cvalue, {
+                                "item": {
+                                    "_props": {
+                                        "BackgroundColor": ccolor
+                                    }
+                                }
+                            });
+                            mmItem["loop"][key+"_"+ccolor]=cvalue;
+                        }
+                    }
+                }else
+                    mmItem["loop"]={};
+                for (const ccolor of lcolor){
+                    mmItem["loop"][ccolor]={
+                        "item": {
+                            "_props": {
+                                "BackgroundColor": ccolor
+                            }
+                        }
+                    }
+                }
+            }
+            // this.logger.logWithColor(mmItem["loop"], "gray");
+            if (! ("loop" in mmItem) ) 
+                continue;
+            loop_mmIDs.push(mmID);
+            loop_mmIDd[mmID]=[];
+            let itemDel=false;
+            if ("enableThis" in mmItem && ! mmItem["enableThis"]) {
+                itemDel=true;
+                loop_mmIDsDel.push(mmID);
+            }
+            const tloop=mmItem["loop"];
+            delete mmItem["loop"];
+            for (const [loopID, loopItem] of Object.entries(tloop)) {
+                const tloopID=mmID+"_"+loopID;
+                loop_mmIDd[mmID].push([loopID,tloopID]);
+                
+                let cmmItem=this.jsonUtil.clone(mmItem);
+                cmmItem = this.compareAndReplace(cmmItem, loopItem);
+                if ( "item" in cmmItem &&  "_props" in cmmItem.item &&  "Grids" in cmmItem.item._props){
+                     for (const grid of cmmItem.item._props.Grids){
+                         grid._id=tloopID+"_"+grid._name;
+                         grid._parent=tloopID;
+                     }
+                }
+                this.mydb.mm_items[tloopID]=cmmItem;
+                this.logger.logWithColor(`Lilly : add ${tloopID} to mm_items .`,"cyan");
+
+            }
+            if (itemDel)
+                delete this.mydb.mm_items[mmID];
+        }
+        //this.logger.logWithColor(this.mydb.mm_items, "grey");
+        //this.logger.logWithColor(loop_mmIDs, "grey");
+        //this.logger.logWithColor(loop_mmIDsDel, "grey");
+        //this.logger.logWithColor(loop_mmIDd, "grey");
+        // loop trader
+        this.logger.logWithColor(`Lilly : mm_items finished.`,"green");
+        for (const trader in traders){
+            const trader_id=traders[trader];
+            if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
+                continue;
+            if ("items" in this.mydb.traders[trader_id].assort){
+                const tarr = [];
+                const tarrd = [];
+                for (const item of this.mydb.traders[trader_id].assort.items) {
+                    if ( loop_mmIDs.includes(item._tpl)){
+                        for (const loopID of loop_mmIDd[item._tpl]) {
+                            const citem=this.jsonUtil.clone(item);
+                            citem._id=loopID[1];
+                            citem._tpl=loopID[1];
+                            tarr.push(citem);
+                        }
+                    }
+                    if (  loop_mmIDsDel.includes(item._tpl))
+                        tarrd.push(item);
+                }
+                this.mydb.traders[trader_id].assort["items"]=this.mydb.traders[trader_id].assort.items.filter( ( el ) => !tarrd.includes( el ) );
+                this.mydb.traders[trader_id].assort.items.push(...tarr);
+            }
+            //this.logger.logWithColor(`${trader_id} barter_scheme.`, "green");
+            if ("barter_scheme" in this.mydb.traders[trader_id].assort){
+                for (const [mmID, mmItem] of Object.entries( this.mydb.traders[trader_id].assort.barter_scheme)) {
+                    if (  loop_mmIDs.includes(mmID)){
+                        for (const loopID of loop_mmIDd[mmID]) {
+                            //this.logger.logWithColor(`mmID ${mmID} loopID ${loopID} `, "blue");
+                            this.mydb.traders[trader_id].assort.barter_scheme[loopID[1]]=mmItem;
+                        }
+                    }
+                    if (loop_mmIDsDel.includes(mmID))
+                        delete this.mydb.traders[trader_id].assort.barter_scheme[mmID];
+                }
+            }
+            //this.logger.logWithColor(`${trader_id} loyal_level_items.`, "green");
+            if ("loyal_level_items" in this.mydb.traders[trader_id].assort){
+                for (const [mmID, mmItem] of Object.entries(  this.mydb.traders[trader_id].assort.loyal_level_items)) {
+                    if ( loop_mmIDs.includes(mmID)){
+                        for (const loopID of loop_mmIDd[mmID]) {
+                            //this.logger.logWithColor(`mmID ${mmID} loopID ${loopID} `, "blue");
+                            this.mydb.traders[trader_id].assort.loyal_level_items[loopID[1]]=mmItem;
+                        }
+                    }
+                    if ( loop_mmIDsDel.includes(mmID))
+                        delete this.mydb.traders[trader_id].assort.loyal_level_items[mmID];
+                }
+            }
+            //this.logger.logWithColor(`${trader_id} set.`, "green");
+            //this.logger.logWithColor(this.mydb.traders[trader_id], "grey");
+            this.logger.logWithColor(`Lilly : add to ${trader} finished.`,"cyan");
+        }
+        this.logger.logWithColor(`Lilly : trader finished.`,"green");
+        
+        this.loopItemLocales(loop_mmIDd);
+        
+        
+        //this.logger.debug(modFolderName + " loop finished");
+        // ================================== loop ==================================
+    }
+    setLocales(localeID,localeIDto){
+        for (const entry in this.mydb.old_locales.global[localeID].templates)
+            this.db.locales.global[localeIDto].templates[entry] = this.mydb.old_locales.global[localeID].templates[entry];
+        for (const entry in this.mydb.old_locales.global[localeID].preset)
+            this.db.locales.global[localeIDto].preset[entry] = this.mydb.old_locales.global[localeID].preset[entry];
+    }
+    loopItemLocalesSet(localeID,loopID,loopList,key){
+        if ( loopID+" "+key in this.mydb.locales.global[localeID]){
+            //this.logger.logWithColor(loopID,"grey");
+            //this.logger.logWithColor(this.mydb.locales.global[localeID][loopID+" "+key],"grey");
+            for (const loopL of loopList){
+                this.mydb.locales.global[localeID][loopL[1]+" "+key]=this.mydb.locales.global[localeID][loopID+" "+key];
+                //this.logger.logWithColor(this.mydb.locales.global[localeID][loopL[1]+" "+key],"grey");
+                ;
+            }
+        }
+    }
+    loopItemLocalesSet2(localeID,loopID,loopList,key){
+        if ( loopID+" "+key in this.mydb.locales.global[localeID]){
+            //this.logger.logWithColor(loopID,"grey");
+            //this.logger.logWithColor(this.mydb.locales.global[localeID][loopID+" "+key],"grey");
+            for (const loopL of loopList){
+                this.mydb.locales.global[localeID][loopL[1]+" "+key]=this.mydb.locales.global[localeID][loopID+" "+key]+" "+loopL[0];
+                //this.logger.logWithColor(this.mydb.locales.global[localeID][loopL[1]+" "+key],"grey");
+                ;
+            }
+        }
+    }
+    loopItemLocales(loop_mmIDd){
+        //this.logger.logWithColor(loop_mmIDd, "grey");
+        //for (const localeID in this.mydb.old_locales.global) {
+        //    if (this.mydb.old_locales.global[localeID]) //If the locale is included in the mod, add it
+        //    {
+        //        this.mydb.old_locales.global[localeID].templates[entry];
+        //        this.mydb.old_locales.global[localeID].preset[entry];
+        //    }
+        //}
+        for (const localeID in this.mydb.locales.global) {
+            if (this.mydb.locales.global[localeID]) //If the locale is included in the mod, add it
+            {
+                for (const [loopID, loopList] of Object.entries(loop_mmIDd)) {
+                    this.loopItemLocalesSet2(localeID,loopID,loopList,"Name");
+                    this.loopItemLocalesSet(localeID,loopID,loopList,"ShortName");
+                    this.loopItemLocalesSet(localeID,loopID,loopList,"Description");
+                }
+            }
+        }
+        this.logger.logWithColor(`Lilly : Locales finished.`,"green");
     }
     cloneItem(itemToClone, mmID) {
         //If the item is enabled in the json
