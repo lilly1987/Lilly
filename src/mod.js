@@ -115,9 +115,9 @@ class MItems {
                 //this.logger.logWithColor(`${mag._max_count}`, "gray");
                 mag._max_count*=modConfig.MagazineMulti;
             }
-            _props.ExtraSizeLeft=0;
-            _props.ExtraSizeDown=0;
             if (modConfig.MagazineSize){
+                _props.ExtraSizeLeft=0;
+                _props.ExtraSizeDown=0;
                 _props.Height=1;
                 _props.Width=1;
             }
