@@ -6,6 +6,12 @@ Escape from Tarkov\user\mods\Lilly
 ![2023-09-18 20 13 03](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/59e3aee8-c5a4-4620-8561-e1277516177a)
 
 
+# MagazineSize , MagazineMulti
+
+![2023-09-20 23 02 52](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/6bec24e4-0c08-49dc-ae11-2971f6f914fd)
+
+
+
 # ex
 
 ![2023-09-18 20 08 30](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/8ed0cf24-43fb-443c-9e5d-3da70bcae219)
