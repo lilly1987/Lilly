@@ -1,4 +1,8 @@
 {
+    "Magazine": false,
+    "MagazineMulti": 10,
+    "RainbowColor": true,
+    "loopItem": true,
     "oldLocales": false,
     "lvl1Traders": false
 }

@@ -33,9 +33,22 @@ class MItems {
         this.mydb = databaseImporter.loadRecursive(`${modLoader.getModPath(modFolderName)}database/`);
         this.logger.info("Loading: " + modFullName);
         
+        // Magazine
+        if (modConfig.Magazine){
+            this.addMagazine();
+            this.logger.logWithColor(`${modFolderName} Magazine finished.`, "green");
+        }else{
+            this.logger.logWithColor(`${modFolderName} Magazine off.`, "yellow");
+        }
         
-        this.loopItem(traders);
-        this.logger.logWithColor(`${modFolderName} loop finished.`, "green");
+        // loop
+        if (modConfig.loopItem){
+            
+            this.loopItem(traders);
+            this.logger.logWithColor(`${modFolderName} loop finished.`, "green");
+        }else{
+            this.logger.logWithColor(`${modFolderName} loop off.`, "yellow");
+        }
         
         //Locales (Languages)
         this.addLocales();
@@ -85,6 +98,59 @@ class MItems {
         //for (const buffs in buffs) {}
         this.logger.debug(modFolderName + " buffs finished");
     }
+    addMagazine(){
+        const d={};
+        for (const [id, values] of Object.entries(this.db.templates.items)) {
+            if( !("_props" in values ))
+                continue;
+            const _props=values["_props"];
+            if( !("Cartridges" in _props ))
+                continue;
+            //this.logger.logWithColor(`${id}`, "gray");
+            const Cartridges=_props["Cartridges"];
+            //this.logger.logWithColor(`${Cartridges.length}`, "gray");
+            if (Cartridges.length==0 || _props["Slots"].length>0)
+                continue;
+            let cvalues=this.jsonUtil.clone(values);
+            cvalues._parent=values._id;
+            cvalues._id+="_"+modConfig.MagazineMulti;
+            for (const mag of cvalues._props.Cartridges){
+                //this.logger.logWithColor(`${mag._max_count}`, "gray");
+                mag._max_count*=modConfig.MagazineMulti;
+                mag._id+="_"+modConfig.MagazineMulti;
+                mag._parent=cvalues._id;
+            }
+            //this.logger.logWithColor(`${id}`, "gray");
+            d[id]=cvalues;
+        }
+        for (const [did, dvalues] of Object.entries(d)) {
+            this.db.templates.items[dvalues._id]=dvalues;
+        }
+        this.logger.logWithColor(this.db.templates.items["55d484b44bdc2d1d4e8b456d"], "cyan");
+        this.logger.logWithColor(this.db.templates.items["55d484b44bdc2d1d4e8b456d_10"], "cyan");
+        
+        //this.logger.logWithColor(d, "cyan");
+        for (const [id, values] of Object.entries(this.db.traders)) {
+            //this.logger.logWithColor(values, "cyan");
+            this.logger.logWithColor(id, "cyan");
+            if (!( "assort" in values))
+                continue;
+                
+            const a=[];
+            for (const item of values.assort.items) {
+                if ( item._tpl in d){
+                    let citem=this.jsonUtil.clone(item);
+                    citem._id+="_"+modConfig.MagazineMulti;
+                    citem._tpl+="_"+modConfig.MagazineMulti;
+                    a.push(citem);
+                    values.assort.barter_scheme[citem._id]=values.assort.barter_scheme[item._id];
+                    values.assort.loyal_level_items[citem._id]=values.assort.loyal_level_items[item._id];
+                }
+            }
+            values.assort.items.push(...a);
+            //this.logger.logWithColor(a, "gray");
+        }
+    }
     loopItem(traders){
         // ================================== loop ==================================
         // color
@@ -95,7 +161,7 @@ class MItems {
         // loop item
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             
-            if ("RainbowColor" in mmItem && mmItem["RainbowColor"] ){
+            if (modConfig.RainbowColor && "RainbowColor" in mmItem && mmItem["RainbowColor"] ){
                 if  ("loop" in mmItem) {
                     for (const [key, value] of Object.entries(mmItem["loop"])) {
                         for (const ccolor of lcolor){
@@ -219,6 +285,7 @@ class MItems {
         //this.logger.debug(modFolderName + " loop finished");
         // ================================== loop ==================================
     }
+
     setLocales(localeID,localeIDto){
         for (const entry in this.mydb.old_locales.global[localeID].templates)
             this.db.locales.global[localeIDto].templates[entry] = this.mydb.old_locales.global[localeID].templates[entry];
