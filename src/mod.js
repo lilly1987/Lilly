@@ -35,7 +35,8 @@ class MItems {
         
         // Magazine
         if (modConfig.Magazine){
-            this.addMagazine();
+            this.multiMagazine();
+            //this.addMagazine();
             this.logger.logWithColor(`${modFolderName} Magazine finished.`, "green");
         }else{
             this.logger.logWithColor(`${modFolderName} Magazine off.`, "yellow");
@@ -97,6 +98,33 @@ class MItems {
             this.db.globals.config.Health.Effects.Stimulator.Buffs[sbuffs] = this.mydb.globals.config.Health.Effects.Stimulator.Buffs[sbuffs];
         //for (const buffs in buffs) {}
         this.logger.debug(modFolderName + " buffs finished");
+    }
+    multiMagazine(){
+        for (const [id, values] of Object.entries(this.db.templates.items)) {
+            if( !("_props" in values ))
+                continue;
+            const _props=values._props;
+            if( !("Cartridges" in _props ))
+                continue;
+            //this.logger.logWithColor(`${id}`, "gray");
+            const Cartridges=_props.Cartridges;
+            //this.logger.logWithColor(`${Cartridges.length}`, "gray");
+            if (Cartridges.length==0 || _props.Slots.length>0)
+                continue;
+            for (const mag of Cartridges){
+                //this.logger.logWithColor(`${mag._max_count}`, "gray");
+                mag._max_count*=modConfig.MagazineMulti;
+            }
+            _props.ExtraSizeLeft=0;
+            _props.ExtraSizeDown=0;
+            if (modConfig.MagazineSize){
+                _props.Height=1;
+                _props.Width=1;
+            }
+            _props.Weight=0;
+            //this.logger.logWithColor(values, "cyan");
+            this.logger.logWithColor(`Lilly : ${values._name} Magazine set.`, "cyan");
+        }
     }
     addMagazine(){
         const d={};

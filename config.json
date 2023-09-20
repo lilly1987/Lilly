@@ -1,5 +1,6 @@
 {
-    "Magazine": false,
+    "Magazine": true,
+    "MagazineSize": true,
     "MagazineMulti": 10,
     "RainbowColor": true,
     "loopItem": true,
