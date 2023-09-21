@@ -5,15 +5,28 @@ const modConfig = require("../config.json");
 //Item template file
 const itemTemplate = require("../templates/item_template.json");
 class MItems {
-    postDBLoad(container) {
+    preAkiLoad(container){
         this.logger = container.resolve("WinstonLogger");
         this.jsonUtil = container.resolve("JsonUtil");
+        
+        this.modFolderName = "Lilly";
+        this.modFullName = "Lilly";
+        
+        this.logger.info(this.logger);
+        this.logger.info("Loading: " + this.modFullName);
+        this.logger.info(this.modFolderName + " preAkiLoad finished");
+    }
+    postAkiLoad(container) {
+        this.logger.info(this.modFolderName + " postAkiLoad finished");
+    }
+    preDBLoad(container) {
+        this.logger.info(this.modFolderName + " preDBLoad finished");
+    }
+    postDBLoad(container) {
         const databaseServer = container.resolve("DatabaseServer");
         const databaseImporter = container.resolve("ImporterUtil");
         const modLoader = container.resolve("PreAkiModLoader");
         //Mod Info
-        const modFolderName = "Lilly";
-        const modFullName = "Lilly";
         //Trader IDs
         const traders = {
             "MFACSHOP": "MFACSHOP"
@@ -30,30 +43,30 @@ class MItems {
 
         //Get the server database and our custom database
         this.db = databaseServer.getTables();
-        this.mydb = databaseImporter.loadRecursive(`${modLoader.getModPath(modFolderName)}database/`);
-        this.logger.info("Loading: " + modFullName);
+        this.mydb = databaseImporter.loadRecursive(`${modLoader.getModPath(this.modFolderName)}database/`);
+        
         
         // Magazine
         if (modConfig.Magazine){
             this.multiMagazine();
             //this.addMagazine();
-            this.logger.logWithColor(`${modFolderName} Magazine finished.`, "green");
+            this.logger.logWithColor(`${this.modFolderName} Magazine finished.`, "green");
         }else{
-            this.logger.logWithColor(`${modFolderName} Magazine off.`, "yellow");
+            this.logger.logWithColor(`${this.modFolderName} Magazine off.`, "yellow");
         }
         
         // loop
         if (modConfig.loopItem){
             
             this.loopItem(traders);
-            this.logger.logWithColor(`${modFolderName} loop finished.`, "green");
+            this.logger.logWithColor(`${this.modFolderName} loop finished.`, "green");
         }else{
-            this.logger.logWithColor(`${modFolderName} loop off.`, "yellow");
+            this.logger.logWithColor(`${this.modFolderName} loop off.`, "yellow");
         }
         
         //Locales (Languages)
         this.addLocales();
-        this.logger.debug(modFolderName + " locales finished");
+        this.logger.debug(this.modFolderName + " locales finished");
         
         //Items + Handbook
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
@@ -67,15 +80,15 @@ class MItems {
                 this.addToFilters(mmID);
             }
         }
-        this.logger.debug(modFolderName + " items and handbook finished");
+        this.logger.debug(this.modFolderName + " items and handbook finished");
         //Clothing
         for (const newArticle in this.mydb.mm_clothes)
             this.cloneClothing(this.mydb.mm_clothes[newArticle].clone, newArticle);
-        this.logger.debug(modFolderName + " clothing finished");
+        this.logger.debug(this.modFolderName + " clothing finished");
         //Presets
         for (const preset in this.mydb.globals.ItemPresets)
             this.db.globals.ItemPresets[preset] = this.mydb.globals.ItemPresets[preset];
-        this.logger.debug(modFolderName + " presets finished");
+        this.logger.debug(this.modFolderName + " presets finished");
         //Traders
         for (const trader in traders)
             this.addTraderAssort(traders[trader]);
@@ -84,7 +97,7 @@ class MItems {
             for (const suit of this.mydb.traders[traders["ragman"]].suits)
                 this.db.traders[traders["ragman"]].suits.push(suit);
 
-        this.logger.debug(modFolderName + " traders finished");
+        this.logger.debug(this.modFolderName + " traders finished");
         //Mastery
         const dbMastering = this.db.globals.config.Mastering;
         for (const weapon in this.mydb.globals.config.Mastering)
@@ -92,12 +105,14 @@ class MItems {
         for (const weapon in dbMastering) {
         }
         //for (const weapon in dbMastering) {}
-        this.logger.debug(modFolderName + " mastery finished");
+        this.logger.debug(this.modFolderName + " mastery finished");
         //Stimulator buffs
         for (const sbuffs in this.mydb.globals.config.Health.Effects.Stimulator.Buffs)
             this.db.globals.config.Health.Effects.Stimulator.Buffs[sbuffs] = this.mydb.globals.config.Health.Effects.Stimulator.Buffs[sbuffs];
         //for (const buffs in buffs) {}
-        this.logger.debug(modFolderName + " buffs finished");
+        this.logger.debug(this.modFolderName + " buffs finished");
+        
+        this.logger.info(this.modFolderName + " postDBLoad finished");
     }
     multiMagazine(){
         for (const [id, values] of Object.entries(this.db.templates.items)) {
@@ -310,7 +325,7 @@ class MItems {
         this.loopItemLocales(loop_mmIDd);
         
         
-        //this.logger.debug(modFolderName + " loop finished");
+        //this.logger.debug(this.modFolderName + " loop finished");
         // ================================== loop ==================================
     }
 
