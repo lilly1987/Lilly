@@ -12,7 +12,7 @@ class MItems {
         this.modFolderName = "Lilly";
         this.modFullName = "Lilly";
         
-        this.logger.info(this.logger);
+        //this.logger.info(this.logger);
         this.logger.info("Loading: " + this.modFullName);
         this.logger.info(this.modFolderName + " preAkiLoad finished");
     }
