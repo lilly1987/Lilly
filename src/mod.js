@@ -14,6 +14,38 @@ class MItems {
         
         //this.logger.info(this.logger);
         this.logger.info("Loading: " + this.modFullName);
+        
+        const staticRouterModService = container.resolve("StaticRouterModService");
+        staticRouterModService.registerStaticRouter(this.modFullName, [
+            //{
+            //    url: "/client/items",
+            //    action: (url, info, sessionID, output) => {
+            //        try {
+            //        this.logger.logWithColor(output, "yellow");
+            //        this.logger.logWithColor(info, "magenta");
+            //        this.logger.logWithColor(`Lilly : ${url}.`, "cyan");
+            //        }
+            //        catch (error) {
+            //            this.logger.error(error.message);
+            //        }
+            //        return output;
+            //    }
+            //},
+            {
+                url: "/quests/zones/getZones",
+                action: (url, info, sessionID, output) => {
+                    try {
+                    this.logger.logWithColor(output, "yellow");
+                    this.logger.logWithColor(info, "magenta");
+                    this.logger.logWithColor(`Lilly : ${url}.`, "cyan");
+                    }
+                    catch (error) {
+                        this.logger.error(error.message);
+                    }
+                    return output;
+                }
+            }
+        ], "aki");
         this.logger.info(this.modFolderName + " preAkiLoad finished");
     }
     postAkiLoad(container) {

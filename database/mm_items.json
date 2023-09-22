@@ -1,4 +1,59 @@
 {
+    "LillySOK": {
+        "clone": "5cf8f3b0d7f00c00217872ef",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f754a86f774094242f19b",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "ExtraSizeDown": 0,
+      "Cartridges": [
+        {
+          "_id": "5cf8f3b1d7f00c00217872f1",
+          "_max_count": 500,
+          "_name": "cartridges",
+          "_parent": "5cf8f3b0d7f00c00217872ef",
+          "_props": {
+            "filters": [
+              {
+                "Filter": [
+                  "560d5e524bdc2d25448b4571",
+                  "5d6e6772a4b936088465b17c",
+                  "5d6e67fba4b9361bc73bc779",
+                  "5d6e6806a4b936088465b17e",
+                  "5d6e68dea4b9361bcc29e659",
+                  "5d6e6911a4b9361bd5780d52",
+                  "5c0d591486f7744c505b416f",
+                  "58820d1224597753c90aeb13",
+                  "5d6e68c4a4b9361b93413f79",
+                  "5d6e68a8a4b9360b6c0d54e2",
+                  "5d6e68e6a4b9361c140bcfe0",
+                  "5d6e6869a4b9361c140bcfde",
+                  "5d6e68b3a4b9361bca7e50b5",
+                  "5d6e6891a4b9361bd473feea",
+                  "5d6e689ca4b9361bc8618956",
+                  "5d6e68d1a4b93622fe60e845"
+                ]
+              }
+            ]
+          },
+          "_proto": "5748538b2459770af276a261"
+        }
+      ],
+                "Height": 1,
+                "Width": 1,
+                "BackgroundColor": "black",
+                "Weight": 0
+            }
+        },
+        "locales": {
+            "Name": "Lilly SOK magazine",
+            "Shortname": "LSOK",
+            "Description": "Lilly SOK magazine"
+        }
+    },
     "LillyGlock": {
         "clone": "5a718b548dc32e000d46d262",
         "enable": true,
@@ -12,7 +67,7 @@
                 "Cartridges": [
                     {
                         "_id": "LillyGlockcartridges",
-                        "_max_count": 30000,
+                        "_max_count": 10000,
                         "_name": "cartridges",
                         "_parent": "LillyGlock",
                         "_props": {
@@ -59,7 +114,7 @@
                 "Cartridges": [
                     {
                         "_id": "LillyAXMCcartridges",
-                        "_max_count": 250,
+                        "_max_count": 1000,
                         "_name": "cartridges",
                         "_parent": "LillyAXMC",
                         "_props": {
@@ -104,7 +159,7 @@
                         "_name": "cartridges",
                         "_id": "LillySVDcartridges",
                         "_parent": "LillySVD",
-                        "_max_count": 250,
+                        "_max_count": 2000,
                         "_props": {
                             "filters": [
                                 {
