@@ -1,4 +1,111 @@
 {
+    "Lilly_armband": {
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f701386f774093f2ecf0f",
+            "Price": 1000000
+        },
+        "item": {
+			"_parent": "57bef4c42459772e8d35a53b",
+			"_type": "Item",
+			"_props": {
+				"Name": "Holtzman Shield",
+				"ShortName": "HSE",
+				"Description": "You've read Dune right? Or at least seen the movies? Right?...",
+				"Weight": 0.1,
+				"BackgroundColor": "black",
+				"Width": 1,
+				"Height": 1,
+				"StackMaxSize": 1,
+				"SpawnChance": 1,
+				"ItemSound": "item_cloth_generic",
+				"Prefab": {
+					"path": "assets/content/items/equipment/armband/item_equipment_armband_revals.bundle",
+					"rcid": ""
+				},
+				"UsePrefab": {
+					"path": "",
+					"rcid": ""
+				},
+				"StackObjectsCount": 1,
+				"NotShownInSlot": false,
+				"ExaminedByDefault": false,
+				"ExamineTime": 1,
+				"IsUndiscardable": false,
+				"IsUnsaleable": false,
+				"IsUnbuyable": false,
+				"IsUngivable": false,
+				"IsLockedafterEquip": false,
+				"QuestItem": false,
+				"LootExperience": 20,
+				"ExamineExperience": 10,
+				"HideEntrails": false,
+				"RepairCost": 1100,
+				"RepairSpeed": 10,
+				"ExtraSizeLeft": 0,
+				"ExtraSizeRight": 0,
+				"ExtraSizeUp": 0,
+				"ExtraSizeDown": 0,
+				"ExtraSizeForceAdd": false,
+				"MergesWithChildren": false,
+				"CanSellOnRagfair": true,
+				"CanRequireOnRagfair": true,
+				"ConflictingItems": [],
+				"FixedPrice": false,
+				"Unlootable": true,
+				"UnlootableFromSlot": "ArmBand",
+				"UnlootableFromSide": [
+					"Bear",
+					"Usec",
+					"Savage"
+				],
+				"ChangePriceCoef": 1,
+				"AllowSpawnOnLocations": [],
+				"SendToClient": false,
+				"AnimationVariantsNumber": 0,
+				"DiscardingBlock": false,
+				"RagFairCommissionModifier": 1,
+				"Grids": [],
+				"Slots": [],
+				"CanPutIntoDuringTheRaid": true,
+				"CantRemoveFromSlotsDuringRaid": [],
+				"BlocksEarpiece": false,
+				"BlocksEyewear": false,
+				"BlocksHeadwear": false,
+				"BlocksFaceCover": false,
+				"Durability": 1000,
+				"MaxDurability": 1000,
+				"armorClass": "10",
+				"speedPenaltyPercent": 0,
+				"mousePenalty": 0,
+				"weaponErgonomicPenalty": 0,
+				"armorZone": [],
+				"Indestructibility": 0.9,
+				"headSegments": [],
+				"FaceShieldComponent": false,
+				"FaceShieldMask": "NoMask",
+				"HasHinge": false,
+				"MaterialType": "BodyArmor",
+				"RicochetParams": {
+					"x": 0.9,
+					"y": 0.5,
+					"z": 70
+				},
+				"DeafStrength": "None",
+				"BluntThroughput": 0.10,
+				"ArmorMaterial": "Aramid",
+				"BlindnessProtection": 0,
+				"ArmorType": "Light"
+			},
+			"_proto": "5b3f15d486f77432d0509248"
+        },
+        "locales": {
+            "Name": "Lilly SOK magazine",
+            "Shortname": "LSOK",
+            "Description": "Lilly SOK magazine"
+        }
+    },
+
     "LillySOK": {
         "clone": "5cf8f3b0d7f00c00217872ef",
         "enable": true,
@@ -9,39 +116,39 @@
         "item": {
             "_props": {
                 "ExtraSizeDown": 0,
-      "Cartridges": [
-        {
-          "_id": "5cf8f3b1d7f00c00217872f1",
-          "_max_count": 500,
-          "_name": "cartridges",
-          "_parent": "5cf8f3b0d7f00c00217872ef",
-          "_props": {
-            "filters": [
-              {
-                "Filter": [
-                  "560d5e524bdc2d25448b4571",
-                  "5d6e6772a4b936088465b17c",
-                  "5d6e67fba4b9361bc73bc779",
-                  "5d6e6806a4b936088465b17e",
-                  "5d6e68dea4b9361bcc29e659",
-                  "5d6e6911a4b9361bd5780d52",
-                  "5c0d591486f7744c505b416f",
-                  "58820d1224597753c90aeb13",
-                  "5d6e68c4a4b9361b93413f79",
-                  "5d6e68a8a4b9360b6c0d54e2",
-                  "5d6e68e6a4b9361c140bcfe0",
-                  "5d6e6869a4b9361c140bcfde",
-                  "5d6e68b3a4b9361bca7e50b5",
-                  "5d6e6891a4b9361bd473feea",
-                  "5d6e689ca4b9361bc8618956",
-                  "5d6e68d1a4b93622fe60e845"
-                ]
-              }
-            ]
-          },
-          "_proto": "5748538b2459770af276a261"
-        }
-      ],
+                "Cartridges": [
+                    {
+                        "_id": "5cf8f3b1d7f00c00217872f1",
+                        "_max_count": 2000,
+                        "_name": "cartridges",
+                        "_parent": "5cf8f3b0d7f00c00217872ef",
+                        "_props": {
+                            "filters": [
+                                {
+                                    "Filter": [
+                                        "560d5e524bdc2d25448b4571",
+                                        "5d6e6772a4b936088465b17c",
+                                        "5d6e67fba4b9361bc73bc779",
+                                        "5d6e6806a4b936088465b17e",
+                                        "5d6e68dea4b9361bcc29e659",
+                                        "5d6e6911a4b9361bd5780d52",
+                                        "5c0d591486f7744c505b416f",
+                                        "58820d1224597753c90aeb13",
+                                        "5d6e68c4a4b9361b93413f79",
+                                        "5d6e68a8a4b9360b6c0d54e2",
+                                        "5d6e68e6a4b9361c140bcfe0",
+                                        "5d6e6869a4b9361c140bcfde",
+                                        "5d6e68b3a4b9361bca7e50b5",
+                                        "5d6e6891a4b9361bd473feea",
+                                        "5d6e689ca4b9361bc8618956",
+                                        "5d6e68d1a4b93622fe60e845"
+                                    ]
+                                }
+                            ]
+                        },
+                        "_proto": "5748538b2459770af276a261"
+                    }
+                ],
                 "Height": 1,
                 "Width": 1,
                 "BackgroundColor": "black",
@@ -612,38 +719,6 @@
     },
     "LillyAmmor": {
         "loop": {
-            "ArmBand": {
-                "enable": false,
-                "clone": "57bef4c42459772e8d35a53b",
-                "handbook": {
-                    "ParentId": "5b5f701386f774093f2ecf0f"
-                },
-                "item": {
-                    "_props": {
-                        "UnlootableFromSlot": "ArmBand",
-                        "Prefab": {
-                            "path": "assets/content/items/equipment/armband/item_equipment_armband_bear.bundle",
-                            "rcid": ""
-                        }
-                    }
-                },
-                "locales": {
-                    "Description": "ArmBand",
-                    "Name": "Lilly ArmBand",
-                    "Shortname": "LBand"
-                }
-            },
-            "glasses": {
-                "clone": "603409c80ca681766b6a0fb2",
-                "handbook": {
-                    "ParentId": "5b47574386f77428ca22b331"
-                },
-                "locales": {
-                    "Description": "glasses",
-                    "Name": "Lilly glasses",
-                    "Shortname": "Lglasses"
-                }
-            },
             "pipe": {
                 "clone": "62a61bbf8ec41a51b34758d2",
                 "handbook": {
@@ -653,6 +728,94 @@
                     "Description": "pipe",
                     "Name": "Lilly pipe",
                     "Shortname": "L pipe"
+                }
+            },
+            "glasses": {
+                "clone": "603409c80ca681766b6a0fb2",
+                "handbook": {
+                    "ParentId": "5b47574386f77428ca22b331"
+                },
+                "item": {
+                    "_props": {
+                    }
+                },
+                "locales": {
+                    "Description": "glasses",
+                    "Name": "Lilly glasses",
+                    "Shortname": "Lglasses"
+                }
+            },
+            "TwitchG": {
+                "clone": "5e71f70186f77429ee09f183",
+                "handbook": {
+                    "ParentId": "5b47574386f77428ca22b331"
+                },
+                "item": {
+                    "_props": {
+                    }
+                },
+                "locales": {
+                    "Description": "Twitch",
+                    "Name": "Twitch",
+                    "Shortname": "Twitch"
+                }
+            },
+            "TwitchH": {
+                "clone": "5f99418230835532b445e954",
+                "handbook": {
+                    "ParentId": "5b47574386f77428ca22b330"
+                },
+                "item": {
+                    "_props": {
+                        "MaterialType": "Helmet",
+                        "Slots": [
+                            {
+                                "_id": "5e00c1ad86f774747333222f",
+                                "_mergeSlotWithChildren": false,
+                                "_name": "mod_nvg",
+                                "_parent": "5e00c1ad86f774747333222c",
+                                "_props": {
+                                    "filters": [
+                                        {
+                                            "Filter": [
+                                                "5c0558060db834001b735271",
+                                                "5a16b8a9fcdbcb00165aa6ca"
+                                            ],
+                                            "Shift": 0
+                                        }
+                                    ]
+                                },
+                                "_proto": "55d30c4c4bdc2db4468b457e",
+                                "_required": false
+                            }
+                        ]
+                    }
+                },
+                "locales": {
+                    "Description": "Twitch",
+                    "Name": "Twitch",
+                    "Shortname": "Twitch"
+                }
+            },
+            "TwitchA": {
+                "clone": "5f9949d869e2777a0e779ba5",
+                "handbook": {
+                    "ParentId": "5b5f701386f774093f2ecf0f"
+                },
+                "item": {
+                    "_parent": "57bef4c42459772e8d35a53b",
+                    "_props": {
+                        "MaterialType": "BodyArmor",
+                        "Prefab": {
+                          "path": "assets/content/items/equipment/armband/item_equipment_armband_revals.bundle",
+                          "rcid": ""
+                        }
+                    }
+                },
+                "locales": {
+                    "Description": "Twitch",
+                    "Name": "Twitch",
+                    "Shortname": "Twitch"
                 }
             }
         },
@@ -681,22 +844,23 @@
                 "BackgroundColor": "black",
                 "BluntThroughput": 0.1,
                 "Grids": [],
-                "RepairCost": 100,
+                "RepairCost": 1000,
                 "RepairSpeed": 10,
                 "CanSellOnRagfair": true,
-                "CanRequireOnRagfair": true,
-                "Durability": 500,
-                "MaxDurability": 500,
+                "CanRequireOnRagfair": false,
+                "Durability": 1000,
+                "MaxDurability": 1000,
                 "Indestructibility": 0.9,
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
                 "weaponErgonomicPenalty": 0,
                 "RicochetParams": {
-                    "x": 0.9,
-                    "y": 0.5,
-                    "z": 40
+                    "x": 1.0,
+                    "y": 0.75,
+                    "z": 45
                 },
                 "DeafStrength": "None",
+                "Unlootable": false,
                 "UnlootableFromSlot": "FirstPrimaryWeapon",
                 "UnlootableFromSide": [
                     "Bear",

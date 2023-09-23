@@ -49,6 +49,7 @@ class MItems {
         this.logger.info(this.modFolderName + " preAkiLoad finished");
     }
     postAkiLoad(container) {
+        this.logger.logWithColor(this.db.templates.items["LillyAmmor_TwitchA"], "cyan");
         this.logger.info(this.modFolderName + " postAkiLoad finished");
     }
     preDBLoad(container) {
@@ -281,14 +282,15 @@ class MItems {
                 
                 let cmmItem=this.jsonUtil.clone(mmItem);
                 cmmItem = this.compareAndReplace(cmmItem, loopItem);
-                if ( "item" in cmmItem &&  "_props" in cmmItem.item &&  "Grids" in cmmItem.item._props){
-                     for (const grid of cmmItem.item._props.Grids){
-                         grid._id=tloopID+"_"+grid._name;
-                         grid._parent=tloopID;
-                     }
+                if ( "item" in cmmItem &&  "_props" in cmmItem.item ){
+                    const _props=cmmItem.item._props;
+                    if ("Cartridges" in _props) this.loop_parent(_props.Cartridges,tloopID);
+                    if ("StackSlots" in _props) this.loop_parent(_props.StackSlots,tloopID);
+                    if ("Slots" in _props) this.loop_parent(_props.Slots,tloopID);
+                    if ("Grids" in _props) this.loop_parent(_props.Grids,tloopID);
                 }
                 this.mydb.mm_items[tloopID]=cmmItem;
-                this.logger.logWithColor(`Lilly : add ${tloopID} to mm_items .`,"cyan");
+                this.logger.logWithColor(`Lilly : loop add ${tloopID} to mm_items .`,"cyan");
 
             }
             if (itemDel)
@@ -299,7 +301,7 @@ class MItems {
         //this.logger.logWithColor(loop_mmIDsDel, "grey");
         //this.logger.logWithColor(loop_mmIDd, "grey");
         // loop trader
-        this.logger.logWithColor(`Lilly : mm_items finished.`,"green");
+        this.logger.logWithColor(`Lilly : loop mm_items finished.`,"green");
         for (const trader in traders){
             const trader_id=traders[trader];
             if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
@@ -350,17 +352,22 @@ class MItems {
             }
             //this.logger.logWithColor(`${trader_id} set.`, "green");
             //this.logger.logWithColor(this.mydb.traders[trader_id], "grey");
-            this.logger.logWithColor(`Lilly : add to ${trader} finished.`,"cyan");
+            this.logger.logWithColor(`Lilly : loop add to ${trader} finished.`,"cyan");
         }
-        this.logger.logWithColor(`Lilly : trader finished.`,"green");
+        this.logger.logWithColor(`Lilly : loop trader finished.`,"green");
         
         this.loopItemLocales(loop_mmIDd);
-        
+        this.logger.logWithColor(`Lilly : loop Locales finished.`,"green");
         
         //this.logger.debug(this.modFolderName + " loop finished");
         // ================================== loop ==================================
     }
-
+    loop_parent(arr,id){
+        for (const item of arr){
+            item._id=id+"_"+item._name;
+            item._parent=id;
+        }
+    }    
     setLocales(localeID,localeIDto){
         for (const entry in this.mydb.old_locales.global[localeID].templates)
             this.db.locales.global[localeIDto].templates[entry] = this.mydb.old_locales.global[localeID].templates[entry];
@@ -369,13 +376,13 @@ class MItems {
     }
     loopItemLocalesSet(localeID,loopID,loopList,key){
         if ( loopID+" "+key in this.mydb.locales.global[localeID]){
-            //this.logger.logWithColor(loopID,"grey");
-            //this.logger.logWithColor(this.mydb.locales.global[localeID][loopID+" "+key],"grey");
             for (const loopL of loopList){
                 this.mydb.locales.global[localeID][loopL[1]+" "+key]=this.mydb.locales.global[localeID][loopID+" "+key];
                 //this.logger.logWithColor(this.mydb.locales.global[localeID][loopL[1]+" "+key],"grey");
                 ;
             }
+            //this.logger.logWithColor(this.mydb.locales.global[localeID][loopID+" "+key],"grey");
+            //this.logger.logWithColor(loopID,"cyan");
         }
     }
     loopItemLocalesSet2(localeID,loopID,loopList,key){
@@ -408,7 +415,7 @@ class MItems {
                 }
             }
         }
-        this.logger.logWithColor(`Lilly : Locales finished.`,"green");
+        //this.logger.logWithColor(`Lilly : Locales finished.`,"green");
     }
     cloneItem(itemToClone, mmID) {
         //If the item is enabled in the json

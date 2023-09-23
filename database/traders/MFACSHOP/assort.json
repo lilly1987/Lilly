@@ -1,6 +1,16 @@
 {
     "items": [
         {
+            "_id": "Lilly_armband",
+            "_tpl": "Lilly_armband",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
             "_id": "LillyM-2",
             "_tpl": "LillyM-2",
             "parentId": "hideout",
@@ -122,6 +132,14 @@
         }
     ],
     "barter_scheme": {
+        "Lilly_armband": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
         "LillyM-2": [
             [
                 {
@@ -221,6 +239,7 @@
     },
     "loyal_level_items": {
         "LillyM-2": 1,
+        "Lilly_armband": 1,
         "LillyAmmor": 1,
         "Lillypipe": 1,
         "Lillyglasses": 1,
