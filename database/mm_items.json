@@ -1,103 +1,113 @@
 {
-    "Lilly_armband": {
-        "enable": true,
+    "LillyBand": {
+        "enable": false,
         "handbook": {
             "ParentId": "5b5f701386f774093f2ecf0f",
             "Price": 1000000
         },
         "item": {
-			"_parent": "57bef4c42459772e8d35a53b",
-			"_type": "Item",
-			"_props": {
-				"Name": "Holtzman Shield",
-				"ShortName": "HSE",
-				"Description": "You've read Dune right? Or at least seen the movies? Right?...",
-				"Weight": 0.1,
-				"BackgroundColor": "black",
-				"Width": 1,
-				"Height": 1,
-				"StackMaxSize": 1,
-				"SpawnChance": 1,
-				"ItemSound": "item_cloth_generic",
-				"Prefab": {
-					"path": "assets/content/items/equipment/armband/item_equipment_armband_revals.bundle",
-					"rcid": ""
-				},
-				"UsePrefab": {
-					"path": "",
-					"rcid": ""
-				},
-				"StackObjectsCount": 1,
-				"NotShownInSlot": false,
-				"ExaminedByDefault": false,
-				"ExamineTime": 1,
-				"IsUndiscardable": false,
-				"IsUnsaleable": false,
-				"IsUnbuyable": false,
-				"IsUngivable": false,
-				"IsLockedafterEquip": false,
-				"QuestItem": false,
-				"LootExperience": 20,
-				"ExamineExperience": 10,
-				"HideEntrails": false,
-				"RepairCost": 1100,
-				"RepairSpeed": 10,
-				"ExtraSizeLeft": 0,
-				"ExtraSizeRight": 0,
-				"ExtraSizeUp": 0,
-				"ExtraSizeDown": 0,
-				"ExtraSizeForceAdd": false,
-				"MergesWithChildren": false,
-				"CanSellOnRagfair": true,
-				"CanRequireOnRagfair": true,
-				"ConflictingItems": [],
-				"FixedPrice": false,
-				"Unlootable": true,
-				"UnlootableFromSlot": "ArmBand",
-				"UnlootableFromSide": [
-					"Bear",
-					"Usec",
-					"Savage"
-				],
-				"ChangePriceCoef": 1,
-				"AllowSpawnOnLocations": [],
-				"SendToClient": false,
-				"AnimationVariantsNumber": 0,
-				"DiscardingBlock": false,
-				"RagFairCommissionModifier": 1,
-				"Grids": [],
-				"Slots": [],
-				"CanPutIntoDuringTheRaid": true,
-				"CantRemoveFromSlotsDuringRaid": [],
-				"BlocksEarpiece": false,
-				"BlocksEyewear": false,
-				"BlocksHeadwear": false,
-				"BlocksFaceCover": false,
-				"Durability": 1000,
-				"MaxDurability": 1000,
-				"armorClass": "10",
-				"speedPenaltyPercent": 0,
-				"mousePenalty": 0,
-				"weaponErgonomicPenalty": 0,
-				"armorZone": [],
-				"Indestructibility": 0.9,
-				"headSegments": [],
-				"FaceShieldComponent": false,
-				"FaceShieldMask": "NoMask",
-				"HasHinge": false,
-				"MaterialType": "BodyArmor",
-				"RicochetParams": {
-					"x": 0.9,
-					"y": 0.5,
-					"z": 70
-				},
-				"DeafStrength": "None",
-				"BluntThroughput": 0.10,
-				"ArmorMaterial": "Aramid",
-				"BlindnessProtection": 0,
-				"ArmorType": "Light"
-			},
-			"_proto": "5b3f15d486f77432d0509248"
+            "_id": "LillyBand",
+            "_name": "LillyBand",
+            "_parent": "57bef4c42459772e8d35a53b",
+            "_type": "Item",
+            "_props": {
+                "Name": "LillyBand",
+                "ShortName": "LBand",
+                "Description": "You've read Dune right? Or at least seen the movies? Right?...",
+                "Weight": 0.1,
+                "BackgroundColor": "black",
+                "Width": 1,
+                "Height": 1,
+                "StackMaxSize": 1,
+                "SpawnChance": 1,
+                "ItemSound": "item_cloth_generic",
+                "Prefab": {
+                    "path": "assets/content/items/equipment/armband/item_equipment_armband_revals.bundle",
+                    "rcid": ""
+                },
+                "UsePrefab": {
+                    "path": "",
+                    "rcid": ""
+                },
+                "StackObjectsCount": 1,
+                "NotShownInSlot": false,
+                "ExaminedByDefault": false,
+                "ExamineTime": 1,
+                "IsUndiscardable": false,
+                "IsUnsaleable": false,
+                "IsUnbuyable": false,
+                "IsUngivable": false,
+                "IsLockedafterEquip": false,
+                "QuestItem": false,
+                "LootExperience": 20,
+                "ExamineExperience": 10,
+                "HideEntrails": false,
+                "RepairCost": 1100,
+                "RepairSpeed": 10,
+                "ExtraSizeLeft": 0,
+                "ExtraSizeRight": 0,
+                "ExtraSizeUp": 0,
+                "ExtraSizeDown": 0,
+                "ExtraSizeForceAdd": false,
+                "MergesWithChildren": false,
+                "CanSellOnRagfair": true,
+                "CanRequireOnRagfair": true,
+                "ConflictingItems": [],
+                "FixedPrice": false,
+                "Unlootable": true,
+                "UnlootableFromSlot": "ArmBand",
+                "UnlootableFromSide": [
+                    "Bear",
+                    "Usec",
+                    "Savage"
+                ],
+                "ChangePriceCoef": 1,
+                "AllowSpawnOnLocations": [],
+                "SendToClient": false,
+                "AnimationVariantsNumber": 0,
+                "DiscardingBlock": false,
+                "RagFairCommissionModifier": 1,
+                "Grids": [],
+                "Slots": [],
+                "CanPutIntoDuringTheRaid": true,
+                "CantRemoveFromSlotsDuringRaid": [],
+                "BlocksEarpiece": false,
+                "BlocksEyewear": false,
+                "BlocksHeadwear": false,
+                "BlocksFaceCover": false,
+                "Durability": 400,
+                "MaxDurability": 400,
+                "armorClass": "10",
+                "speedPenaltyPercent": 0,
+                "mousePenalty": 0,
+                "weaponErgonomicPenalty": 0,
+                "armorZone": [
+                    "Head",
+                    "Chest",
+                    "Stomach",
+                    "LeftArm",
+                    "RightArm",
+                    "RightLeg",
+                    "LeftLeg"
+                ],
+                "Indestructibility": 0.9,
+                "headSegments": [],
+                "FaceShieldComponent": false,
+                "FaceShieldMask": "NoMask",
+                "HasHinge": false,
+                "MaterialType": "BodyArmor",
+                "RicochetParams": {
+                    "x": 1.0,
+                    "y": 0.75,
+                    "z": 45
+                },
+                "DeafStrength": "None",
+                "BluntThroughput": 0.1,
+                "ArmorMaterial": "Aramid",
+                "BlindnessProtection": 0,
+                "ArmorType": "Light"
+            },
+            "_proto": "5b3f15d486f77432d0509248"
         },
         "locales": {
             "Name": "Lilly SOK magazine",
@@ -105,7 +115,6 @@
             "Description": "Lilly SOK magazine"
         }
     },
-
     "LillySOK": {
         "clone": "5cf8f3b0d7f00c00217872ef",
         "enable": true,
@@ -736,8 +745,7 @@
                     "ParentId": "5b47574386f77428ca22b331"
                 },
                 "item": {
-                    "_props": {
-                    }
+                    "_props": {}
                 },
                 "locales": {
                     "Description": "glasses",
@@ -751,8 +759,7 @@
                     "ParentId": "5b47574386f77428ca22b331"
                 },
                 "item": {
-                    "_props": {
-                    }
+                    "_props": {}
                 },
                 "locales": {
                     "Description": "Twitch",
@@ -768,6 +775,7 @@
                 "item": {
                     "_props": {
                         "MaterialType": "Helmet",
+                        "MergesWithChildren": true,
                         "Slots": [
                             {
                                 "_id": "5e00c1ad86f774747333222f",
@@ -778,6 +786,7 @@
                                     "filters": [
                                         {
                                             "Filter": [
+                                                "5ea058e01dbce517f324b3e2",
                                                 "5c0558060db834001b735271",
                                                 "5a16b8a9fcdbcb00165aa6ca"
                                             ],
@@ -790,6 +799,15 @@
                             }
                         ]
                     }
+                }
+            },
+            "TwitchB": {
+                "clone": "607f20859ee58b18e41ecd90",
+                "handbook": {
+                    "ParentId": "5b5f701386f774093f2ecf0f"
+                },
+                "item": {
+                    "_props": {}
                 },
                 "locales": {
                     "Description": "Twitch",
@@ -798,6 +816,7 @@
                 }
             },
             "TwitchA": {
+                "enable": false,
                 "clone": "5f9949d869e2777a0e779ba5",
                 "handbook": {
                     "ParentId": "5b5f701386f774093f2ecf0f"
@@ -805,12 +824,13 @@
                 "item": {
                     "_parent": "57bef4c42459772e8d35a53b",
                     "_props": {
-                        "MaterialType": "BodyArmor",
+                        "UnlootableFromSlot": "ArmBand",
                         "Prefab": {
-                          "path": "assets/content/items/equipment/armband/item_equipment_armband_revals.bundle",
-                          "rcid": ""
+                            "path": "assets/content/items/equipment/armband/item_equipment_armband_revals.bundle",
+                            "rcid": ""
                         }
-                    }
+                    },
+                    "_proto": "5b3f15d486f77432d0509248"
                 },
                 "locales": {
                     "Description": "Twitch",
@@ -843,6 +863,7 @@
                 "headSegments": [],
                 "BackgroundColor": "black",
                 "BluntThroughput": 0.1,
+                "BlindnessProtection": 0.5,
                 "Grids": [],
                 "RepairCost": 1000,
                 "RepairSpeed": 10,
@@ -867,6 +888,10 @@
                     "Usec",
                     "Savage"
                 ],
+                "FixedPrice": false,
+                "ChangePriceCoef": 1,
+                "AllowSpawnOnLocations": [],
+                "SendToClient": false,
                 "Weight": 0
             }
         }
