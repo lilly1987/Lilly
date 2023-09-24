@@ -139,15 +139,57 @@ class MItems {
     }
     postAkiLoad(container) {
         // Magazine
-        if (modConfig.Magazine){
+        if (modConfig.MagazineCartridgesMulti != 1){
             this.multiMagazine();
-            //this.addMagazine();
-            this.logger.logWithColor(`${this.modFolderName} Magazine finished.`, "green");
+            this.logger.logWithColor(`${this.modFolderName} multi Magazine finished.`, "green");
         }else{
-            this.logger.logWithColor(`${this.modFolderName} Magazine off.`, "yellow");
+            this.logger.logWithColor(`${this.modFolderName} multi Magazine off.`, "yellow");
+        }
+        if (modConfig.ExtraSizeZero){
+            this.ExtraSizeZero();
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeZero finished.`, "green");
+        }else{
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeZero off.`, "yellow");
         }
         this.logger.logWithColor(this.db.templates.items["Lilly.45"], "cyan");
         this.logger.info(this.modFolderName + " postAkiLoad finished");
+    }
+    ExtraSizeZero(){
+        const props=[];
+        for (const [id, values] of Object.entries(this.db.templates.items)) {
+            if( !("_props" in values ))
+                continue;
+            const _props=values._props;
+            props.push(_props);
+            //this.logger.logWithColor(values, "cyan");
+            //this.logger.logWithColor(`Lilly ExtraSizeZero set : ${values._name}`, "cyan");
+        }
+        
+        if (modConfig.ExtraSizeLeftZero){
+            for (const prop of props)
+                prop.ExtraSizeLeft=0;
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeLeftZero finished.`, "green");
+        }else
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeLeftZero off.`, "yellow");
+        if (modConfig.ExtraSizeDownZero){
+            for (const prop of props)
+                prop.ExtraSizeDown=0;
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeDownZero finished.`, "green");
+        }else
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeDownZero off.`, "yellow");
+        if (modConfig.ExtraSizeUpZero){
+            for (const prop of props)
+                prop.ExtraSizeUp=0;
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeUpZero finished.`, "green");
+        }else
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeUpZero off.`, "yellow");
+        if (modConfig.ExtraSizeRightZero){
+            for (const prop of props)
+                prop.ExtraSizeRight=0;
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeRightZero finished.`, "green");
+        }else
+            this.logger.logWithColor(`${this.modFolderName} ExtraSizeRightZero off.`, "yellow");
+
     }
     multiMagazine(){
         for (const [id, values] of Object.entries(this.db.templates.items)) {
@@ -163,70 +205,18 @@ class MItems {
                 continue;
             for (const mag of Cartridges){
                 //this.logger.logWithColor(`${mag._max_count}`, "gray");
-                mag._max_count*=modConfig.MagazineMulti;
+                mag._max_count*=modConfig.MagazineCartridgesMulti;
             }
-            if (modConfig.MagazineSize){
-                _props.ExtraSizeLeft=0;
-                _props.ExtraSizeDown=0;
+            if (modConfig.MagazineCartridgesSize){
                 _props.Height=1;
                 _props.Width=1;
+                _props.ExtraSizeLeft=0;
+                _props.ExtraSizeDown=0;
+                _props.ExtraSizeUp=0;
+                _props.ExtraSizeRight=0;
             }
-            _props.Weight=0;
             //this.logger.logWithColor(values, "cyan");
-            this.logger.logWithColor(`Lilly : ${values._name} Magazine set.`, "cyan");
-        }
-    }
-    addMagazine(){
-        const d={};
-        for (const [id, values] of Object.entries(this.db.templates.items)) {
-            if( !("_props" in values ))
-                continue;
-            const _props=values["_props"];
-            if( !("Cartridges" in _props ))
-                continue;
-            //this.logger.logWithColor(`${id}`, "gray");
-            const Cartridges=_props["Cartridges"];
-            //this.logger.logWithColor(`${Cartridges.length}`, "gray");
-            if (Cartridges.length==0 || _props["Slots"].length>0)
-                continue;
-            let cvalues=this.jsonUtil.clone(values);
-            cvalues._parent=values._id;
-            cvalues._id+="_"+modConfig.MagazineMulti;
-            for (const mag of cvalues._props.Cartridges){
-                //this.logger.logWithColor(`${mag._max_count}`, "gray");
-                mag._max_count*=modConfig.MagazineMulti;
-                mag._id+="_"+modConfig.MagazineMulti;
-                mag._parent=cvalues._id;
-            }
-            //this.logger.logWithColor(`${id}`, "gray");
-            d[id]=cvalues;
-        }
-        for (const [did, dvalues] of Object.entries(d)) {
-            this.db.templates.items[dvalues._id]=dvalues;
-        }
-        this.logger.logWithColor(this.db.templates.items["55d484b44bdc2d1d4e8b456d"], "cyan");
-        this.logger.logWithColor(this.db.templates.items["55d484b44bdc2d1d4e8b456d_10"], "cyan");
-        
-        //this.logger.logWithColor(d, "cyan");
-        for (const [id, values] of Object.entries(this.db.traders)) {
-            //this.logger.logWithColor(values, "cyan");
-            this.logger.logWithColor(id, "cyan");
-            if (!( "assort" in values))
-                continue;
-                
-            const a=[];
-            for (const item of values.assort.items) {
-                if ( item._tpl in d){
-                    let citem=this.jsonUtil.clone(item);
-                    citem._id+="_"+modConfig.MagazineMulti;
-                    citem._tpl+="_"+modConfig.MagazineMulti;
-                    a.push(citem);
-                    values.assort.barter_scheme[citem._id]=values.assort.barter_scheme[item._id];
-                    values.assort.loyal_level_items[citem._id]=values.assort.loyal_level_items[item._id];
-                }
-            }
-            values.assort.items.push(...a);
-            //this.logger.logWithColor(a, "gray");
+            //this.logger.logWithColor(`Lilly Magazine set : ${values._name}`, "cyan");
         }
     }
     loopItem(traders){
