@@ -48,10 +48,7 @@ class MItems {
         ], "aki");
         this.logger.info(this.modFolderName + " preAkiLoad finished");
     }
-    postAkiLoad(container) {
-        this.logger.logWithColor(this.db.templates.items["LillyAmmor_TwitchA"], "cyan");
-        this.logger.info(this.modFolderName + " postAkiLoad finished");
-    }
+
     preDBLoad(container) {
         this.logger.info(this.modFolderName + " preDBLoad finished");
     }
@@ -79,14 +76,7 @@ class MItems {
         this.mydb = databaseImporter.loadRecursive(`${modLoader.getModPath(this.modFolderName)}database/`);
         
         
-        // Magazine
-        if (modConfig.Magazine){
-            this.multiMagazine();
-            //this.addMagazine();
-            this.logger.logWithColor(`${this.modFolderName} Magazine finished.`, "green");
-        }else{
-            this.logger.logWithColor(`${this.modFolderName} Magazine off.`, "yellow");
-        }
+
         
         // loop
         if (modConfig.loopItem){
@@ -146,6 +136,18 @@ class MItems {
         this.logger.debug(this.modFolderName + " buffs finished");
         
         this.logger.info(this.modFolderName + " postDBLoad finished");
+    }
+    postAkiLoad(container) {
+        // Magazine
+        if (modConfig.Magazine){
+            this.multiMagazine();
+            //this.addMagazine();
+            this.logger.logWithColor(`${this.modFolderName} Magazine finished.`, "green");
+        }else{
+            this.logger.logWithColor(`${this.modFolderName} Magazine off.`, "yellow");
+        }
+        this.logger.logWithColor(this.db.templates.items["Lilly.45"], "cyan");
+        this.logger.info(this.modFolderName + " postAkiLoad finished");
     }
     multiMagazine(){
         for (const [id, values] of Object.entries(this.db.templates.items)) {
