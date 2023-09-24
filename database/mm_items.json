@@ -1,4 +1,4 @@
-{
+{ 
     "LillyBand": {
         "enable": false,
         "handbook": {
@@ -113,6 +113,52 @@
             "Name": "Lilly SOK magazine",
             "Shortname": "LSOK",
             "Description": "Lilly SOK magazine"
+        }
+    },
+    "LillyFAL": {
+        "clone": "5b7bef9c5acfc43d102852ec",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f754a86f774094242f19b",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "ExtraSizeDown": 0,
+                  "Cartridges": [
+                    {
+                      "_id": "5b7bef9c5acfc43d102852ee",
+                      "_max_count": 500,
+                      "_name": "cartridges",
+                      "_parent": "5b7bef9c5acfc43d102852ec",
+                      "_props": {
+                        "filters": [
+                          {
+                            "Filter": [
+                              "5a6086ea4f39f99cd479502f",
+                              "5a608bf24f39f98ffc77720e",
+                              "58dd3ad986f77403051cba8f",
+                              "5e023e53d4353e3302577c4c",
+                              "5efb0c1bd79ff02a1f5e68d9",
+                              "5e023e6e34d52a55c3304f71",
+                              "5e023e88277cce2b522ff2b1"
+                            ]
+                          }
+                        ]
+                      },
+                      "_proto": "5748538b2459770af276a261"
+                    }
+                  ],
+                "Height": 1,
+                "Width": 1,
+                "BackgroundColor": "black",
+                "Weight": 0
+            }
+        },
+        "locales": {
+            "Name": "Lilly FAL magazine",
+            "Shortname": "LFAL",
+            "Description": "Lilly FAL magazine"
         }
     },
     "Lilly.45": {
