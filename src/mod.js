@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const modConfig = require("../config.json");
 //Item template file
 const itemTemplate = require("../templates/item_template.json");
-class MItems {
+class Lilly {
     preAkiLoad(container){
         this.logger = container.resolve("WinstonLogger");
         this.jsonUtil = container.resolve("JsonUtil");
@@ -46,11 +46,12 @@ class MItems {
                 }
             }
         ], "aki");
-        this.logger.info(this.modFolderName + " preAkiLoad finished");
+        
+        this.logger.logWithColor(`Lilly : preAkiLoad finished.`,"blue");
     }
 
-    preDBLoad(container) {
-        this.logger.info(this.modFolderName + " preDBLoad finished");
+    preDBLoad(container) {        
+        this.logger.logWithColor(`Lilly : preDBLoad finished.`,"blue");
     }
     postDBLoad(container) {
         const databaseServer = container.resolve("DatabaseServer");
@@ -80,9 +81,11 @@ class MItems {
         
         // loop
         if (modConfig.loopItem){
-            
-            this.loopItem(traders);
+            const loop_mmIDd={}; // mmID : [[loopID,mmID+"_"+loopID],,, ]
+            this.loopItem(traders,loop_mmIDd);
             this.logger.logWithColor(`${this.modFolderName} loop finished.`, "green");
+            this.loopItemLocales(loop_mmIDd);
+            this.logger.logWithColor(`Lilly : loop Locales finished.`,"green");
         }else{
             this.logger.logWithColor(`${this.modFolderName} loop off.`, "yellow");
         }
@@ -135,9 +138,18 @@ class MItems {
         //for (const buffs in buffs) {}
         this.logger.debug(this.modFolderName + " buffs finished");
         
-        this.logger.info(this.modFolderName + " postDBLoad finished");
+        this.logger.logWithColor(`Lilly : postDBLoad finished.`,"blue");
     }
     postAkiLoad(container) {
+        this.props=[];
+        this.weaps=[];
+        for (const [id, values] of Object.entries(this.db.templates.items)) {
+            if( !("_props" in values ))
+                continue;
+            this.props.push(values._props);
+            if( "weapUseType" in values._props )
+                this.weaps.push(values._props);
+        }
         // Magazine
         if (modConfig.MagazineCartridgesMulti != 1){
             this.multiMagazine();
@@ -151,40 +163,58 @@ class MItems {
         }else{
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeZero off.`, "yellow");
         }
-        this.logger.logWithColor(this.db.templates.items["Lilly.45"], "cyan");
-        this.logger.info(this.modFolderName + " postAkiLoad finished");
+        if (modConfig.Size1){
+            this.Size1();
+            this.logger.logWithColor(`${this.modFolderName} Size1 finished.`, "green");
+        }else{
+            this.logger.logWithColor(`${this.modFolderName} Size1 off.`, "yellow");
+        }
+        this.logger.logWithColor(this.db.templates.items["Lilly.45"], "cyan");        
+        this.logger.logWithColor(`Lilly : postAkiLoad finished.`,"blue");
+    }
+    Size1(){
+        let myprops=this.props;
+        if (modConfig.SizeExcludeWeaps)
+            myprops = myprops.filter( ( el ) => !this.weaps.includes( el ) );
+        
+        if (modConfig.SizeHeight1)
+            for (const prop of myprops){
+                prop.Height=1;
+            }
+        if (modConfig.SizeWidth1)
+            for (const prop of myprops){
+                prop.Width=1;
+            }
+        if (modConfig.WeapsSizeHeight1)
+            for (const prop of this.weaps){
+                prop.Height=1;
+            }
+        if (modConfig.WeapsSizeWidth1)
+            for (const prop of this.weaps){
+                prop.Width=1;
+            }
     }
     ExtraSizeZero(){
-        const props=[];
-        for (const [id, values] of Object.entries(this.db.templates.items)) {
-            if( !("_props" in values ))
-                continue;
-            const _props=values._props;
-            props.push(_props);
-            //this.logger.logWithColor(values, "cyan");
-            //this.logger.logWithColor(`Lilly ExtraSizeZero set : ${values._name}`, "cyan");
-        }
-        
         if (modConfig.ExtraSizeLeftZero){
-            for (const prop of props)
+            for (const prop of this.props)
                 prop.ExtraSizeLeft=0;
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeLeftZero finished.`, "green");
         }else
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeLeftZero off.`, "yellow");
         if (modConfig.ExtraSizeDownZero){
-            for (const prop of props)
+            for (const prop of this.props)
                 prop.ExtraSizeDown=0;
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeDownZero finished.`, "green");
         }else
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeDownZero off.`, "yellow");
         if (modConfig.ExtraSizeUpZero){
-            for (const prop of props)
+            for (const prop of this.props)
                 prop.ExtraSizeUp=0;
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeUpZero finished.`, "green");
         }else
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeUpZero off.`, "yellow");
         if (modConfig.ExtraSizeRightZero){
-            for (const prop of props)
+            for (const prop of this.props)
                 prop.ExtraSizeRight=0;
             this.logger.logWithColor(`${this.modFolderName} ExtraSizeRightZero finished.`, "green");
         }else
@@ -219,13 +249,13 @@ class MItems {
             //this.logger.logWithColor(`Lilly Magazine set : ${values._name}`, "cyan");
         }
     }
-    loopItem(traders){
+    loopItem(traders,loop_mmIDd){
         // ================================== loop ==================================
         // color
         const lcolor = ["default","orange","violet","grey","black","green","blue","yellow","red"];
         const loop_mmIDs=[];
         const loop_mmIDsDel=[];
-        const loop_mmIDd={}; // mmID : [[loopID,mmID+"_"+loopID],,, ]
+        
         // loop item
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             
@@ -282,7 +312,7 @@ class MItems {
                     if ("Grids" in _props) this.loop_parent(_props.Grids,tloopID);
                 }
                 this.mydb.mm_items[tloopID]=cmmItem;
-                this.logger.logWithColor(`Lilly : loop add ${tloopID} to mm_items .`,"cyan");
+                //this.logger.logWithColor(`Lilly : loop add ${tloopID} to mm_items .`,"cyan");
 
             }
             if (itemDel)
@@ -344,14 +374,9 @@ class MItems {
             }
             //this.logger.logWithColor(`${trader_id} set.`, "green");
             //this.logger.logWithColor(this.mydb.traders[trader_id], "grey");
-            this.logger.logWithColor(`Lilly : loop add to ${trader} finished.`,"cyan");
+            //this.logger.logWithColor(`Lilly : loop add to ${trader} finished.`,"cyan");
         }
         this.logger.logWithColor(`Lilly : loop trader finished.`,"green");
-        
-        this.loopItemLocales(loop_mmIDd);
-        this.logger.logWithColor(`Lilly : loop Locales finished.`,"green");
-        
-        //this.logger.debug(this.modFolderName + " loop finished");
         // ================================== loop ==================================
     }
     loop_parent(arr,id){
@@ -639,4 +664,4 @@ class MItems {
         }
     }
 }
-module.exports = { mod: new MItems() };
+module.exports = { mod: new Lilly() };

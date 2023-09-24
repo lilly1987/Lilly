@@ -1,6 +1,12 @@
 {
     "MagazineCartridgesMulti": 10,
     "MagazineCartridgesSize": true,
+    "Size1": true,
+    "SizeHeight1": true,
+    "SizeWidth1": true,
+    "SizeExcludeWeaps": true,
+    "WeapsSizeHeight1": true,
+    "WeapsSizeWidth1": false,
     "ExtraSizeZero": true,
     "ExtraSizeLeftZero": false,
     "ExtraSizeDownZero": true,
