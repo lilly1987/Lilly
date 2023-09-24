@@ -5,12 +5,24 @@
 Escape from Tarkov\user\mods\Lilly
 ![2023-09-18 20 13 03](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/59e3aee8-c5a4-4620-8561-e1277516177a)
 
+# "Lilly\config.json"
 
-# MagazineSize , MagazineMulti
+![2023-09-24 14 46 55](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/d665f300-5868-4ee9-ba09-651b2688f915)
+
+
+# MagazineCartridgesSize , MagazineCartridgesMulti in "Lilly\config.json"
 
 ![2023-09-20 23 02 52](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/6bec24e4-0c08-49dc-ae11-2971f6f914fd)
 
 
+# ExtraSizeZero in "Lilly\config.json"
+
+![2023-09-24 14 45 29](https://github.com/lilly1987/Lilly-EFT-mod/assets/20321215/dc9b270d-2edc-49e0-9994-b9c3a95d9dcb)
+
+
+# RainbowColor in "Lilly\database\mm_items.json"
+
+# loopItem in "Lilly\database\mm_items.json"
 
 # ex
 
