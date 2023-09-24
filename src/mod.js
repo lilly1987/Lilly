@@ -143,12 +143,44 @@ class Lilly {
     postAkiLoad(container) {
         this.props=[];
         this.weaps=[];
+        this.weapsSlots=[];
+        this.ammoCaliber={};
+        this.weapClass={
+            "grenadeLauncher":[],
+            "pistol":[],
+            "smg":[],
+            "shotgun":[],
+            "machinegun":[],
+            "sniperRifle":[],
+            "marksmanRifle":[],
+            "assaultCarbine":[],
+            "assaultRifle":[]
+        };
+        this.weapUseType={
+            "primary":[],
+            "secondary":[]
+        };
+        this.ReloadMagType={
+            "ExternalMagazine":[],
+            "InternalMagazine":[]
+        };
+        this.ReloadMode={
+            "OnlyBarrel":[],
+            "ExternalMagazine":[],
+            "InternalMagazine":[]
+        };
         for (const [id, values] of Object.entries(this.db.templates.items)) {
             if( !("_props" in values ))
                 continue;
             this.props.push(values._props);
-            if( "weapUseType" in values._props )
+            if( "weapClass" in values._props ){
                 this.weaps.push(values._props);
+            }
+            this.todict(this.ammoCaliber,"ammoCaliber",values)
+            this.todict(this.weapClass,"weapClass",values)
+            this.todict(this.weapUseType,"weapUseType",values)
+            this.todict(this.ReloadMagType,"ReloadMagType",values)
+            this.todict(this.ReloadMode,"ReloadMode",values)
         }
         // Magazine
         if (modConfig.MagazineCartridgesMulti != 1){
@@ -169,8 +201,38 @@ class Lilly {
         }else{
             this.logger.logWithColor(`${this.modFolderName} Size1 off.`, "yellow");
         }
-        this.logger.logWithColor(this.db.templates.items["Lilly.45"], "cyan");        
+        
+        ///
+        if (modConfig.debug){
+            this.logger.logWithColor(this.db.templates.items["Lilly.45"], "cyan");        
+            for (const [id, values] of Object.entries(this.weapUseType)) {
+                for (const item of values) {
+                    this.logger.logWithColor(`weapUseType ; ${id} ; ${item.ShortName} ;`, "cyan");
+                }
+            }
+            for (const [id, values] of Object.entries(this.ReloadMagType)) {
+                for (const item of values) {
+                    this.logger.logWithColor(`ReloadMagType ; ${id} ; ${item.ShortName} ;`, "cyan");
+                }
+            }
+            for (const [id, values] of Object.entries(this.ReloadMode)) {
+                for (const item of values) {
+                    this.logger.logWithColor(`ReloadMode ; ${id} ; ${item.ShortName} ;`, "cyan");
+                }
+            }
+        }
+        
+        if (modConfig.fullauto)
+            for (const prop of this.weaps){
+                if ( !( prop.weapFireType.includes( "fullauto" ))){
+                    //this.logger.logWithColor(prop, "cyan");
+                    prop.weapFireType.push("fullauto");
+                }
+            }
+        
         this.logger.logWithColor(`Lilly : postAkiLoad finished.`,"blue");
+        
+        
     }
     Size1(){
         let myprops=this.props;
@@ -193,6 +255,17 @@ class Lilly {
             for (const prop of this.weaps){
                 prop.Width=1;
             }
+
+    }
+    
+    todict(arr,name,values){
+        if( name in values._props ){
+            if ( values._props[name] in arr){
+                arr[values._props[name]].push(values);
+            }else{
+                arr[values._props[name]]=[values];
+            }
+        }
     }
     ExtraSizeZero(){
         if (modConfig.ExtraSizeLeftZero){

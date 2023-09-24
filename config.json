@@ -1,4 +1,5 @@
 {
+    "debug": false,
     "MagazineCartridgesMulti": 10,
     "MagazineCartridgesSize": true,
     "Size1": true,
@@ -12,6 +13,7 @@
     "ExtraSizeDownZero": true,
     "ExtraSizeUpZero": true,
     "ExtraSizeRightZero": false,
+    "fullauto": false,
     "RainbowColor": true,
     "loopItem": true,
     "oldLocales": false,
