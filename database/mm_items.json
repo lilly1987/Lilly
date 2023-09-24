@@ -1,4 +1,4 @@
-{ 
+{
     "LillyBand": {
         "enable": false,
         "handbook": {
@@ -125,30 +125,30 @@
         "item": {
             "_props": {
                 "ExtraSizeDown": 0,
-                  "Cartridges": [
+                "Cartridges": [
                     {
-                      "_id": "5b7bef9c5acfc43d102852ee",
-                      "_max_count": 500,
-                      "_name": "cartridges",
-                      "_parent": "5b7bef9c5acfc43d102852ec",
-                      "_props": {
-                        "filters": [
-                          {
-                            "Filter": [
-                              "5a6086ea4f39f99cd479502f",
-                              "5a608bf24f39f98ffc77720e",
-                              "58dd3ad986f77403051cba8f",
-                              "5e023e53d4353e3302577c4c",
-                              "5efb0c1bd79ff02a1f5e68d9",
-                              "5e023e6e34d52a55c3304f71",
-                              "5e023e88277cce2b522ff2b1"
+                        "_id": "5b7bef9c5acfc43d102852ee",
+                        "_max_count": 500,
+                        "_name": "cartridges",
+                        "_parent": "5b7bef9c5acfc43d102852ec",
+                        "_props": {
+                            "filters": [
+                                {
+                                    "Filter": [
+                                        "5a6086ea4f39f99cd479502f",
+                                        "5a608bf24f39f98ffc77720e",
+                                        "58dd3ad986f77403051cba8f",
+                                        "5e023e53d4353e3302577c4c",
+                                        "5efb0c1bd79ff02a1f5e68d9",
+                                        "5e023e6e34d52a55c3304f71",
+                                        "5e023e88277cce2b522ff2b1"
+                                    ]
+                                }
                             ]
-                          }
-                        ]
-                      },
-                      "_proto": "5748538b2459770af276a261"
+                        },
+                        "_proto": "5748538b2459770af276a261"
                     }
-                  ],
+                ],
                 "Height": 1,
                 "Width": 1,
                 "BackgroundColor": "black",
@@ -468,6 +468,31 @@
         }
     },
     "LillyMK4A": {
+        "loop": {
+            "30x14": {
+                "item": {
+                    "_props": {
+                        "BackgroundColor": "blue",
+                        "Grids": [
+                            {
+                                "_id": "LillyMK4A1",
+                                "_name": "1",
+                                "_parent": "LillyMK4A",
+                                "_props": {
+                                    "cellsH": 30,
+                                    "cellsV": 14,
+                                    "isSortingTable": false,
+                                    "maxCount": 0,
+                                    "maxWeight": 0,
+                                    "minCount": 0
+                                },
+                                "_proto": "55d329c24bdc2d892f8b4567"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
         "clone": "60a3c70cde5f453f634816a3",
         "enable": true,
         "handbook": {
