@@ -996,7 +996,7 @@
                     "z": 45
                 },
                 "DeafStrength": "None",
-                "Unlootable": false,
+                "Unlootable": true,
                 "UnlootableFromSlot": "FirstPrimaryWeapon",
                 "UnlootableFromSide": [
                     "Bear",
