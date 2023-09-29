@@ -624,6 +624,24 @@
                     }
                 }
             },
+            "weapon": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_weaponcase/item_container_weaponcase.bundle"
+                        }
+                    }
+                }
+            },
+            "weaponT": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_weapon_thicc/item_container_weapon_thicc.bundle"
+                        }
+                    }
+                }
+            },
             "grizzly": {
                 "item": {
                     "_props": {
