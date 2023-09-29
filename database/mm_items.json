@@ -509,9 +509,7 @@
                     "Chest",
                     "Stomach",
                     "LeftArm",
-                    "RightArm",
-                    "RightLeg",
-                    "LeftLeg"
+                    "RightArm"
                 ],
                 "BackgroundColor": "black",
                 "BluntThroughput": 0.1,
@@ -851,13 +849,7 @@
                 "item": {
                     "_props": {
                         "armorZone": [
-                            "Head",
-                            "Chest",
-                            "Stomach",
-                            "LeftArm",
-                            "RightArm",
-                            "RightLeg",
-                            "LeftLeg"
+                            "Head"
                         ]
                     }
                 },
@@ -912,6 +904,9 @@
                     "_props": {
                         "MaterialType": "Helmet",
                         "MergesWithChildren": true,
+                        "armorZone": [
+                            "Head"
+                        ],
                         "Slots": [
                             {
                                 "_id": "5e00c1ad86f774747333222f",
