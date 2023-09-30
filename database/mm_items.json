@@ -609,7 +609,7 @@
         "locales": {
             "Description": "Lilly's version of Tasmanian Tiger Trooper backpack comes with advanced volume saving technology.",
             "Name": "Lilly Trooper 80 backpack",
-            "Shortname": "Lilly 80"
+            "Shortname": "L80"
         }
     },
     "LillyTHICC": {
@@ -620,6 +620,15 @@
                     "_props": {
                         "Prefab": {
                             "path": "assets/content/items/barter/item_barter_energy_powerbank/item_barter_energy_powerbank.bundle"
+                        }
+                    }
+                }
+            },
+            "chem": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_chemcontainer/item_quest_chemcontainer.bundle"
                         }
                     }
                 }
@@ -638,6 +647,60 @@
                     "_props": {
                         "Prefab": {
                             "path": "assets/content/items/containers/item_container_weapon_thicc/item_container_weapon_thicc.bundle"
+                        }
+                    }
+                }
+            },
+            "0031": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0031.bundle"
+                        }
+                    }
+                }
+            },
+            "0052": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0052.bundle"
+                        }
+                    }
+                }
+            },
+            "0048": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0048.bundle"
+                        }
+                    }
+                }
+            },
+            "0013": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0013.bundle"
+                        }
+                    }
+                }
+            },
+            "folder": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_folder.bundle"
+                        }
+                    }
+                }
+            },
+            "repair": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/spec/item_spec_weaprepair/item_spec_weaprepair.bundle"
                         }
                     }
                 }
@@ -822,6 +885,13 @@
         },
         "item": {
             "_props": {
+                "Color": {
+                    "a": 128,
+                    "b": 0,
+                    "g": 255,
+                    "r": 0
+                },
+                "BackgroundColor": "default",
                 "Width": 1,
                 "Height": 1,
                 "Weight": 0,
@@ -1019,7 +1089,7 @@
                 "BluntThroughput": 0.1,
                 "BlindnessProtection": 0.5,
                 "Grids": [],
-                "RepairCost": 1000,
+                "RepairCost": 100,
                 "RepairSpeed": 10,
                 "CanSellOnRagfair": true,
                 "CanRequireOnRagfair": false,

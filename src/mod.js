@@ -325,13 +325,16 @@ class Lilly {
     loopItem(traders,loop_mmIDd){
         // ================================== loop ==================================
         // color
-        const lcolor = ["default","orange","violet","grey","black","green","blue","yellow","red"];
+        const lcolor = ["default","orange","violet","grey","black","green","blue","yellow","red"
+        ,"tracerRed","tracerGreen","tracerYellow"
+        ];
         const loop_mmIDs=[];
         const loop_mmIDsDel=[];
         
         // loop item
         for (const [mmID, mmItem] of Object.entries(this.mydb.mm_items)) {
             
+            // RainbowColor copy to loop
             if (modConfig.RainbowColor && "RainbowColor" in mmItem && mmItem["RainbowColor"] ){
                 if  ("loop" in mmItem) {
                     for (const [key, value] of Object.entries(mmItem["loop"])) {
@@ -359,6 +362,8 @@ class Lilly {
                     }
                 }
             }
+            
+            // loop make
             // this.logger.logWithColor(mmItem["loop"], "gray");
             if (! ("loop" in mmItem) ) 
                 continue;
@@ -395,8 +400,10 @@ class Lilly {
         //this.logger.logWithColor(loop_mmIDs, "grey");
         //this.logger.logWithColor(loop_mmIDsDel, "grey");
         //this.logger.logWithColor(loop_mmIDd, "grey");
-        // loop trader
         this.logger.logWithColor(`Lilly : loop mm_items finished.`,"green");
+        
+        
+        // loop trader
         for (const trader in traders){
             const trader_id=traders[trader];
             if ( ! (trader_id in this.mydb.traders) || ! "assort" in this.mydb.traders[trader_id])
@@ -467,7 +474,9 @@ class Lilly {
     loopItemLocalesSet(localeID,loopID,loopList,key){
         if ( loopID+" "+key in this.mydb.locales.global[localeID]){
             for (const loopL of loopList){
-                this.mydb.locales.global[localeID][loopL[1]+" "+key]=this.mydb.locales.global[localeID][loopID+" "+key];
+                if (!( loopL[1]+" "+key in this.mydb.locales.global[localeID])){
+                    this.mydb.locales.global[localeID][loopL[1]+" "+key]=this.mydb.locales.global[localeID][loopID+" "+key];
+                }
                 //this.logger.logWithColor(this.mydb.locales.global[localeID][loopL[1]+" "+key],"grey");
                 ;
             }
@@ -480,7 +489,9 @@ class Lilly {
             //this.logger.logWithColor(loopID,"grey");
             //this.logger.logWithColor(this.mydb.locales.global[localeID][loopID+" "+key],"grey");
             for (const loopL of loopList){
-                this.mydb.locales.global[localeID][loopL[1]+" "+key]=this.mydb.locales.global[localeID][loopID+" "+key]+" "+loopL[0];
+                if (!( loopL[1]+" "+key in this.mydb.locales.global[localeID])){
+                    this.mydb.locales.global[localeID][loopL[1]+" "+key]=this.mydb.locales.global[localeID][loopID+" "+key]+" "+loopL[0];
+                }
                 //this.logger.logWithColor(this.mydb.locales.global[localeID][loopL[1]+" "+key],"grey");
                 ;
             }
