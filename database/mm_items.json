@@ -1,4 +1,17 @@
 {
+    "LillyASh_12": {
+        "enable": false,
+        "clone": "5cadfbf7ae92152ac412eeef",
+        "handbook": {
+            "ParentId": "5b5f78fc86f77409407a7f90",
+            "Price": 93800
+        },
+        "item": {
+            "_props": {
+
+            }
+        }
+    },
     "LillyBand": {
         "enable": false,
         "handbook": {
@@ -564,6 +577,53 @@
         }
     },
     "LillyTrooper": {
+        "loop": {
+            "pilgrim": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/backpack_pilgrim/item_equipment_backpack_pilgrim.bundle"
+                        }
+                    }
+                }
+            },
+            "christmas": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/backpack_pilgrim/item_equipment_backpack_pilgrim_christmas.bundle"
+                        }
+                    }
+                }
+            },
+            "daypack": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/backpack_daypack/item_equipment_backpack_daypack.bundle"
+                        }
+                    }
+                }
+            },
+            "pillbox": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/backpack_pillbox/item_equipment_backpack_pillbox.bundle"
+                        }
+                    }
+                }
+            },
+            "T30": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/backpack_gr99t30/item_equipment_backpack_gr99t30_black.bundle"
+                        }
+                    }
+                }
+            }
+        },
         "RainbowColor": true,
         "clone": "639346cc1c8f182ad90c8972",
         "enable": true,
