@@ -1,28 +1,18 @@
 {
     "items": [
         {
+            "_id": "LillyAXMC",
+            "_tpl": "LillyAXMC",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
             "_id": "LillyMK_18",
             "_tpl": "LillyMK_18",
-            "parentId": "hideout",
-            "slotId": "hideout",
-            "upd": {
-                "StackObjectsCount": 20,
-                "UnlimitedCount": true
-            }
-        },
-        {
-            "_id": "LillyASh",
-            "_tpl": "LillyASh",
-            "parentId": "hideout",
-            "slotId": "hideout",
-            "upd": {
-                "StackObjectsCount": 20,
-                "UnlimitedCount": true
-            }
-        },
-        {
-            "_id": "Lilly_armband",
-            "_tpl": "Lilly_armband",
             "parentId": "hideout",
             "slotId": "hideout",
             "upd": {
@@ -71,8 +61,8 @@
             }
         },
         {
-            "_id": "LillyGlock",
-            "_tpl": "LillyGlock",
+            "_id": "Lilly.45-M",
+            "_tpl": "Lilly.45-M",
             "parentId": "hideout",
             "slotId": "hideout",
             "upd": {
@@ -81,8 +71,8 @@
             }
         },
         {
-            "_id": "LillyAXMC",
-            "_tpl": "LillyAXMC",
+            "_id": "LillySOK-M",
+            "_tpl": "LillySOK-M",
             "parentId": "hideout",
             "slotId": "hideout",
             "upd": {
@@ -91,8 +81,48 @@
             }
         },
         {
-            "_id": "LillySVD",
-            "_tpl": "LillySVD",
+            "_id": "LillyASh-M",
+            "_tpl": "LillyASh-M",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
+            "_id": "LillyFAL-M",
+            "_tpl": "LillyFAL-M",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
+            "_id": "LillyGlock-M",
+            "_tpl": "LillyGlock-M",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
+            "_id": "LillyAXMC-M",
+            "_tpl": "LillyAXMC-M",
+            "parentId": "hideout",
+            "slotId": "hideout",
+            "upd": {
+                "StackObjectsCount": 20,
+                "UnlimitedCount": true
+            }
+        },
+        {
+            "_id": "LillySVD-M",
+            "_tpl": "LillySVD-M",
             "parentId": "hideout",
             "slotId": "hideout",
             "upd": {
@@ -152,7 +182,7 @@
         }
     ],
     "barter_scheme": {
-        "LillyMK_18": [
+        "LillyAXMC": [
             [
                 {
                     "count": 1000000,
@@ -160,7 +190,7 @@
                 }
             ]
         ],
-        "LillyASh": [
+        "LillyMK_18": [
             [
                 {
                     "count": 1000000,
@@ -208,7 +238,7 @@
                 }
             ]
         ],
-        "LillyGlock": [
+        "LillySOK-M": [
             [
                 {
                     "count": 1000000,
@@ -216,7 +246,7 @@
                 }
             ]
         ],
-        "LillyAXMC": [
+        "LillyFAL-M": [
             [
                 {
                     "count": 1000000,
@@ -224,7 +254,39 @@
                 }
             ]
         ],
-        "LillySVD": [
+        "LillyASh-M": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
+        "Lilly.45-M": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
+        "LillyGlock-M": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
+        "LillyAXMC-M": [
+            [
+                {
+                    "count": 1000000,
+                    "_tpl": "5449016a4bdc2d6f028b456f"
+                }
+            ]
+        ],
+        "LillySVD-M": [
             [
                 {
                     "count": 1000000,
@@ -274,16 +336,20 @@
         ]
     },
     "loyal_level_items": {
+        "LillyAXMC": 1,
         "LillyMK_18": 1,
         "LillyM-2": 1,
-        "LillyASh": 1,
         "Lilly_armband": 1,
         "LillyAmmor": 1,
         "Lillypipe": 1,
         "Lillyglasses": 1,
-        "LillyGlock": 1,
-        "LillyAXMC": 1,
-        "LillySVD": 1,
+        "Lilly.45-M": 1,
+        "LillyASh-M": 1,
+        "LillySOK-M": 1,
+        "LillyFAL-M": 1,
+        "LillyGlock-M": 1,
+        "LillyAXMC-M": 1,
+        "LillySVD-M": 1,
         "LillyWeight": 1,
         "LillyBalaclava": 1,
         "LillyMK4A": 1,

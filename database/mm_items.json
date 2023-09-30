@@ -1,4 +1,21 @@
 {
+    "LillyAXMC": {
+        "clone": "627e14b21713922ded6f2c15",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f798886f77447ed5636b5",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                  "bFirerate": 450,
+                  "weapFireType": [
+                    "single",
+                    "fullauto"
+                  ]
+            }
+        }
+    },
     "LillyMK_18": {
         "clone": "5fc22d7c187fea44d52eda44",
         "enable": true,
@@ -8,7 +25,7 @@
         },
         "item": {
             "_props": {
-                  "bFirerate": 300,
+                  "bFirerate": 450,
                   "weapFireType": [
                     "single",
                     "fullauto"
@@ -16,123 +33,8 @@
             }
         }
     },
-    "LillyBand": {
-        "enable": false,
-        "handbook": {
-            "ParentId": "5b5f701386f774093f2ecf0f",
-            "Price": 1000000
-        },
-        "item": {
-            "_id": "LillyBand",
-            "_name": "LillyBand",
-            "_parent": "57bef4c42459772e8d35a53b",
-            "_type": "Item",
-            "_props": {
-                "Name": "LillyBand",
-                "ShortName": "LBand",
-                "Description": "You've read Dune right? Or at least seen the movies? Right?...",
-                "Weight": 0.1,
-                "BackgroundColor": "black",
-                "Width": 1,
-                "Height": 1,
-                "StackMaxSize": 1,
-                "SpawnChance": 1,
-                "ItemSound": "item_cloth_generic",
-                "Prefab": {
-                    "path": "assets/content/items/equipment/armband/item_equipment_armband_revals.bundle",
-                    "rcid": ""
-                },
-                "UsePrefab": {
-                    "path": "",
-                    "rcid": ""
-                },
-                "StackObjectsCount": 1,
-                "NotShownInSlot": false,
-                "ExaminedByDefault": false,
-                "ExamineTime": 1,
-                "IsUndiscardable": false,
-                "IsUnsaleable": false,
-                "IsUnbuyable": false,
-                "IsUngivable": false,
-                "IsLockedafterEquip": false,
-                "QuestItem": false,
-                "LootExperience": 20,
-                "ExamineExperience": 10,
-                "HideEntrails": false,
-                "RepairCost": 1100,
-                "RepairSpeed": 10,
-                "ExtraSizeLeft": 0,
-                "ExtraSizeRight": 0,
-                "ExtraSizeUp": 0,
-                "ExtraSizeDown": 0,
-                "ExtraSizeForceAdd": false,
-                "MergesWithChildren": false,
-                "CanSellOnRagfair": true,
-                "CanRequireOnRagfair": true,
-                "ConflictingItems": [],
-                "FixedPrice": false,
-                "Unlootable": true,
-                "UnlootableFromSlot": "ArmBand",
-                "UnlootableFromSide": [
-                    "Bear",
-                    "Usec",
-                    "Savage"
-                ],
-                "ChangePriceCoef": 1,
-                "AllowSpawnOnLocations": [],
-                "SendToClient": false,
-                "AnimationVariantsNumber": 0,
-                "DiscardingBlock": false,
-                "RagFairCommissionModifier": 1,
-                "Grids": [],
-                "Slots": [],
-                "CanPutIntoDuringTheRaid": true,
-                "CantRemoveFromSlotsDuringRaid": [],
-                "BlocksEarpiece": false,
-                "BlocksEyewear": false,
-                "BlocksHeadwear": false,
-                "BlocksFaceCover": false,
-                "Durability": 400,
-                "MaxDurability": 400,
-                "armorClass": "10",
-                "speedPenaltyPercent": 0,
-                "mousePenalty": 0,
-                "weaponErgonomicPenalty": 0,
-                "armorZone": [
-                    "Head",
-                    "Chest",
-                    "Stomach",
-                    "LeftArm",
-                    "RightArm",
-                    "RightLeg",
-                    "LeftLeg"
-                ],
-                "Indestructibility": 0.9,
-                "headSegments": [],
-                "FaceShieldComponent": false,
-                "FaceShieldMask": "NoMask",
-                "HasHinge": false,
-                "MaterialType": "BodyArmor",
-                "RicochetParams": {
-                    "x": 1.0,
-                    "y": 0.75,
-                    "z": 45
-                },
-                "DeafStrength": "None",
-                "BluntThroughput": 0.1,
-                "ArmorMaterial": "Aramid",
-                "BlindnessProtection": 0,
-                "ArmorType": "Light"
-            },
-            "_proto": "5b3f15d486f77432d0509248"
-        },
-        "locales": {
-            "Name": "Lilly SOK magazine",
-            "Shortname": "LSOK",
-            "Description": "Lilly SOK magazine"
-        }
-    },
-    "LillyFAL": {
+
+    "LillyFAL-M": {
         "clone": "5b7bef9c5acfc43d102852ec",
         "enable": true,
         "handbook": {
@@ -147,7 +49,7 @@
                         "_id": "5b7bef9c5acfc43d102852ee",
                         "_max_count": 500,
                         "_name": "cartridges",
-                        "_parent": "5b7bef9c5acfc43d102852ec",
+                        "_parent": "LillyFAL-M",
                         "_props": {
                             "filters": [
                                 {
@@ -178,7 +80,7 @@
             "Description": "Lilly FAL magazine"
         }
     },
-    "LillyASh": {
+    "LillyASh-M": {
         "clone": "5caf1041ae92157c28402e3f",
         "enable": true,
         "handbook": {
@@ -193,7 +95,7 @@
                       "_id": "5caf1041ae92157c28402e41",
                       "_max_count": 200,
                       "_name": "cartridges",
-                      "_parent": "5caf1041ae92157c28402e3f",
+                      "_parent": "LillyASh-M",
                       "_props": {
                         "filters": [
                           {
@@ -215,7 +117,7 @@
             }
         }
     },
-    "Lilly.45": {
+    "Lilly.45-M": {
         "clone": "5fb651dc85f90547f674b6f4",
         "enable": true,
         "handbook": {
@@ -230,7 +132,7 @@
                         "_id": "5fb651dc85f90547f674b6f6",
                         "_max_count": 300,
                         "_name": "cartridges",
-                        "_parent": "5fb651dc85f90547f674b6f4",
+                        "_parent": "Lilly.45-M",
                         "_props": {
                             "filters": [
                                 {
@@ -259,7 +161,7 @@
             "Description": "Lilly .45 magazine"
         }
     },
-    "LillySOK": {
+    "LillySOK-M": {
         "clone": "5cf8f3b0d7f00c00217872ef",
         "enable": true,
         "handbook": {
@@ -274,7 +176,7 @@
                         "_id": "5cf8f3b1d7f00c00217872f1",
                         "_max_count": 100,
                         "_name": "cartridges",
-                        "_parent": "5cf8f3b0d7f00c00217872ef",
+                        "_parent": "LillySOK-M",
                         "_props": {
                             "filters": [
                                 {
@@ -314,7 +216,7 @@
             "Description": "Lilly SOK magazine"
         }
     },
-    "LillyGlock": {
+    "LillyGlock-M": {
         "clone": "5a718b548dc32e000d46d262",
         "enable": true,
         "handbook": {
@@ -329,7 +231,7 @@
                         "_id": "LillyGlockcartridges",
                         "_max_count": 300,
                         "_name": "cartridges",
-                        "_parent": "LillyGlock",
+                        "_parent": "LillyGlock-M",
                         "_props": {
                             "filters": [
                                 {
@@ -361,7 +263,7 @@
             "Description": "Lilly Glock 30000 round magazine"
         }
     },
-    "LillyAXMC": {
+    "LillyAXMC-M": {
         "clone": "628120fd5631d45211793c9f",
         "enable": true,
         "handbook": {
@@ -376,7 +278,7 @@
                         "_id": "LillyAXMCcartridges",
                         "_max_count": 100,
                         "_name": "cartridges",
-                        "_parent": "LillyAXMC",
+                        "_parent": "LillyAXMC-M",
                         "_props": {
                             "filters": [
                                 {
@@ -404,7 +306,7 @@
             "Description": "Lilly AXMC 250 round magazine"
         }
     },
-    "LillySVD": {
+    "LillySVD-M": {
         "clone": "5c471c442e221602b542a6f8",
         "enable": true,
         "handbook": {
@@ -418,7 +320,7 @@
                     {
                         "_name": "cartridges",
                         "_id": "LillySVDcartridges",
-                        "_parent": "LillySVD",
+                        "_parent": "LillySVD-M",
                         "_max_count": 200,
                         "_props": {
                             "filters": [
@@ -449,6 +351,7 @@
             "Description": "Lilly SVD 250 round magazine"
         }
     },
+    
     "LillyWeight": {
         "clone": "5991b51486f77447b112d44f",
         "enable": true,
@@ -480,6 +383,7 @@
             "Shortname": "LW"
         }
     },
+    
     "LillyM-2": {
         "clone": "5bffdd7e0db834001b734a1a",
         "enable": true,
@@ -521,12 +425,13 @@
             "Shortname": "L M-2"
         }
     },
+    
     "LillyMK4A": {
         "loop": {
             "30x14": {
                 "item": {
                     "_props": {
-                        "BackgroundColor": "blue",
+                        "BackgroundColor": "black",
                         "Grids": [
                             {
                                 "_id": "LillyMK4A1",
@@ -617,6 +522,7 @@
             "Shortname": "L MK4A"
         }
     },
+    
     "LillyTrooper": {
         "loop": {
             "pilgrim": {
@@ -1028,6 +934,7 @@
             "ShortName": "T H I C C"
         }
     },
+    
     "LillyAmmor": {
         "loop": {
             "pipe": {
