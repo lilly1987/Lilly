@@ -1,17 +1,4 @@
 {
-    "LillyASh_12": {
-        "enable": false,
-        "clone": "5cadfbf7ae92152ac412eeef",
-        "handbook": {
-            "ParentId": "5b5f78fc86f77409407a7f90",
-            "Price": 93800
-        },
-        "item": {
-            "_props": {
-
-            }
-        }
-    },
     "LillyBand": {
         "enable": false,
         "handbook": {
@@ -172,6 +159,43 @@
             "Name": "Lilly FAL magazine",
             "Shortname": "LFAL",
             "Description": "Lilly FAL magazine"
+        }
+    },
+    "LillyASh": {
+        "clone": "5caf1041ae92157c28402e3f",
+        "enable": true,
+        "handbook": {
+            "ParentId": "5b5f754a86f774094242f19b",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "ExtraSizeDown": 0,
+                "Cartridges": [
+                    {
+                      "_id": "5caf1041ae92157c28402e41",
+                      "_max_count": 200,
+                      "_name": "cartridges",
+                      "_parent": "5caf1041ae92157c28402e3f",
+                      "_props": {
+                        "filters": [
+                          {
+                            "Filter": [
+                              "5cadf6ddae9215051e1c23b2",
+                              "5cadf6e5ae921500113bb973",
+                              "5cadf6eeae921500134b2799"
+                            ]
+                          }
+                        ]
+                      },
+                      "_proto": "5748538b2459770af276a261"
+                    }
+                ],
+                "Height": 1,
+                "Width": 1,
+                "BackgroundColor": "black",
+                "Weight": 0
+            }
         }
     },
     "Lilly.45": {
