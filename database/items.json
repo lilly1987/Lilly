@@ -297,23 +297,7 @@
                 "ExtraSizeDown": 0,
                 "Cartridges": [
                     {
-                        "_id": "LillyAXMCcartridges",
-                        "_max_count": 100,
-                        "_name": "cartridges",
-                        "_parent": "LillyAXMC-M",
-                        "_props": {
-                            "filters": [
-                                {
-                                    "Filter": [
-                                        "5fc382a9d724d907e2077dab",
-                                        "5fc275cf85fd526b824a571a",
-                                        "5fc382c1016cce60e8341b20",
-                                        "5fc382b6d6fa9c00c571bbc3"
-                                    ]
-                                }
-                            ]
-                        },
-                        "_proto": "5748538b2459770af276a261"
+                        "_max_count": 100
                     }
                 ],
                 "Height": 1,
