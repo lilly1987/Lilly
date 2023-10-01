@@ -13,7 +13,7 @@
     "ExtraSizeDownZero": true,
     "ExtraSizeUpZero": true,
     "ExtraSizeRightZero": false,
-    "fullauto": false,
+    "fullauto": true,
     "RainbowColor": true,
     "loopItem": true,
     "oldLocales": false,

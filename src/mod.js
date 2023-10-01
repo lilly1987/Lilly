@@ -106,33 +106,6 @@ class Lilly {
         //this.logger.logWithColor(this.mydb.items,"cyan");
     }
     
-    cloneFilterAdd(cid,mmID){
-        for (const [id, item] of Object.entries(this.db.templates.items)) {
-            const _props=item._props;
-            if ("Chambers"   in _props) this.cloneFilterAdd2(_props.Chambers  ,cid,mmID);
-            if ("Slots"      in _props) this.cloneFilterAdd2(_props.Slots     ,cid,mmID);
-            if ("Cartridges" in _props) this.cloneFilterAdd2(_props.Cartridges,cid,mmID);
-            if ("StackSlots" in _props) this.cloneFilterAdd2(_props.StackSlots,cid,mmID);
-            if ("Grids"      in _props) this.cloneFilterAdd2(_props.Grids     ,cid,mmID);
-            
-        }
-    }
-    cloneFilterAdd2(arrs,cid,id){
-        for (const a of arrs){
-            if ( "_props" in a &&  "filters" in a._props )
-            for (const f of a._props.filters){
-                if ( "Filter" in f && f.Filter.includes(cid) && !f.Filter.includes(id)){
-                    f.Filter.push(id);
-                    //this.logger.logWithColor(cid,"cyan");
-                    //this.logger.logWithColor(id,"cyan");
-                    //this.logger.logWithColor(a._name,"cyan");
-                    //this.logger.logWithColor(f.Filter,"cyan");
-                }
-                if ( "ExcludedFilter" in f && f.ExcludedFilter.includes(cid) && !f.ExcludedFilter.includes(id))
-                    f.ExcludedFilter.push(id);
-            }
-        }
-    }
     postAkiLoad(container) {
         this.props=[];
         this.weaps=[];
@@ -217,13 +190,15 @@ class Lilly {
         if (modConfig.fullauto)
             for (const prop of this.weaps){
                 if ( !( prop.weapFireType.includes( "fullauto" ))){
-                    //this.logger.logWithColor(prop, "cyan");
+                    // this.logger.logWithColor(prop, "cyan");
                     prop.weapFireType.push("fullauto");
+                    if ( prop.bFirerate < prop.SingleFireRate )
+                        prop.bFirerate = prop.SingleFireRate ;
                 }
             }
         
-       //this.logger.logWithColor(this.db.templates.items["627e14b21713922ded6f2c15"],"cyan");
-       //this.logger.logWithColor(this.db.templates.items["LillyAXMC-M"],"cyan");
+        this.logger.logWithColor(this.db.templates.items["627e14b21713922ded6f2c15"],"cyan");
+        //this.logger.logWithColor(this.db.templates.items["LillyAXMC-M"],"cyan");
         /*
                                 "628120f210e26c1f344e6558",
                                 "628120fd5631d45211793c9f",
@@ -543,6 +518,35 @@ class Lilly {
         const conflictingItems = (typeof this.db.templates.items[item]._props.ConflictingItems === "undefined") ? [] : this.db.templates.items[item]._props.ConflictingItems;
         return [filters, conflictingItems];
     }
+    
+    cloneFilterAdd(cid,mmID){
+        for (const [id, item] of Object.entries(this.db.templates.items)) {
+            const _props=item._props;
+            if ("Chambers"   in _props) this.cloneFilterAdd2(_props.Chambers  ,cid,mmID);
+            if ("Slots"      in _props) this.cloneFilterAdd2(_props.Slots     ,cid,mmID);
+            if ("Cartridges" in _props) this.cloneFilterAdd2(_props.Cartridges,cid,mmID);
+            if ("StackSlots" in _props) this.cloneFilterAdd2(_props.StackSlots,cid,mmID);
+            if ("Grids"      in _props) this.cloneFilterAdd2(_props.Grids     ,cid,mmID);
+            
+        }
+    }
+    cloneFilterAdd2(arrs,cid,id){
+        for (const a of arrs){
+            if ( "_props" in a &&  "filters" in a._props )
+            for (const f of a._props.filters){
+                if ( "Filter" in f && f.Filter.includes(cid) && !f.Filter.includes(id)){
+                    f.Filter.push(id);
+                    //this.logger.logWithColor(cid,"cyan");
+                    //this.logger.logWithColor(id,"cyan");
+                    //this.logger.logWithColor(a._name,"cyan");
+                    //this.logger.logWithColor(f.Filter,"cyan");
+                }
+                if ( "ExcludedFilter" in f && f.ExcludedFilter.includes(cid) && !f.ExcludedFilter.includes(id))
+                    f.ExcludedFilter.push(id);
+            }
+        }
+    }
+    
     
     addLocales() {
         if (modConfig.oldLocales) //If you are using the old locales
