@@ -58,6 +58,7 @@
 
     "LillyFAL-M": {
         "clone": "5b7bef9c5acfc43d102852ec",
+        "cloneFilterAdd" : true,
         "enable": true,
         "handbook": {
             "ParentId": "5b5f754a86f774094242f19b",
@@ -104,6 +105,7 @@
     },
     "LillyASh-M": {
         "clone": "5caf1041ae92157c28402e3f",
+        "cloneFilterAdd" : true,
         "enable": true,
         "handbook": {
             "ParentId": "5b5f754a86f774094242f19b",
@@ -141,6 +143,7 @@
     },
     "Lilly.45-M": {
         "clone": "5fb651dc85f90547f674b6f4",
+        "cloneFilterAdd" : true,
         "enable": true,
         "handbook": {
             "ParentId": "5b5f754a86f774094242f19b",
@@ -185,6 +188,7 @@
     },
     "LillySOK-M": {
         "clone": "5cf8f3b0d7f00c00217872ef",
+        "cloneFilterAdd" : true,
         "enable": true,
         "handbook": {
             "ParentId": "5b5f754a86f774094242f19b",
@@ -240,6 +244,7 @@
     },
     "LillyGlock-M": {
         "clone": "5a718b548dc32e000d46d262",
+        "cloneFilterAdd" : true,
         "enable": true,
         "handbook": {
             "ParentId": "5b5f754a86f774094242f19b",
@@ -287,6 +292,7 @@
     },
     "LillyAXMC-M": {
         "clone": "628120fd5631d45211793c9f",
+        "cloneFilterAdd" : true,
         "enable": true,
         "handbook": {
             "ParentId": "5b5f754a86f774094242f19b",
@@ -295,11 +301,27 @@
         "item": {
             "_props": {
                 "ExtraSizeDown": 0,
-                "Cartridges": [
+                  "Cartridges": [
                     {
-                        "_max_count": 100
+                      "_id": "628120fd5631d45211793ca0",
+                      "_max_count": 100,
+                      "_name": "cartridges",
+                      "_parent": "628120fd5631d45211793c9f",
+                      "_props": {
+                        "filters": [
+                          {
+                            "Filter": [
+                              "5fc382a9d724d907e2077dab",
+                              "5fc275cf85fd526b824a571a",
+                              "5fc382c1016cce60e8341b20",
+                              "5fc382b6d6fa9c00c571bbc3"
+                            ]
+                          }
+                        ]
+                      },
+                      "_proto": "5748538b2459770af276a261"
                     }
-                ],
+                  ],
                 "Height": 1,
                 "Width": 1,
                 "BackgroundColor": "black",
@@ -314,6 +336,7 @@
     },
     "LillySVD-M": {
         "clone": "5c471c442e221602b542a6f8",
+        "cloneFilterAdd" : true,
         "enable": true,
         "handbook": {
             "ParentId": "5b5f754a86f774094242f19b",

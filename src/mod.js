@@ -59,18 +59,34 @@ class Lilly {
             this.logger.logWithColor(`${this.modName} : loop off.`,"blue");
         }
         
+        //this.logger.logWithColor(this.mydb.items,"cyan");
+        
         //Items + Handbook
+        const cloned={};
+        const cloneFilterAdd={};
         for (const [mmID, mmItem] of Object.entries(this.mydb.items)) {
             if ("clone" in mmItem) {
-                this.cloneItem(mmItem.clone, mmID);
-                this.copyToFilters(mmItem.clone, mmID);
-                this.addToFilters(mmID);
+                cloned[mmID]=mmItem;
+                if ("cloneFilterAdd" in mmItem && mmItem["cloneFilterAdd"])
+                    cloneFilterAdd[mmID]=mmItem;
             }
             else {
                 this.createItem(mmID);
                 this.addToFilters(mmID);
             }
         }
+        for (const [mmID, mmItem] of Object.entries(cloned)) 
+            this.cloneItem(mmItem.clone, mmID);
+        for (const [mmID, mmItem] of Object.entries(cloned)) 
+            this.copyToFilters(mmItem.clone, mmID);
+        for (const [mmID, mmItem] of Object.entries(cloned)) 
+            this.addToFilters(mmID);
+        for (const [mmID, mmItem] of Object.entries(cloneFilterAdd)) 
+            if ("cloneFilterAdd" in mmItem && mmItem["cloneFilterAdd"])
+                this.cloneFilterAdd(mmItem.clone, mmID);
+        
+        //this.logger.logWithColor(this.db.templates.items["627e14b21713922ded6f2c15"],"cyan");
+        //this.logger.logWithColor(this.db.templates.items["LillyAXMC"],"cyan");
         this.logger.logWithColor(`${this.modName} : Items + Handbook finished.`,"blue");        
         
         //Locales (Languages)
@@ -90,6 +106,33 @@ class Lilly {
         //this.logger.logWithColor(this.mydb.items,"cyan");
     }
     
+    cloneFilterAdd(cid,mmID){
+        for (const [id, item] of Object.entries(this.db.templates.items)) {
+            const _props=item._props;
+            if ("Chambers"   in _props) this.cloneFilterAdd2(_props.Chambers  ,cid,mmID);
+            if ("Slots"      in _props) this.cloneFilterAdd2(_props.Slots     ,cid,mmID);
+            if ("Cartridges" in _props) this.cloneFilterAdd2(_props.Cartridges,cid,mmID);
+            if ("StackSlots" in _props) this.cloneFilterAdd2(_props.StackSlots,cid,mmID);
+            if ("Grids"      in _props) this.cloneFilterAdd2(_props.Grids     ,cid,mmID);
+            
+        }
+    }
+    cloneFilterAdd2(arrs,cid,id){
+        for (const a of arrs){
+            if ( "_props" in a &&  "filters" in a._props )
+            for (const f of a._props.filters){
+                if ( "Filter" in f && f.Filter.includes(cid) && !f.Filter.includes(id)){
+                    f.Filter.push(id);
+                    //this.logger.logWithColor(cid,"cyan");
+                    //this.logger.logWithColor(id,"cyan");
+                    //this.logger.logWithColor(a._name,"cyan");
+                    //this.logger.logWithColor(f.Filter,"cyan");
+                }
+                if ( "ExcludedFilter" in f && f.ExcludedFilter.includes(cid) && !f.ExcludedFilter.includes(id))
+                    f.ExcludedFilter.push(id);
+            }
+        }
+    }
     postAkiLoad(container) {
         this.props=[];
         this.weaps=[];
@@ -179,8 +222,8 @@ class Lilly {
                 }
             }
         
-        this.logger.logWithColor(this.db.templates.items["627e14b21713922ded6f2c15"],"cyan");
-        this.logger.logWithColor(this.db.templates.items["LillyAXMC-M"],"cyan");
+       //this.logger.logWithColor(this.db.templates.items["627e14b21713922ded6f2c15"],"cyan");
+       //this.logger.logWithColor(this.db.templates.items["LillyAXMC-M"],"cyan");
         /*
                                 "628120f210e26c1f344e6558",
                                 "628120fd5631d45211793c9f",
@@ -388,13 +431,17 @@ class Lilly {
             //Change the necessary item attributes using the info in our database file items.json
             atlasItemOut._id = mmID;
             atlasItemOut = this.compareAndReplace(atlasItemOut, this.mydb.items[mmID]["item"]);
-            
+            /*
+            this.logger.logWithColor(atlasItemOut,"cyan");
+            */
             const _props=atlasItemOut._props;
             if ("Cartridges" in _props) this.loopParentSet(_props.Cartridges,atlasItemOut._id);
             if ("StackSlots" in _props) this.loopParentSet(_props.StackSlots,atlasItemOut._id);
             if ("Slots" in _props) this.loopParentSet(_props.Slots,atlasItemOut._id);
             if ("Grids" in _props) this.loopParentSet(_props.Grids,atlasItemOut._id);
-            
+            /*
+            this.logger.logWithColor(atlasItemOut,"cyan");
+            */
             //Add the compatibilities and conflicts specific to ATLAS into the new item
             const atlasCompatibilities = (typeof this.mydb.items[mmID].mmCompatibilities == "undefined") ? {} : this.mydb.items[mmID].mmCompatibilities;
             const atlasConflicts = (typeof this.mydb.items[mmID].mmConflicts == "undefined") ? [] : this.mydb.items[mmID].mmConflicts;
@@ -447,16 +494,18 @@ class Lilly {
             this.logger.debug("Item " + itemToCreate + " added to handbook with price " + handbookEntry.Price);
         }
     }
+    
     copyToFilters(itemClone, mmID) {
         //Find the original item in all compatible and conflict filters and add the clone to those filters as well
         for (const item in this.db.templates.items) {
             if (item in this.mydb.items)
                 continue;
-            const [filters, conflictingItems] = this.getFilters(item);
+            const [filters, conflictingItems] = this.getFilters(item);// 원본 가져옴
             for (const filter of filters) {
                 for (const id of filter._props.filters[0].Filter) {
-                    if (id === itemClone)
+                    if (id === itemClone){
                         filter._props.filters[0].Filter.push(mmID);
+                    }
                 }
             }
             for (const conflictID of conflictingItems)
@@ -494,6 +543,7 @@ class Lilly {
         const conflictingItems = (typeof this.db.templates.items[item]._props.ConflictingItems === "undefined") ? [] : this.db.templates.items[item]._props.ConflictingItems;
         return [filters, conflictingItems];
     }
+    
     addLocales() {
         if (modConfig.oldLocales) //If you are using the old locales
          {
