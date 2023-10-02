@@ -719,6 +719,15 @@
     "LillyTHICC": {
         "RainbowColor": true,
         "loop": {
+            "armorrepair": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/spec/item_spec_armorrepair/item_spec_armorrepair.bundle"
+                        }
+                    }
+                }
+            },
             "powerbank": {
                 "item": {
                     "_props": {
