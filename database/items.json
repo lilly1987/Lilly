@@ -457,6 +457,29 @@
     
     "LillyMK4A": {
         "loop": {
+            "8x100": {
+                "item": {
+                    "_props": {
+                        "BackgroundColor": "black",
+                        "Grids": [
+                            {
+                                "_id": "LillyMK4A1",
+                                "_name": "1",
+                                "_parent": "LillyMK4A",
+                                "_props": {
+                                    "cellsH": 8,
+                                    "cellsV": 100,
+                                    "isSortingTable": false,
+                                    "maxCount": 0,
+                                    "maxWeight": 0,
+                                    "minCount": 0
+                                },
+                                "_proto": "55d329c24bdc2d892f8b4567"
+                            }
+                        ]
+                    }
+                }
+            },
             "9x150": {
                 "item": {
                     "_props": {
@@ -1154,7 +1177,7 @@
             "_props": {
                 "Height": 1,
                 "Width": 1,
-                "armorClass": 7,
+                "armorClass": 10,
                 "ArmorMaterial": "Aramid",
                 "ArmorType": "Light",
                 "armorZone": [
