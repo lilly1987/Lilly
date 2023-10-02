@@ -535,7 +535,7 @@
         },
         "item": {
             "_props": {
-                "armorClass": 10,
+                "armorClass": 7,
                 "ArmorMaterial": "Aramid",
                 "ArmorType": "Light",
                 "armorZone": [
@@ -546,7 +546,7 @@
                 ],
                 "BackgroundColor": "black",
                 "BluntThroughput": 0.1,
-                "Durability": 500,
+                "Durability": 100,
                 "RigLayoutName": "",
                 "Grids": [
                     {
@@ -572,7 +572,7 @@
                         ]
                     }
                 ],
-                "MaxDurability": 500,
+                "MaxDurability": 100,
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
                 "weaponErgonomicPenalty": 0,
@@ -1154,7 +1154,7 @@
             "_props": {
                 "Height": 1,
                 "Width": 1,
-                "armorClass": 10,
+                "armorClass": 7,
                 "ArmorMaterial": "Aramid",
                 "ArmorType": "Light",
                 "armorZone": [
@@ -1175,8 +1175,8 @@
                 "RepairSpeed": 10,
                 "CanSellOnRagfair": true,
                 "CanRequireOnRagfair": false,
-                "Durability": 1000,
-                "MaxDurability": 1000,
+                "Durability": 100,
+                "MaxDurability": 100,
                 "Indestructibility": 0.9,
                 "mousePenalty": 0,
                 "speedPenaltyPercent": 0,
