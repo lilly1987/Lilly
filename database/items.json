@@ -457,6 +457,52 @@
     
     "LillyMK4A": {
         "loop": {
+            "9x150": {
+                "item": {
+                    "_props": {
+                        "BackgroundColor": "black",
+                        "Grids": [
+                            {
+                                "_id": "LillyMK4A1",
+                                "_name": "1",
+                                "_parent": "LillyMK4A",
+                                "_props": {
+                                    "cellsH": 9,
+                                    "cellsV": 150,
+                                    "isSortingTable": false,
+                                    "maxCount": 0,
+                                    "maxWeight": 0,
+                                    "minCount": 0
+                                },
+                                "_proto": "55d329c24bdc2d892f8b4567"
+                            }
+                        ]
+                    }
+                }
+            },
+            "30x30": {
+                "item": {
+                    "_props": {
+                        "BackgroundColor": "black",
+                        "Grids": [
+                            {
+                                "_id": "LillyMK4A1",
+                                "_name": "1",
+                                "_parent": "LillyMK4A",
+                                "_props": {
+                                    "cellsH": 30,
+                                    "cellsV": 30,
+                                    "isSortingTable": false,
+                                    "maxCount": 0,
+                                    "maxWeight": 0,
+                                    "minCount": 0
+                                },
+                                "_proto": "55d329c24bdc2d892f8b4567"
+                            }
+                        ]
+                    }
+                }
+            },
             "30x14": {
                 "item": {
                     "_props": {
@@ -493,7 +539,6 @@
                 "ArmorMaterial": "Aramid",
                 "ArmorType": "Light",
                 "armorZone": [
-                    "Head",
                     "Chest",
                     "Stomach",
                     "LeftArm",

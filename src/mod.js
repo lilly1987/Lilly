@@ -197,7 +197,7 @@ class Lilly {
                 }
             }
         
-        this.logger.logWithColor(this.db.templates.items["627e14b21713922ded6f2c15"],"cyan");
+        //this.logger.logWithColor(this.db.templates.items["627e14b21713922ded6f2c15"],"cyan");
         //this.logger.logWithColor(this.db.templates.items["LillyAXMC-M"],"cyan");
         /*
                                 "628120f210e26c1f344e6558",
