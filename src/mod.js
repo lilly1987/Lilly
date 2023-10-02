@@ -151,21 +151,21 @@ class Lilly {
         // Magazine
         if (modConfig.MagazineCartridgesMulti != 1){
             this.multiMagazine();
-            this.logger.logWithColor(`${this.modFolderName} multi Magazine finished.`, "green");
+            this.logger.logWithColor(`${this.modName} multi Magazine finished.`, "green");
         }else{
-            this.logger.logWithColor(`${this.modFolderName} multi Magazine off.`, "yellow");
+            this.logger.logWithColor(`${this.modName} multi Magazine off.`, "yellow");
         }
         if (modConfig.ExtraSizeZero){
             this.ExtraSizeZero();
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeZero finished.`, "green");
+            this.logger.logWithColor(`${this.modName} ExtraSizeZero finished.`, "green");
         }else{
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeZero off.`, "yellow");
+            this.logger.logWithColor(`${this.modName} ExtraSizeZero off.`, "yellow");
         }
         if (modConfig.Size1){
             this.Size1();
-            this.logger.logWithColor(`${this.modFolderName} Size1 finished.`, "green");
+            this.logger.logWithColor(`${this.modName} Size1 finished.`, "green");
         }else{
-            this.logger.logWithColor(`${this.modFolderName} Size1 off.`, "yellow");
+            this.logger.logWithColor(`${this.modName} Size1 off.`, "yellow");
         }
         
         ///
@@ -633,27 +633,27 @@ class Lilly {
         if (modConfig.ExtraSizeLeftZero){
             for (const prop of this.props)
                 prop.ExtraSizeLeft=0;
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeLeftZero finished.`, "green");
+            this.logger.logWithColor(`${this.modName} ExtraSizeLeftZero finished.`, "green");
         }else
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeLeftZero off.`, "yellow");
+            this.logger.logWithColor(`${this.modName} ExtraSizeLeftZero off.`, "yellow");
         if (modConfig.ExtraSizeDownZero){
             for (const prop of this.props)
                 prop.ExtraSizeDown=0;
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeDownZero finished.`, "green");
+            this.logger.logWithColor(`${this.modName} ExtraSizeDownZero finished.`, "green");
         }else
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeDownZero off.`, "yellow");
+            this.logger.logWithColor(`${this.modName} ExtraSizeDownZero off.`, "yellow");
         if (modConfig.ExtraSizeUpZero){
             for (const prop of this.props)
                 prop.ExtraSizeUp=0;
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeUpZero finished.`, "green");
+            this.logger.logWithColor(`${this.modName} ExtraSizeUpZero finished.`, "green");
         }else
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeUpZero off.`, "yellow");
+            this.logger.logWithColor(`${this.modName} ExtraSizeUpZero off.`, "yellow");
         if (modConfig.ExtraSizeRightZero){
             for (const prop of this.props)
                 prop.ExtraSizeRight=0;
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeRightZero finished.`, "green");
+            this.logger.logWithColor(`${this.modName} ExtraSizeRightZero finished.`, "green");
         }else
-            this.logger.logWithColor(`${this.modFolderName} ExtraSizeRightZero off.`, "yellow");
+            this.logger.logWithColor(`${this.modName} ExtraSizeRightZero off.`, "yellow");
 
     }
     multiMagazine(){
