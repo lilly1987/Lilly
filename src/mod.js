@@ -226,7 +226,8 @@ class Lilly {
                             mitem["loop"][lid+"_"+ccolor]=citem;
                         }
                     }
-                }else{
+                }
+                if ( !("enableThis" in mitem) | mitem["enableThis"]) {
                     for (const ccolor of this.lcolor){
                         mitem["loop"][ccolor]={
                             "item": {
@@ -303,7 +304,7 @@ class Lilly {
                             tarr.push(citem);
                         }
                     }
-                    if (  this.loopDels.includes(item._tpl))
+                    if ( this.loopDels.includes(item._tpl))
                         tarrd.push(item);
                 }
                 this.mydb.traders[trader_id].assort["items"]=this.mydb.traders[trader_id].assort.items.filter( ( el ) => !tarrd.includes( el ) );

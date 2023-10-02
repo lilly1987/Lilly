@@ -992,6 +992,7 @@
         },
         "clone": "5c0a840b86f7742ffa4f2482",
         "enable": true,
+        "enableThis": true,
         "handbook": {
             "ParentId": "5b5f6fa186f77409407a7eb7",
             "Price": 1000000
