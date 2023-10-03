@@ -1041,6 +1041,327 @@
             "ShortName": "T H I C C"
         }
     },
+    "LillyTHICC2": {
+        "RainbowColor": true,
+        "loop": {
+            "armorrepair": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/spec/item_spec_armorrepair/item_spec_armorrepair.bundle"
+                        }
+                    }
+                }
+            },
+            "powerbank": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/barter/item_barter_energy_powerbank/item_barter_energy_powerbank.bundle"
+                        }
+                    }
+                }
+            },
+            "chem": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_chemcontainer/item_quest_chemcontainer.bundle"
+                        }
+                    }
+                }
+            },
+            "weapon": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_weaponcase/item_container_weaponcase.bundle"
+                        }
+                    }
+                }
+            },
+            "weaponT": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_weapon_thicc/item_container_weapon_thicc.bundle"
+                        }
+                    }
+                }
+            },
+            "0031": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0031.bundle"
+                        }
+                    }
+                }
+            },
+            "0052": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0052.bundle"
+                        }
+                    }
+                }
+            },
+            "0048": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0048.bundle"
+                        }
+                    }
+                }
+            },
+            "0013": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_0013.bundle"
+                        }
+                    }
+                }
+            },
+            "folder": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_folder/item_quest_container_case_folder.bundle"
+                        }
+                    }
+                }
+            },
+            "repair": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/spec/item_spec_weaprepair/item_spec_weaprepair.bundle"
+                        }
+                    }
+                }
+            },
+            "grizzly": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/weapons/usable_items/item_meds_grizly/item_grizzly_loot.bundle"
+                        }
+                    }
+                }
+            },
+            "cristmas_prize_02": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_cristmas_prize_01-02/item_container_cristmas_prize_02.bundle"
+                        }
+                    }
+                }
+            },
+            "item_container_secured_kappa": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_secured_kappa/item_container_secured_kappa.bundle"
+                        }
+                    }
+                }
+            },
+            "plastic_suitcase_set": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/prefabs/levelobjects/outdoor/plastic_suitcase_set/plastic_suitcase_54_p.bundle"
+                        }
+                    }
+                }
+            },
+            "double_gun_case": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/double_gun_case/item_double_gun_case.bundle"
+                        }
+                    }
+                }
+            },
+            "plano_pistol_case": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/plano_pistol_case/item_plano_pistol_case.bundle"
+                        }
+                    }
+                }
+            },
+            "first_aid_box": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/meds/first_aid_box/item_meds_first_aid_box.bundle"
+                        }
+                    }
+                }
+            },
+            "cristmas_prize_01": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_cristmas_prize_01-02/item_container_cristmas_prize_01.bundle"
+                        }
+                    }
+                }
+            },
+            "afak": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/weapons/usable_items/item_meds_afak/item_meds_afak_loot.bundle"
+                        }
+                    }
+                }
+            },
+            "carbon": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_carbon_case/item_quest_container_carbon_case.bundle"
+                        }
+                    }
+                }
+            },
+            "bank": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_container_case_bank/item_quest_container_case_bank.bundle"
+                        }
+                    }
+                }
+            },
+            "jack_o_lantern": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/head_jack_o_lantern/item_equipment_head_jack_o_lantern.bundle"
+                        }
+                    }
+                }
+            },
+            "backpack_christmas": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/equipment/backpack_pilgrim/item_equipment_backpack_pilgrim_christmas.bundle"
+                        }
+                    }
+                }
+            },
+            "teddyb": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/barter/item_barter_other_teddyb/item_barter_other_teddyb.bundle"
+                        }
+                    }
+                }
+            },
+            "valuable": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/quest/item_quest_barter_valuable_vase/item_quest_barter_valuable_vase.bundle"
+                        }
+                    }
+                }
+            },
+            "sewing": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/barter/item_barter_tools_sewing/item_barter_tools_sewing.bundle"
+                        }
+                    }
+                }
+            },
+            "toolset": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/barter/item_tools_toolset/item_tools_toolset.bundle"
+                        }
+                    }
+                }
+            },
+            "medical": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/barter/item_barter_medical_defibrillator/item_barter_medical_defibrillator.bundle"
+                        }
+                    }
+                }
+            },
+            "pumpkin": {
+                "item": {
+                    "_props": {
+                        "Prefab": {
+                            "path": "assets/content/items/containers/item_container_case_pumpkin/item_container_case_pumpkin1.bundle"
+                        }
+                    }
+                }
+            }
+        },
+        "clone": "5c0a840b86f7742ffa4f2482",
+        "enable": true,
+        "enableThis": true,
+        "handbook": {
+            "ParentId": "5b5f6fa186f77409407a7eb7",
+            "Price": 1000000
+        },
+        "item": {
+            "_props": {
+                "Color": {
+                    "a": 128,
+                    "b": 0,
+                    "g": 255,
+                    "r": 0
+                },
+                "BackgroundColor": "default",
+                "size1":false,
+                "Width": 2,
+                "Height": 1,
+                "Weight": 0,
+                "Grids": [
+                    {
+                        "_id": "LillyTHICC_Main",
+                        "_name": "main",
+                        "_parent": "LillyTHICC",
+                        "_props": {
+                            "cellsH": 30,
+                            "cellsV": 14,
+                            "filters": [
+                                {
+                                    "ExcludedFilter": [],
+                                    "Filter": [
+                                        "54009119af1c881c07000029"
+                                    ]
+                                }
+                            ],
+                            "isSortingTable": false,
+                            "maxCount": 0,
+                            "maxWeight": 0,
+                            "minCount": 0
+                        },
+                        "_proto": "55d329c24bdc2d892f8b4567"
+                    }
+                ]
+            }
+        }
+    },
     
     "LillyAmmor": {
         "loop": {

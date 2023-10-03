@@ -614,18 +614,22 @@ class Lilly {
         
         if (modConfig.SizeHeight1)
             for (const prop of myprops){
+                if (!("size1" in prop) || prop.size1)
                 prop.Height=1;
             }
         if (modConfig.SizeWidth1)
             for (const prop of myprops){
+                if (!("size1" in prop) || prop.size1)
                 prop.Width=1;
             }
         if (modConfig.WeapsSizeHeight1)
             for (const prop of this.weaps){
+                if (!("size1" in prop) || prop.size1)
                 prop.Height=1;
             }
         if (modConfig.WeapsSizeWidth1)
             for (const prop of this.weaps){
+                if (!("size1" in prop) || prop.size1)
                 prop.Width=1;
             }
 
